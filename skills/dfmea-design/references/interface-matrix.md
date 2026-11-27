@@ -12,236 +12,236 @@ reviewed_by: RBraga01
 license: MIT
 ---
 
-# Interface Matrix — DFMEA Reference
+# 인터페이스 매트릭스 — DFMEA 참조 자료
 
-Guide for constructing an interface matrix and boundary diagram for Design FMEA.
-Use alongside the [dfmea-design](../SKILL.md) skill.
+설계 FMEA를 위한 인터페이스 매트릭스와 경계 다이어그램(boundary diagram) 작성 가이드이다.
+[dfmea-design](../SKILL.md) 스킬과 함께 사용한다.
 
-> **Scope:** This document covers interface analysis reference logic — boundary diagrams, matrix construction, failure patterns, tolerance stack-up, and validation methods.
-> For the step-by-step DFMEA execution workflow, see [dfmea-design SKILL.md](../SKILL.md).
-
----
-
-## Required Execution Checklist
-
-☐ Define system boundary (inside vs outside scope)
-☐ Identify all external elements (components, environment, user, process, maintenance)
-☐ Build interface matrix — assign interaction type for every element pair
-☐ Identify at least one failure mode for every interface cell with an interaction type
-☐ All interfaces have at least one validated failure mode (no silent/empty interactions)
-☐ Assign system-level effects for each interface failure
-☐ Include misuse and abuse scenarios in user interface analysis
-☐ Analyse tolerance stack-up for all critical mechanical interfaces
-☐ Validate critical interfaces using analysis (FEA, simulation) or testing (DVP)
-☐ Prioritise interfaces by severity and likelihood — focus resources on high-risk interactions
-☐ Transfer interface failure modes to DFMEA Step 4
-☐ Confirm DVP includes validation tests for all critical interfaces
+> **범위:** 이 문서는 인터페이스 분석의 참조 로직 — 경계 다이어그램, 매트릭스 작성, 고장 패턴, 공차 누적, 검증 방법 — 을 다룬다.
+> 단계별 DFMEA 수행 워크플로는 [dfmea-design SKILL.md](../SKILL.md)를 참조한다.
 
 ---
 
-## Why Interfaces Matter
+## 필수 수행 체크리스트
 
-Most design failures occur at **interfaces**, not within a single component.
-
-A component may perform its individual function perfectly, but fail when it interacts with:
-- Adjacent components (mechanical contact, electrical connection)
-- The environment (temperature, vibration, humidity, corrosion)
-- The assembly process (handling forces, fixture contact, torque application)
-- The user (loading, misuse scenarios, maintenance access)
-
-An interface matrix maps all these interactions systematically so no failure path is overlooked.
+☐ 시스템 경계 정의 (범위 내부 vs 외부)
+☐ 모든 외부 요소 식별 (부품, 환경, 사용자, 공정, 정비)
+☐ 인터페이스 매트릭스 작성 — 모든 요소 쌍에 상호작용 유형 지정
+☐ 상호작용 유형이 있는 모든 인터페이스 셀에 대해 최소 1개의 고장모드 식별
+☐ 모든 인터페이스에 최소 1개의 검증된 고장모드 존재 (누락/공백 상호작용 없음)
+☐ 각 인터페이스 고장에 대해 시스템 수준 영향 지정
+☐ 사용자 인터페이스 분석에 오사용 및 남용 시나리오 포함
+☐ 모든 핵심 기계적 인터페이스에 대해 공차 누적 분석
+☐ 핵심 인터페이스를 해석(FEA, 시뮬레이션) 또는 시험(DVP)으로 검증
+☐ 심각도와 발생 가능성으로 인터페이스 우선순위 지정 — 고위험 상호작용에 자원 집중
+☐ 인터페이스 고장모드를 DFMEA Step 4로 이관
+☐ 모든 핵심 인터페이스에 대한 검증 시험이 DVP에 포함되었는지 확인
 
 ---
 
-## Boundary Diagram
+## 인터페이스가 중요한 이유
 
-The boundary diagram defines what is **inside** and **outside** the DFMEA scope,
-and shows the interfaces at the boundary.
+설계 고장의 대부분은 단일 부품 내부가 아니라 **인터페이스(interface)**에서 발생한다.
 
-### Elements
+부품은 개별 기능을 완벽히 수행하더라도 다음과 상호작용할 때 고장날 수 있다.
+- 인접 부품 (기계적 접촉, 전기적 연결)
+- 환경 (온도, 진동, 습도, 부식)
+- 조립 공정 (취급 하중, 지그 접촉, 토크 체결)
+- 사용자 (하중 부여, 오사용 시나리오, 정비 접근)
 
-**System under analysis (inside scope)**
-The component, subsystem, or system being designed.
+인터페이스 매트릭스는 이러한 상호작용을 체계적으로 매핑하여 고장 경로가 누락되지 않게 한다.
 
-**External elements (outside scope)**
-- Other components in the assembly (customer-supplied or other design teams)
-- Environment: thermal, vibration, humidity, electromagnetic, chemical
-- User / operator (including misuse and abuse scenarios — over-torque, incorrect installation, off-label use)
-- Assembly process (fixtures, torques, handling)
-- Maintenance / service (access, tools, replacement cycles)
+---
 
-**Interface arrows**
-Draw an arrow for each interaction across the boundary. Label each arrow with:
-- The type of interaction (force, signal, thermal, fluid, chemical)
-- The direction: input to system, output from system, or bidirectional
-- The nominal condition and operating range (if known)
+## 경계 다이어그램
 
-All interface arrows must include direction (input/output) and operating range.
+경계 다이어그램은 DFMEA 범위의 **내부**와 **외부**를 정의하고,
+경계에서의 인터페이스를 보여준다.
 
-### Example — ECU boundary diagram
+### 구성 요소
+
+**분석 대상 시스템 (범위 내부)**
+설계 중인 부품, 서브시스템 또는 시스템이다.
+
+**외부 요소 (범위 외부)**
+- 조립체 내 다른 부품 (고객 지급품 또는 타 설계팀 담당)
+- 환경: 열, 진동, 습도, 전자기, 화학
+- 사용자 / 작업자 (오사용 및 남용 시나리오 포함 — 과토크, 잘못된 장착, 용도 외 사용)
+- 조립 공정 (지그, 토크, 취급)
+- 정비 / 서비스 (접근성, 공구, 교체 주기)
+
+**인터페이스 화살표**
+경계를 가로지르는 각 상호작용마다 화살표를 그린다. 각 화살표에 다음을 표기한다.
+- 상호작용 유형 (힘, 신호, 열, 유체, 화학)
+- 방향: 시스템으로의 입력, 시스템으로부터의 출력, 또는 양방향
+- 공칭 조건 및 작동 범위 (알려진 경우)
+
+모든 인터페이스 화살표에는 방향(입력/출력)과 작동 범위를 포함해야 한다.
+
+### 예시 — ECU 경계 다이어그램
 
 ```
-Environment (Temp -40°C to +125°C, vibration 10-2000 Hz) → input
+환경 (온도 -40°C ~ +125°C, 진동 10-2000 Hz) → 입력
         ↕
-Wiring harness ←→ [ECU] ←→ CAN bus (bidirectional, 500 kbit/s)
+와이어링 하네스 ←→ [ECU] ←→ CAN bus (양방향, 500 kbit/s)
                     ↕
-              Mounting bracket (vibration load transfer → input)
+              마운팅 브래킷 (진동 하중 전달 → 입력)
                     ↕
-           Vehicle ground (electrical reference → input)
+           차체 접지 (전기적 기준 → 입력)
 ```
 
 ---
 
-## Interface Matrix — Construction
+## 인터페이스 매트릭스 — 작성 방법
 
-### Step 1: List all elements
+### Step 1: 모든 요소 나열
 
-Column and row headers: the component under analysis + all external elements.
+열과 행의 머리글: 분석 대상 부품 + 모든 외부 요소.
 
-### Step 2: Identify interaction type at each intersection
+### Step 2: 각 교차점의 상호작용 유형 식별
 
-For each pair of elements, identify whether they interact and how.
+각 요소 쌍에 대해 상호작용 여부와 방식을 식별한다.
 
-| Interaction type | Symbol | Examples |
+| 상호작용 유형 | 기호 | 예시 |
 |----------------|--------|---------|
-| Force / mechanical | F | Clamping, contact, vibration, thermal expansion |
-| Electrical / signal | E | Voltage, current, ground reference, signal |
-| Thermal | T | Heat conduction, thermal resistance, temperature delta |
-| Fluid / chemical | C | Hydraulic pressure, corrosion medium, lubrication |
-| Optical / radiation | O | EMC, light, UV |
-| No interaction | — | |
+| 힘 / 기계적 | F | 체결, 접촉, 진동, 열팽창 |
+| 전기 / 신호 | E | 전압, 전류, 접지 기준, 신호 |
+| 열 | T | 열전도, 열저항, 온도차 |
+| 유체 / 화학 | C | 유압, 부식 매체, 윤활 |
+| 광학 / 방사 | O | EMC, 빛, UV |
+| 상호작용 없음 | — | |
 
-When multiple interaction types exist at the same interface, list all of them explicitly (e.g., F + T + C). Do not collapse multiple types into a single symbol.
+동일 인터페이스에 여러 상호작용 유형이 존재하면 모두 명시적으로 나열한다(예: F + T + C). 여러 유형을 하나의 기호로 합치지 않는다.
 
-### Example — Connector interface matrix
+### 예시 — 커넥터 인터페이스 매트릭스
 
-|  | PCB | Backshell | Wire | Environment | User |
+|  | PCB | 백쉘 | 전선 | 환경 | 사용자 |
 |--|-----|-----------|------|-------------|------|
-| **Connector body** | F, E | F | E | T, C | F |
-| **Contacts (pins)** | E | — | E | C | — |
-| **Sealing** | — | F | F | C | — |
+| **커넥터 바디** | F, E | F | E | T, C | F |
+| **접점 (핀)** | E | — | E | C | — |
+| **실링** | — | F | F | C | — |
 
-### Step 3: For each interaction, identify failure mode candidates
+### Step 3: 각 상호작용에 대해 고장모드 후보 식별
 
-For each "F", "E", "T", or "C" cell, ask:
-- What can go wrong at this interface?
-- What is the consequence to the system function?
+"F", "E", "T", "C" 셀마다 다음을 질문한다.
+- 이 인터페이스에서 무엇이 잘못될 수 있는가?
+- 시스템 기능에 미치는 결과는 무엇인가?
 
-**Example — Connector body × Environment (T, C):**
-- Thermal failure mode: housing deforms under sustained high temperature, contact force lost → intermittent connection
-- Chemical failure mode: connector body corrodes in salt spray environment → housing fracture under vibration
+**예시 — 커넥터 바디 × 환경 (T, C):**
+- 열적 고장모드: 지속적인 고온에서 하우징이 변형되어 접촉력 상실 → 간헐적 접속
+- 화학적 고장모드: 염수 분무 환경에서 커넥터 바디 부식 → 진동 하에서 하우징 파단
 
-These become Failure Modes in Step 4 of the DFMEA.
+이들은 DFMEA Step 4의 고장모드가 된다.
 
-### Step 4: Prioritise interfaces
+### Step 4: 인터페이스 우선순위 지정
 
-Not all interfaces carry equal risk. Prioritise based on:
-- **Severity** of the worst system effect if the interface fails
-- **Likelihood** of failure given the operating environment
-- **Detectability** — interfaces that fail silently are highest priority
+모든 인터페이스의 리스크가 같지는 않다. 다음을 기준으로 우선순위를 정한다.
+- 인터페이스 고장 시 최악의 시스템 영향의 **심각도**
+- 작동 환경에서의 고장 **발생 가능성**
+- **검출 가능성** — 소리 없이(silent) 고장나는 인터페이스가 최우선이다
 
-Focus DFMEA depth and DVP effort on high-severity, hard-to-detect interfaces first.
-
----
-
-## Interface Failure Mode Patterns
-
-### Mechanical interfaces
-| Failure mode | Typical cause |
-|-------------|--------------|
-| Fretting / wear | Micro-motion under vibration, insufficient clamping force |
-| Stress concentration | Geometry (notch, sharp radius), improper tolerance stack-up |
-| Thermal expansion mismatch | Dissimilar materials with different CTE |
-| Loosening under vibration | Insufficient preload, no locking feature |
-| Assembly damage | Handling force exceeds component strength |
-
-### Electrical interfaces
-| Failure mode | Typical cause |
-|-------------|--------------|
-| High contact resistance | Contamination, oxidation, insufficient contact force |
-| Signal crosstalk | Insufficient isolation, grounding design |
-| Short circuit | Creepage distance insufficient for operating voltage + contamination |
-| EMC susceptibility | Shielding gap, ground loop |
-| Ground reference drift | High-resistance ground path, shared ground with power |
-
-### Thermal interfaces
-| Failure mode | Typical cause |
-|-------------|--------------|
-| Thermal resistance too high | Poor thermal interface material, insufficient contact area |
-| Thermal runaway | Positive feedback loop between power dissipation and junction temperature |
-| Condensation | Temperature gradient causes dew point at interface |
-
-### Chemical / environmental interfaces
-| Failure mode | Typical cause |
-|-------------|--------------|
-| Galvanic corrosion | Dissimilar metals in electrolytic environment |
-| Seal degradation | Material incompatibility with fluid media |
-| Surface finish attack | Wrong coating for environment (salt, humidity, UV) |
+고심각도·검출 곤란 인터페이스에 DFMEA 분석 깊이와 DVP 노력을 우선 집중한다.
 
 ---
 
-## Tolerance Stack-Up at Interfaces
+## 인터페이스 고장모드 패턴
 
-When two components interface mechanically, their dimensional tolerances combine.
-The worst-case gap or interference is:
+### 기계적 인터페이스
+| 고장모드 | 대표 원인 |
+|-------------|--------------|
+| 프레팅 / 마모 | 진동 하 미세 운동, 체결력 부족 |
+| 응력 집중 | 형상(노치, 날카로운 R), 부적절한 공차 누적 |
+| 열팽창 불일치 | CTE가 다른 이종 재료 |
+| 진동에 의한 풀림 | 예압 부족, 잠금 구조 없음 |
+| 조립 손상 | 취급 하중이 부품 강도를 초과 |
+
+### 전기적 인터페이스
+| 고장모드 | 대표 원인 |
+|-------------|--------------|
+| 높은 접촉 저항 | 오염, 산화, 접촉력 부족 |
+| 신호 크로스토크 | 절연 부족, 접지 설계 |
+| 단락 | 작동 전압 + 오염 대비 연면거리 부족 |
+| EMC 취약성 | 차폐 틈새, 접지 루프 |
+| 접지 기준 드리프트 | 고저항 접지 경로, 전원과 공용 접지 |
+
+### 열적 인터페이스
+| 고장모드 | 대표 원인 |
+|-------------|--------------|
+| 과도한 열저항 | 불량한 열계면재료(TIM), 접촉 면적 부족 |
+| 열폭주 | 전력 손실과 접합부 온도 간 양의 피드백 루프 |
+| 결로 | 온도 구배로 인터페이스에서 이슬점 도달 |
+
+### 화학 / 환경 인터페이스
+| 고장모드 | 대표 원인 |
+|-------------|--------------|
+| 갈바닉 부식 | 전해질 환경에서의 이종 금속 |
+| 실 열화 | 유체 매체와 재료의 비호환성 |
+| 표면 처리 손상 | 환경(염분, 습도, UV)에 맞지 않는 코팅 |
+
+---
+
+## 인터페이스의 공차 누적
+
+두 부품이 기계적으로 접하는 경우, 치수 공차가 합쳐진다.
+최악 조건의 간극 또는 간섭은 다음과 같다.
 
 ```
-Worst-case gap     = nominal gap + sum of all tolerance contributions (+ direction)
-Worst-case overlap = nominal gap − sum of all tolerance contributions (− direction)
+최악 조건 간극 (Worst-case gap)     = 공칭 간극 + 모든 공차 기여분의 합 (+ 방향)
+최악 조건 겹침 (Worst-case overlap) = 공칭 간극 − 모든 공차 기여분의 합 (− 방향)
 ```
 
-**Check for:**
-- Minimum clearance at worst-case (prevents binding / assembly interference)
-- Maximum clearance at worst-case (prevents slop / rattling / loss of function)
-- Special Characteristics on dimensions that directly control an interface
+**확인 사항:**
+- 최악 조건에서의 최소 간극 (고착 / 조립 간섭 방지)
+- 최악 조건에서의 최대 간극 (유격 / 덜걱거림 / 기능 상실 방지)
+- 인터페이스를 직접 제어하는 치수에 대한 특별특성
 
-When process capability data is available, use statistical tolerance stack-up (RSS method) instead of worst-case arithmetic. Statistical analysis reflects real production variation and avoids over-constraining tolerances.
+공정 능력 데이터가 있으면 최악 조건 산술법 대신 통계적 공차 누적(RSS법)을 사용한다. 통계적 분석은 실제 양산 편차를 반영하며 공차의 과도한 제약을 피한다.
 
-Document the tolerance stack-up analysis in Step 1 (Planning) and reference it in Step 4
-when assigning failure modes to interface dimensions.
+공차 누적 분석은 Step 1(계획)에서 문서화하고, 인터페이스 치수에 고장모드를 지정할 때
+Step 4에서 참조한다.
 
 ---
 
-## Interface Validation
+## 인터페이스 검증
 
-Critical interface failure modes must be validated — documentation alone is not sufficient.
+핵심 인터페이스 고장모드는 반드시 검증해야 한다 — 문서화만으로는 충분하지 않다.
 
-| Validation method | When to use |
+| 검증 방법 | 사용 시점 |
 |-------------------|-------------|
-| FEA / simulation | Mechanical stress, thermal, fluid — early in design phase |
-| Bench test | Single interface, controlled conditions — pre-prototype |
-| DVP system test | Full interface under production-representative conditions |
-| HALT / HASS | Accelerated stress to find hidden interface weaknesses |
+| FEA / 시뮬레이션 | 기계적 응력, 열, 유체 — 설계 초기 단계 |
+| 벤치 시험 | 단일 인터페이스, 통제된 조건 — 시제품 이전 |
+| DVP 시스템 시험 | 양산 대표 조건에서의 전체 인터페이스 |
+| HALT / HASS | 숨은 인터페이스 약점을 찾기 위한 가속 스트레스 |
 
-Link each critical interface failure mode to a DVP test entry. If no test exists, this is an open risk that must be documented with a management acceptance or an action to add the test.
+각 핵심 인터페이스 고장모드를 DVP 시험 항목과 연결한다. 시험이 없으면 이는 미결 리스크이며, 경영진 수용 또는 시험 추가 조치로 문서화해야 한다.
 
 ---
 
-## Interface Matrix → DFMEA Connection
+## 인터페이스 매트릭스 → DFMEA 연결
 
-| Interface matrix output | DFMEA field |
+| 인터페이스 매트릭스 출력 | DFMEA 항목 |
 |------------------------|------------|
-| Element pair with interaction type | Structure Analysis — component and interface level |
-| Interface function statement | Function Analysis (Step 3) |
-| Failure mode at interface | Failure Mode (Step 4) |
-| System consequence of interface failure | Failure Effect (Step 4) |
-| Design control that ensures interface performance | Detection control (Step 5) |
-| DVP test for interface behaviour | Detection control → DVP entry (Step 6) |
+| 상호작용 유형이 지정된 요소 쌍 | 구조 분석 — 부품 및 인터페이스 수준 |
+| 인터페이스 기능 기술 | 기능 분석 (Step 3) |
+| 인터페이스에서의 고장모드 | 고장모드 (Step 4) |
+| 인터페이스 고장의 시스템 결과 | 고장영향 (Step 4) |
+| 인터페이스 성능을 보장하는 설계 관리 | 검출 관리 (Step 5) |
+| 인터페이스 거동에 대한 DVP 시험 | 검출 관리 → DVP 항목 (Step 6) |
 
 ---
 
-## Checklist — Interface Matrix Complete?
+## 체크리스트 — 인터페이스 매트릭스 완료 여부
 
-- [ ] Boundary diagram drawn — inside and outside scope are clear
-- [ ] All external elements identified (adjacent components, environment, user, process, maintenance)
-- [ ] Interface type identified for every element pair that interacts
-- [ ] Multiple interaction types listed explicitly where applicable (not collapsed)
-- [ ] All interface arrows include direction and operating range
-- [ ] Misuse and abuse scenarios included in user interface analysis
-- [ ] At least one failure mode candidate for every interface cell with an interaction type
-- [ ] All interfaces have at least one validated failure mode (no silent/empty interactions)
-- [ ] Interfaces prioritised by severity and likelihood
-- [ ] Tolerance stack-up analysed for all critical mechanical interfaces (statistical method if Cpk data available)
-- [ ] Critical interfaces validated by analysis or test (DVP entry exists)
-- [ ] Interface failure modes transferred to DFMEA Step 4
-- [ ] DVP entries exist for all Detection controls at interfaces
+- [ ] 경계 다이어그램 작성 — 범위 내부와 외부가 명확함
+- [ ] 모든 외부 요소 식별 (인접 부품, 환경, 사용자, 공정, 정비)
+- [ ] 상호작용하는 모든 요소 쌍에 대해 인터페이스 유형 식별
+- [ ] 해당되는 경우 여러 상호작용 유형을 명시적으로 나열 (합치지 않음)
+- [ ] 모든 인터페이스 화살표에 방향과 작동 범위 포함
+- [ ] 사용자 인터페이스 분석에 오사용 및 남용 시나리오 포함
+- [ ] 상호작용 유형이 있는 모든 인터페이스 셀에 최소 1개의 고장모드 후보 존재
+- [ ] 모든 인터페이스에 최소 1개의 검증된 고장모드 존재 (누락/공백 상호작용 없음)
+- [ ] 심각도와 발생 가능성으로 인터페이스 우선순위 지정
+- [ ] 모든 핵심 기계적 인터페이스에 대해 공차 누적 분석 (Cpk 데이터가 있으면 통계적 방법)
+- [ ] 핵심 인터페이스를 해석 또는 시험으로 검증 (DVP 항목 존재)
+- [ ] 인터페이스 고장모드를 DFMEA Step 4로 이관
+- [ ] 인터페이스의 모든 검출 관리에 대한 DVP 항목 존재

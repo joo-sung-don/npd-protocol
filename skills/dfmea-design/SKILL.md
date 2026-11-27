@@ -1,10 +1,11 @@
 ---
 name: dfmea-design
 description: >-
-  Build a design risk analysis, DFMEA worksheet, or interface analysis using the AIAG-VDA
-  FMEA Handbook 2019. Covers design intent, interface failures, boundary diagram, and design
-  robustness before manufacturing. Use during new product development, design changes, or
-  when a field failure reveals a design weakness. Required for IATF 16949 §8.3 scope.
+  AIAG-VDA FMEA Handbook 2019에 따라 설계 리스크 분석, DFMEA 워크시트, 인터페이스 분석을
+  작성한다. 설계 의도, 인터페이스 고장, 경계 다이어그램(boundary diagram), 양산 전 설계
+  강건성을 다룬다. 신제품 개발, 설계 변경, 또는 필드 고장으로 설계 약점이 드러났을 때 사용한다.
+  IATF 16949 §8.3 범위에서 필수이다. Triggers: DFMEA 작성, 고장모드 분석, 설계 FMEA,
+  인터페이스 매트릭스, 경계 다이어그램, Design FMEA.
 license: MIT
 metadata:
   author: RBraga01
@@ -23,218 +24,218 @@ metadata:
   standard_edition: "AIAG-VDA FMEA Handbook 2019"
 ---
 
-# Design FMEA (DFMEA) — AIAG-VDA 2019
+# 설계 FMEA (DFMEA) — AIAG-VDA 2019
 
-## Goal
+## 목표
 
-Identify and mitigate design risks by analysing functions, interfaces, and failure modes — so that design weaknesses are resolved before release to manufacturing, and the results feed directly into the DVP, PFMEA, and Control Plan.
+기능, 인터페이스, 고장모드를 분석하여 설계 리스크를 식별하고 완화한다. 이를 통해 설계 약점을 양산 이관 전에 해소하고, 그 결과를 DVP, PFMEA, Control Plan에 직접 반영한다.
 
-## Required Execution Checklist
+## 필수 수행 체크리스트
 
-- [ ] DFMEA scope defined: boundary diagram complete, inside/outside boundary identified
-- [ ] Product hierarchy mapped: system → subsystem → component → interface (Step 2)
-- [ ] All interfaces identified — internal (component-to-component), external (environment), and user/assembly
-- [ ] All functions defined with Verb + Noun + Measurable Standard (Step 3)
-- [ ] Each function has a measurable verification method confirmed in the DVP
-- [ ] Failure chain complete: Effect → Mode → Cause for each function (Step 4)
-- [ ] All Failure Causes validated using engineering analysis (FEA, calculation) or test evidence — not assumptions
-- [ ] S/O/D ratings justified using analysis, test data, or design history
-- [ ] All H-AP items have a defined action, named owner, and target date
-- [ ] DFMEA → DVP, PFMEA, and drawing linkage verified before release to manufacturing
-
----
-
-## When to use
-
-- New product development (integrate into APQP Phase 2 — Product Design and Development)
-- Design change or engineering change request (ECR)
-- Field failure investigation revealing a design root cause
-- Periodic design review
-- Before handoff to manufacturing (DFMEA drives the PFMEA)
-
-**Key difference from PFMEA:** DFMEA analyses the design intent and design robustness. PFMEA analyses the manufacturing process. DFMEA comes first — its failure effects and severity ratings inform the PFMEA.
-
-## Prerequisites
-
-- Product requirements / specification (engineering drawing, customer spec)
-- System block diagram or product breakdown structure
-- Interface matrix (if system-level analysis)
-- Team: design engineer, systems engineer, quality engineer, reliability (if available)
-
-## The 7-Step AIAG-VDA 2019 Approach for DFMEA
+- [ ] DFMEA 범위 정의: 경계 다이어그램 완성, 경계 내부/외부 식별
+- [ ] 제품 계층 구조 매핑: 시스템 → 서브시스템 → 부품 → 인터페이스 (Step 2)
+- [ ] 모든 인터페이스 식별 — 내부(부품 간), 외부(환경), 사용자/조립
+- [ ] 모든 기능을 동사 + 명사 + 측정 가능한 기준으로 정의 (Step 3)
+- [ ] 각 기능에 대해 DVP에서 확인된 측정 가능한 검증 방법이 존재
+- [ ] 각 기능별 고장 사슬 완성: 고장영향 → 고장모드 → 고장원인 (Step 4)
+- [ ] 모든 고장원인을 가정이 아닌 엔지니어링 해석(FEA, 계산) 또는 시험 증거로 검증
+- [ ] S/O/D 평점을 해석, 시험 데이터 또는 설계 이력으로 근거 제시
+- [ ] 모든 H-AP 항목에 조치, 담당자 실명, 목표 일자가 정의됨
+- [ ] 양산 이관 전 DFMEA → DVP, PFMEA, 도면 간 연계 검증 완료
 
 ---
 
-### Step 1 — Planning and Preparation
+## 사용 시점
 
-Define scope:
-- **Analysis object:** component, subsystem, or system
-- **Customer:** who is the next-level assembly? Who is the end user?
-- **Boundary diagram:** what is inside and outside the DFMEA scope
-- **Interface matrix:** what interacts with this component (mechanical, electrical, thermal, chemical)?
+- 신제품 개발 (APQP Phase 2 — 제품 설계 및 개발 단계에 통합)
+- 설계 변경 또는 엔지니어링 변경 요청(ECR)
+- 필드 고장 조사에서 설계상의 근본 원인이 드러난 경우
+- 정기 설계 검토
+- 양산 이관 전 (DFMEA가 PFMEA를 주도한다)
+
+**PFMEA와의 핵심 차이:** DFMEA는 설계 의도와 설계 강건성을 분석한다. PFMEA는 제조 공정을 분석한다. DFMEA가 먼저 수행되며, 그 고장영향과 심각도 평점이 PFMEA에 반영된다.
+
+## 선행 조건
+
+- 제품 요구사항 / 사양 (엔지니어링 도면, 고객 사양)
+- 시스템 블록 다이어그램 또는 제품 분해 구조(PBS)
+- 인터페이스 매트릭스 (시스템 수준 분석인 경우)
+- 팀: 설계 엔지니어, 시스템 엔지니어, 품질 엔지니어, 신뢰성 엔지니어(가능한 경우)
+
+## DFMEA를 위한 AIAG-VDA 2019 7단계 접근법
 
 ---
 
-### Step 2 — Structure Analysis (Design Hierarchy)
+### Step 1 — 계획 및 준비
 
-Map the product hierarchy:
+범위를 정의한다.
+- **분석 대상:** 부품, 서브시스템 또는 시스템
+- **고객:** 차상위 조립체는 무엇인가? 최종 사용자는 누구인가?
+- **경계 다이어그램:** DFMEA 범위의 내부와 외부를 구분한다
+- **인터페이스 매트릭스:** 이 부품과 상호작용하는 것은 무엇인가(기계적, 전기적, 열적, 화학적)?
+
+---
+
+### Step 2 — 구조 분석(Structure Analysis, 설계 계층)
+
+제품 계층 구조를 매핑한다.
 
 ```
-System (e.g., Steering Column)
-└── Subsystem (e.g., Tilt Mechanism)
-    └── Component (e.g., Pivot Pin)
-        └── Interface (e.g., Pin-to-Bracket contact)
+시스템 (예: 스티어링 컬럼)
+└── 서브시스템 (예: 틸트 메커니즘)
+    └── 부품 (예: 피벗 핀)
+        └── 인터페이스 (예: 핀-브래킷 접촉부)
 ```
 
-**Interface matrix:**
-For each component, identify:
-- Interfaces to other components (internal)
-- Interfaces to the environment (external): heat, vibration, corrosion, electromagnetic
-- Interfaces to the user or assembly process
+**인터페이스 매트릭스:**
+각 부품에 대해 다음을 식별한다.
+- 다른 부품과의 인터페이스(내부)
+- 환경과의 인터페이스(외부): 열, 진동, 부식, 전자기
+- 사용자 또는 조립 공정과의 인터페이스
 
-Interfaces are where most design failures occur. Each interface must be analysed as a potential failure location in its own right — not just the components that share it. In practice, at least 50% of DFMEA effort should focus on interfaces and interactions; component-only analysis misses the most common field failure modes.
-
----
-
-### Step 3 — Function Analysis
-
-For each element in the structure, define its design function:
-
-**Format:** Verb + Noun + Measurable Standard
-
-Examples:
-- Component function: "Transmit torque of 50 Nm ± 5 Nm without permanent deformation"
-- Interface function: "Maintain sealing at pressure 2.5 bar across -40°C to +120°C"
-- System function: "Provide steering angle feedback with latency < 50ms"
-
-Identify **Special Characteristics** from the drawing — these get S = 9 or 10 in Step 5.
-
-**Testability rule:** Every function must be measurable and verifiable — a test or analysis method must exist in the DVP. A function with no verification method cannot receive a credible D rating in Step 5.
+설계 고장의 대부분은 인터페이스에서 발생한다. 각 인터페이스는 그것을 공유하는 부품들과 별개로, 그 자체가 잠재적 고장 위치로서 분석되어야 한다. 실무적으로 DFMEA 노력의 최소 50%는 인터페이스와 상호작용에 집중해야 한다. 부품 단독 분석은 가장 흔한 필드 고장모드를 놓친다.
 
 ---
 
-### Step 4 — Failure Analysis
+### Step 3 — 기능 분석(Function Analysis)
 
-The failure chain for DFMEA: **Failure Effect → Failure Mode → Failure Cause**
+구조의 각 요소에 대해 설계 기능을 정의한다.
 
-**Failure Effect (FE):**
-- End-user effect: safety hazard, loss of primary function, reduced performance
-- Vehicle/system effect: damage to adjacent components, secondary failures
-- Manufacturing effect (if component is not to spec): inability to assemble, rework
+**형식:** 동사 + 명사 + 측정 가능한 기준
 
-**Failure Mode (FM):**
-How does this component fail to perform its design function?
-- Fracture, wear, corrosion, deformation, signal loss, leakage, dimensional drift, electrical short/open
+예시:
+- 부품 기능: "영구 변형 없이 50 Nm ± 5 Nm의 토크를 전달한다"
+- 인터페이스 기능: "-40°C ~ +120°C 범위에서 2.5 bar 압력의 밀봉을 유지한다"
+- 시스템 기능: "50ms 미만의 지연으로 조향각 피드백을 제공한다"
 
-**Failure Cause (FC):**
-What design parameter or design decision causes the failure mode?
-- Insufficient material strength (wrong grade, wrong heat treat)
-- Inadequate geometry (stress concentration, insufficient wall thickness)
-- Thermal expansion mismatch
-- Corrosion protection insufficient for environment
-- Tolerance stack-up causing interference
-- Interface design not accounting for assembly variation
+도면에서 **특별특성(Special Characteristics)**을 식별한다 — 이들은 Step 5에서 S = 9 또는 10을 받는다.
 
-**Failure Cause validation:** Failure Causes must be validated using engineering analysis (FEA, structural calculation, thermal simulation) or test evidence. Unverified assumptions — "probably," "likely," "may be" — are not acceptable as final Failure Causes. Use CAE (FEA, simulation), test data, and field return data to support both the failure modes identified and their causes. For post-field-failure DFMEA updates, the FC must match the validated root cause from the 8D or field investigation.
+**검증 가능성 규칙:** 모든 기능은 측정 및 검증이 가능해야 한다 — DVP에 시험 또는 해석 방법이 존재해야 한다. 검증 방법이 없는 기능은 Step 5에서 신뢰할 수 있는 D 평점을 받을 수 없다.
 
 ---
 
-### Step 5 — Risk Analysis
+### Step 4 — 고장 분석(Failure Analysis)
 
-Use the same S/O/D ratings and AP table as PFMEA (see [action-priority-ap](../action-priority-ap/) and [pfmea-process](../pfmea-process/) for the tables).
+DFMEA의 고장 사슬: **고장영향 → 고장모드 → 고장원인**
 
-**Key DFMEA-specific notes:**
+**고장영향(Failure Effect, FE):**
+- 최종 사용자 영향: 안전 위험, 주기능 상실, 성능 저하
+- 차량/시스템 영향: 인접 부품 손상, 2차 고장
+- 제조 영향(부품이 사양을 벗어난 경우): 조립 불가, 재작업
 
-**Occurrence (O) in DFMEA** considers:
-- Design maturity (new design = higher O)
-- Similar design history (similar designs with this failure = higher O)
-- Prevention controls: design reviews, CAE / FEA, DVP testing
+**고장모드(Failure Mode, FM):**
+이 부품은 어떻게 설계 기능을 수행하지 못하는가?
+- 파단, 마모, 부식, 변형, 신호 손실, 누설, 치수 변동, 전기적 단락/단선
 
-**Detection (D) in DFMEA** considers:
-- Design verification tests (DVP)
-- Engineering analysis (FEA, simulation)
-- Design reviews with checklists
-- Prototype testing
+**고장원인(Failure Cause, FC):**
+어떤 설계 파라미터 또는 설계 결정이 고장모드를 유발하는가?
+- 재료 강도 부족 (잘못된 등급, 잘못된 열처리)
+- 부적절한 형상 (응력 집중, 벽 두께 부족)
+- 열팽창 불일치
+- 환경 대비 부식 방지 부족
+- 공차 누적(tolerance stack-up)으로 인한 간섭
+- 조립 편차를 고려하지 않은 인터페이스 설계
 
-D = 10 means no design verification for this failure mode. This is common for new features — it drives the DVP.
-
-**Ratings justification:** All S/O/D ratings must be justified using analysis, test data, or design history. A rating without documented justification will not withstand OEM audit. Where design history exists from similar components, reference it explicitly. Where data is absent, mark O and D as preliminary and flag the DVP entry that will confirm them.
-
----
-
-### Step 6 — Optimization
-
-For H-AP items in DFMEA, actions typically fall into:
-
-1. **Design change:** change geometry, material, tolerance, or coating
-2. **Add design verification:** add DVP test entry to confirm the design meets the requirement
-3. **Add prevention:** design guideline, DFM/DFA rule, standard reference
-4. **Improve detection:** add inspection requirement to DVP or design review checklist
-
-**DFMEA → DVP linkage:**
-Every detection control (D rating improvement) must have a corresponding entry in the Design Verification Plan (DVP). If you improve D because "we will test it," the test must exist in the DVP.
-
-**Action tracking:** All actions must be tracked to closure with objective evidence — test results, simulation output, or updated analysis. Actions marked "complete" without verification evidence are not acceptable. Open H-AP items past their target date must be escalated to the design review owner or programme manager, with a revised date and documented reason for delay.
+**고장원인 검증:** 고장원인은 엔지니어링 해석(FEA, 구조 계산, 열 시뮬레이션) 또는 시험 증거로 검증되어야 한다. "아마도", "그럴 가능성이 있다", "~일 수 있다" 같은 검증되지 않은 가정은 최종 고장원인으로 인정되지 않는다. 식별한 고장모드와 그 원인 모두를 CAE(FEA, 시뮬레이션), 시험 데이터, 필드 반품 데이터로 뒷받침한다. 필드 고장 이후 DFMEA를 갱신할 때 FC는 8D 또는 필드 조사에서 검증된 근본 원인과 일치해야 한다.
 
 ---
 
-### Step 7 — Results Documentation
+### Step 5 — 리스크 분석(Risk Analysis)
 
-DFMEA outputs that feed other APQP documents:
-- **Special Characteristics** identified in DFMEA → transferred to Control Plan and PFMEA
-- **Detection controls** → DVP entries
-- **Interface failure modes** → PFMEA structure analysis inputs
-- **Material / geometry requirements confirmed** → released drawing
+PFMEA와 동일한 S/O/D 평점 및 AP 표를 사용한다(표는 [action-priority-ap](../action-priority-ap/) 및 [pfmea-process](../pfmea-process/) 참조).
 
-## DFMEA → PFMEA handoff
+**DFMEA 고유의 핵심 사항:**
 
-The DFMEA and PFMEA are linked:
+**DFMEA에서 발생도(O)**는 다음을 고려한다.
+- 설계 성숙도 (신규 설계 = 높은 O)
+- 유사 설계 이력 (해당 고장이 있었던 유사 설계 = 높은 O)
+- 예방 관리(prevention control): 설계 검토, CAE / FEA, DVP 시험
+
+**DFMEA에서 검출도(D)**는 다음을 고려한다.
+- 설계 검증 시험(DVP)
+- 엔지니어링 해석(FEA, 시뮬레이션)
+- 체크리스트 기반 설계 검토
+- 시제품 시험
+
+D = 10은 해당 고장모드에 대한 설계 검증이 없음을 의미한다. 신규 기능에서 흔하며, 이것이 DVP를 주도한다.
+
+**평점 근거:** 모든 S/O/D 평점은 해석, 시험 데이터 또는 설계 이력으로 근거를 제시해야 한다. 문서화된 근거가 없는 평점은 OEM 감사를 통과하지 못한다. 유사 부품의 설계 이력이 있으면 명시적으로 참조한다. 데이터가 없으면 O와 D를 잠정값으로 표시하고, 이를 확정할 DVP 항목을 지정한다.
+
+---
+
+### Step 6 — 최적화(Optimization)
+
+DFMEA의 H-AP 항목에 대한 조치는 일반적으로 다음으로 구분된다.
+
+1. **설계 변경:** 형상, 재료, 공차 또는 코팅 변경
+2. **설계 검증 추가:** 설계가 요구사항을 충족함을 확인하는 DVP 시험 항목 추가
+3. **예방 추가:** 설계 지침, DFM/DFA 규칙, 표준 참조
+4. **검출 개선:** DVP 또는 설계 검토 체크리스트에 검사 요구사항 추가
+
+**DFMEA → DVP 연계:**
+모든 검출 관리(detection control, D 평점 개선)는 설계 검증 계획(DVP)에 대응하는 항목이 있어야 한다. "시험할 예정"이라는 이유로 D를 개선했다면, 그 시험이 DVP에 존재해야 한다.
+
+**조치 추적:** 모든 조치는 객관적 증거(시험 결과, 시뮬레이션 출력, 갱신된 해석)와 함께 종결까지 추적되어야 한다. 검증 증거 없이 "완료"로 표시된 조치는 인정되지 않는다. 목표 일자가 지난 미결 H-AP 항목은 설계 검토 책임자 또는 프로그램 관리자에게 상향 보고하고, 수정 일자와 지연 사유를 문서화한다.
+
+---
+
+### Step 7 — 결과 문서화
+
+다른 APQP 문서로 이어지는 DFMEA 출력물:
+- DFMEA에서 식별된 **특별특성** → Control Plan 및 PFMEA로 이관
+- **검출 관리** → DVP 항목
+- **인터페이스 고장모드** → PFMEA 구조 분석 입력
+- **확정된 재료 / 형상 요구사항** → 출도 도면
+
+## DFMEA → PFMEA 이관
+
+DFMEA와 PFMEA는 다음과 같이 연계된다.
 
 | DFMEA | → | PFMEA |
 |-------|---|-------|
-| Design Failure Effects (end-user impact) | → | Severity ratings in PFMEA |
-| Special Characteristics | → | SC flagging in PFMEA process steps |
-| Interface failure modes | → | PFMEA failure modes for assembly steps |
-| Design intent (function) | → | Process step function requirements |
+| 설계 고장영향 (최종 사용자 영향) | → | PFMEA의 심각도 평점 |
+| 특별특성 | → | PFMEA 공정 단계의 SC 표시 |
+| 인터페이스 고장모드 | → | 조립 단계의 PFMEA 고장모드 |
+| 설계 의도 (기능) | → | 공정 단계 기능 요구사항 |
 
-## Mandatory DFMEA review events (APQP / IATF 16949 §8.3)
+## 필수 DFMEA 검토 이벤트 (APQP / IATF 16949 §8.3)
 
-| Trigger | Required action |
+| 트리거 | 필수 조치 |
 |---------|----------------|
-| New product development | Start DFMEA at APQP Phase 2 — before design freeze. DFMEA initiated after freeze has no corrective value. |
-| Engineering change request (ECR) | Review and update the DFMEA for all functions, failure modes, and interfaces affected by the change — before the change is released. |
-| Design milestone / design review | Present DFMEA status: open H-AP items, actions, and revised ratings. DFMEA must be current at each gate. |
-| Field failure with confirmed design root cause | Update FC, ratings, and actions to match validated root cause from 8D/field investigation. Update DVP to include the failure mode. |
+| 신제품 개발 | APQP Phase 2에서, 설계 동결 전에 DFMEA를 시작한다. 동결 후 착수한 DFMEA는 시정 가치가 없다. |
+| 엔지니어링 변경 요청(ECR) | 변경 출도 전에, 변경의 영향을 받는 모든 기능, 고장모드, 인터페이스에 대해 DFMEA를 검토·갱신한다. |
+| 설계 마일스톤 / 설계 검토 | DFMEA 현황(미결 H-AP 항목, 조치, 수정 평점)을 보고한다. 각 게이트에서 DFMEA는 최신 상태여야 한다. |
+| 설계 근본 원인이 확인된 필드 고장 | 8D/필드 조사에서 검증된 근본 원인에 맞게 FC, 평점, 조치를 갱신한다. 해당 고장모드를 포함하도록 DVP를 갱신한다. |
 
-A DFMEA that is not updated through the programme lifecycle is a design quality assurance gap — not a living document.
+프로그램 수명주기 동안 갱신되지 않는 DFMEA는 살아있는 문서가 아니라 설계 품질 보증의 공백이다.
 
-## Common mistakes
+## 흔한 실수
 
-- **Starting DFMEA after design is frozen** — DFMEA has no value if no changes can be made
-- **Only analysing the component, not the interfaces** — most design failures are interface failures
-- **Improving D without adding DVP tests** — detection credit without actual testing
-- **DFMEA and PFMEA teams working in silos** — they must share severity ratings and special characteristics
+- **설계 동결 후 DFMEA 착수** — 변경이 불가능하면 DFMEA는 가치가 없다
+- **부품만 분석하고 인터페이스는 분석하지 않음** — 설계 고장의 대부분은 인터페이스 고장이다
+- **DVP 시험 추가 없이 D 개선** — 실제 시험 없는 검출 점수 인정
+- **DFMEA 팀과 PFMEA 팀의 단절된 작업** — 심각도 평점과 특별특성을 반드시 공유해야 한다
 
-## Output Format
+## 출력 형식
 
-At the start of each use, ask the user:
+매 사용 시작 시 사용자에게 묻는다.
 
-> "How would you like to receive the output?
-> **A** — Structured Markdown (formatted tables and sections, ready to copy)
-> **B** — Plain tables (simplified structure for Excel or Word)
-> **C** — Narrative report (flowing text for a formal document or email)
+> "출력을 어떤 형식으로 받으시겠습니까?
+> **A** — 구조화된 Markdown (서식이 적용된 표와 섹션, 바로 복사 가능)
+> **B** — 단순 표 (Excel 또는 Word용 간소화 구조)
+> **C** — 서술형 보고서 (공식 문서 또는 이메일용 문장형 텍스트)
 >
-> Default: A."
+> 기본값: A."
 
-Adapt all output sections to the chosen format. If the platform or session context already defines a format preference, skip this question.
+선택한 형식에 맞춰 모든 출력 섹션을 조정한다. 플랫폼 또는 세션 맥락에서 이미 형식 선호가 정의되어 있으면 이 질문을 생략한다.
 
-## Reference files
+## 참조 파일
 
-- [Interface matrix construction guide](references/interface-matrix.md)
+- [인터페이스 매트릭스 작성 가이드](references/interface-matrix.md)
 
-## Changelog
+## 변경 이력
 
-| Version | Date | Author | Change |
+| 버전 | 일자 | 작성자 | 변경 내용 |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-01 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-03 | @RBraga01 | Added interface matrix integration and DFMEA-to-PFMEA handoff workflow |
+| 1.0 | 2026-06-01 | @RBraga01 | 최초 배포 |
+| 1.1 | 2026-06-03 | @RBraga01 | 인터페이스 매트릭스 통합 및 DFMEA→PFMEA 이관 워크플로 추가 |

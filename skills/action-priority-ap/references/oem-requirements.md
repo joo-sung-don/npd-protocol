@@ -12,211 +12,211 @@ reviewed_by: RBraga01
 license: MIT
 ---
 
-# OEM Action Priority Requirements — Reference
+# OEM 조치 우선순위(AP) 요구사항 — 참조 자료
 
-OEM-specific requirements for Action Priority (AP) in PFMEA and DFMEA.
-Use alongside the [action-priority-ap](../SKILL.md) skill.
-
----
-
-## Why OEM Requirements Override General AIAG-VDA Guidance
-
-This document complements AIAG-VDA guidelines. In case of conflict, OEM-specific requirements always take precedence.
-
-The AIAG-VDA FMEA Handbook 2019 defines the AP framework as a minimum standard.
-Each OEM publishes Customer-Specific Requirements (CSR) that may:
-- Set stricter thresholds for mandatory action
-- Define deadlines for closing H-AP items before milestones (PPAP, SOP)
-- Require specific documentation formats for H-AP closure
-- Add OEM-specific escalation paths when actions are not feasible
-
-**CSR requirements are binding contractual obligations, not guidelines.**
-
-Always check the current CSR. CSRs are updated annually or more frequently.
+PFMEA 및 DFMEA의 조치 우선순위(Action Priority, AP)에 대한 OEM별 요구사항이다.
+[action-priority-ap](../SKILL.md) 스킬과 함께 사용한다.
 
 ---
 
-## Required OEM AP Compliance Checklist
+## OEM 요구사항이 일반 AIAG-VDA 지침보다 우선하는 이유
 
-☐ All H-AP items have an assigned owner and target date
-☐ All H-AP items are either closed (action implemented + verified) or formally escalated with OEM approval
-☐ All no-action decisions have OEM-required approval (SQE or equivalent) — documented
-☐ All H-AP items are addressed (closed or formally approved) before PPAP submission
-☐ Revised AP reflects implemented and verified actions — not planned actions
-☐ Special Characteristics meet OEM-specific requirements (Cpk thresholds, inspection methods)
-☐ FMEA updated after latest quality escape or field failure
-☐ All actions, approvals, and escalations are documented and retained as audit evidence
-☐ H-AP status reviewed at every project milestone (design review, process review, PPAP)
+이 문서는 AIAG-VDA 지침을 보완한다. 상충하는 경우 OEM별 요구사항이 항상 우선한다.
 
----
+AIAG-VDA FMEA Handbook 2019는 AP 체계를 최소 기준으로 정의한다.
+각 OEM은 고객 특정 요구사항(Customer-Specific Requirements, CSR)을 발행하며, CSR은 다음을 할 수 있다.
+- 필수 조치에 대해 더 엄격한 기준 설정
+- 마일스톤(PPAP, SOP) 이전 H-AP 항목 종결 기한 정의
+- H-AP 종결에 대한 특정 문서 양식 요구
+- 조치가 불가능할 때의 OEM 고유 상향 보고 경로 추가
 
-## Ford — AP Requirements
+**CSR 요구사항은 지침이 아니라 구속력 있는 계약상 의무이다.**
 
-**Source document:** Ford Customer-Specific Requirements for IATF 16949
-
-### H-AP mandatory actions
-- Every H-AP item must have a corrective action assigned, with a named responsible engineer and a target date
-- If no improvement is technically possible: document an **Engineering Justification (EJ)**
-  - EJ must be signed by a qualified engineer
-  - EJ must include a risk assessment and monitoring plan (where applicable)
-  - EJ must be reviewed and approved by the Ford SQE (Supplier Quality Engineer)
-  - Without an approved EJ, the FMEA is considered non-compliant
-
-### PPAP submission requirements
-- All H-AP items must be addressed (action completed or EJ approved) before PPAP Level 3 submission
-- Unaddressed H-AP items at PPAP result in conditional approval at best, rejection at worst
-
-### Special Characteristics
-- Ford uses ◆ (safety characteristics) and ▲ (significant characteristics)
-- ◆ characteristics: S must be 9 or 10; AP must be H; 100% inspection or mistake-proofing required
-- ▲ characteristics: SPC or equivalent statistical control required
-
-### Annual FMEA review
-- Ford CSR requires PFMEA and DFMEA review at minimum annually
-- H-AP items from the previous review that remain open must have a documented status update
+항상 현행 CSR을 확인한다. CSR은 매년 또는 그보다 자주 갱신된다.
 
 ---
 
-## GM — AP Requirements
+## 필수 OEM AP 준수 체크리스트
 
-**Source document:** GM Supplier Quality Reference Manual (SQRM)
-
-### BIQS integration
-- GM's Supplier Quality scoring system (BIQS) tracks open H-AP items as a supplier performance metric
-- Suppliers with unaddressed H-AP items at PPAP submission receive BIQS score deduction
-- H-AP items open >90 days without documented progress receive escalation flags
-- BIQS scoring impact must be monitored as part of supplier performance management
-
-### PPAP requirements (BIQS context)
-- All H-AP items must be closed before Level 3 PPAP
-- "Closed" means: action implemented AND verified (revised AP documented with evidence)
-- Accepted derogation: H-AP items with documented management acceptance + residual risk quantification
-
-### Special Characteristics (GM)
-- GM uses ◆ (safety), ● (key product characteristic), and YC/YS (supplier-controlled SCs)
-- All ◆ characteristics: AP must be H; automatic rejection/sorting or poka-yoke required
-- Level 4 or 5 PPAP required for safety characteristics (◆)
+☐ 모든 H-AP 항목에 담당자와 목표 일자가 지정됨
+☐ 모든 H-AP 항목이 종결(조치 실행 + 검증)되었거나 OEM 승인을 받아 공식 상향 보고됨
+☐ 모든 미조치 결정에 OEM이 요구하는 승인(SQE 또는 동등 권한자)이 있으며 문서화됨
+☐ PPAP 제출 전 모든 H-AP 항목이 처리됨(종결 또는 공식 승인)
+☐ 수정 AP가 계획된 조치가 아니라 실행·검증된 조치를 반영함
+☐ 특별특성이 OEM별 요구사항(Cpk 기준, 검사 방법)을 충족함
+☐ 최근 품질 유출 또는 필드 고장 이후 FMEA가 갱신됨
+☐ 모든 조치, 승인, 상향 보고가 문서화되어 감사 증거로 보관됨
+☐ 모든 프로젝트 마일스톤(설계 검토, 공정 검토, PPAP)에서 H-AP 현황을 검토함
 
 ---
 
-## VW / Audi — AP Requirements
+## Ford — AP 요구사항
 
-**Source document:** FORMEL Q — Konkret (VW Group Supplier Quality Requirements)
+**근거 문서:** Ford Customer-Specific Requirements for IATF 16949
 
-### AP = H — mandatory action statement
-VW requires that every H-AP item has a formal action statement:
-- Description of the action
-- Responsible engineer (name, not just function)
-- Target date
-- Verification criterion
+### H-AP 필수 조치
+- 모든 H-AP 항목에는 책임 엔지니어 실명과 목표 일자가 지정된 시정 조치가 있어야 한다
+- 기술적으로 개선이 불가능하면: **엔지니어링 정당화(Engineering Justification, EJ)**를 문서화한다
+  - EJ는 자격을 갖춘 엔지니어가 서명해야 한다
+  - EJ에는 리스크 평가와 모니터링 계획(해당 시)이 포함되어야 한다
+  - EJ는 Ford SQE(Supplier Quality Engineer)의 검토·승인을 받아야 한다
+  - 승인된 EJ가 없으면 FMEA는 부적합으로 간주된다
 
-### Formal acceptance when no action is possible
-- No-action acceptance requires a formal document signed by:
-  - Supplier's responsible engineer
-  - Supplier's quality manager
-  - VW SQE countersignature
-- Without VW SQE countersignature, the H-AP item is considered open
-- Time-bound commitments must include interim risk containment measures
+### PPAP 제출 요구사항
+- PPAP Level 3 제출 전 모든 H-AP 항목이 처리(조치 완료 또는 EJ 승인)되어야 한다
+- PPAP 시점에 미처리 H-AP 항목이 있으면 잘해야 조건부 승인, 최악의 경우 반려된다
 
-### SOP freeze implication
-- Production launch (SOP — Start of Production) cannot proceed with open H-AP items
-- Exception: written time-bound commitment signed by both supplier management and VW SQE
+### 특별특성
+- Ford는 ◆(안전 특성)와 ▲(중요 특성)를 사용한다
+- ◆ 특성: S는 9 또는 10이어야 하고, AP는 H여야 하며, 전수 검사 또는 실수 방지(mistake-proofing)가 필요하다
+- ▲ 특성: SPC 또는 동등한 통계적 관리가 필요하다
 
-### Special Characteristics (VW)
-- VW uses D (safety), KM (quality feature), and I (product feature) classification
-- All D-characteristics: AP must be H; 100% automated inspection or poka-yoke mandatory
-- KM characteristics: SPC with Cpk ≥ 1.67 required (not 1.33)
+### 연간 FMEA 검토
+- Ford CSR은 PFMEA와 DFMEA를 최소 연 1회 검토하도록 요구한다
+- 이전 검토에서 미결로 남은 H-AP 항목은 문서화된 현황 갱신이 있어야 한다
 
 ---
 
-## BMW — AP Requirements
+## GM — AP 요구사항
 
-**Source document:** BMW Group Standard QM 10005 / BQMS requirements
+**근거 문서:** GM Supplier Quality Reference Manual (SQRM)
 
-### Open issues list
-- BMW requires all H-AP items to appear on a formal "Open Issues List" maintained by the supplier
-- The list must be shared with the BMW SQE at each project gate review
-- H-AP items on the open issues list are tracked until formally closed with evidence
-- Open Issues List must be version-controlled and traceable across project phases
+### BIQS 연계
+- GM의 공급사(supplier) 품질 평가 체계(BIQS)는 미결 H-AP 항목을 공급사 성과 지표로 추적한다
+- PPAP 제출 시 미처리 H-AP 항목이 있는 공급사는 BIQS 점수가 감점된다
+- 문서화된 진척 없이 90일 넘게 미결인 H-AP 항목에는 상향 보고 플래그가 부여된다
+- BIQS 점수 영향은 공급사 성과 관리의 일환으로 모니터링해야 한다
 
-### Gate review integration
-- BMW uses project gate reviews (Concept, Design, Pre-Series, Ramp-Up, SOP)
-- At each gate: all H-AP items must be either closed or have a formally accepted action plan
-- Unaddressed H-AP items block gate approval
+### PPAP 요구사항 (BIQS 관점)
+- Level 3 PPAP 전에 모든 H-AP 항목이 종결되어야 한다
+- "종결"의 의미: 조치 실행 AND 검증 (증거와 함께 수정 AP 문서화)
+- 인정되는 특채(derogation): 문서화된 경영진 수용 + 잔여 리스크 정량화가 있는 H-AP 항목
 
-### Residual risk acceptance
-- BMW does not routinely accept residual H-AP risk without engineering justification
-- Justification must include: quantified residual risk, monitoring plan, and BMW SQE sign-off
-- Safety-related H-AP (S=9 or S=10) residual risk acceptance requires BMW engineering approval
-
-### Special Characteristics (BMW)
-- BMW uses Merkmal (M) for safety and E for emission-relevant
-- M-characteristics: Cpk ≥ 1.67 and 100% automated inspection required
-- AP must be H for all M-characteristic failure modes
+### 특별특성 (GM)
+- GM은 ◆(안전), ●(핵심 제품 특성), YC/YS(공급사 관리 SC)를 사용한다
+- 모든 ◆ 특성: AP는 H여야 하며, 자동 불합격 처리/선별 또는 poka-yoke가 필요하다
+- 안전 특성(◆)에는 Level 4 또는 5 PPAP가 필요하다
 
 ---
 
-## Stellantis — AP Requirements
+## VW / Audi — AP 요구사항
 
-**Source document:** MAQMSR (Manufacturing Assurance Quality Management System Requirements)
+**근거 문서:** FORMEL Q — Konkret (VW Group Supplier Quality Requirements)
 
-### H-AP item escalation path
-- If no action is feasible: supplier quality manager escalates to Stellantis SQE
-- Stellantis SQE reviews and either approves residual risk acceptance or requires alternative action
-- No unilateral supplier decision on H-AP "no action" — SQE approval always required
-- SQE approval must be documented and retained as audit evidence
+### AP = H — 필수 조치 기술서
+VW는 모든 H-AP 항목에 다음을 포함한 공식 조치 기술서를 요구한다.
+- 조치 내용
+- 책임 엔지니어 (직무가 아닌 실명)
+- 목표 일자
+- 검증 기준
 
-### PPAP timing
-- All H-AP items must be addressed before PPAP submission
-- "Addressed" = action implemented + evidence available, or formal SQE-approved no-action rationale
+### 조치 불가 시 공식 수용
+- 미조치 수용에는 다음 인원이 서명한 공식 문서가 필요하다.
+  - 공급사 책임 엔지니어
+  - 공급사 품질 관리자
+  - VW SQE 연서
+- VW SQE 연서가 없으면 해당 H-AP 항목은 미결로 간주된다
+- 기한부 이행 약속에는 중간 리스크 봉쇄(containment) 조치가 포함되어야 한다
+
+### SOP 동결의 의미
+- 미결 H-AP 항목이 있으면 양산 개시(SOP — Start of Production)를 진행할 수 없다
+- 예외: 공급사 경영진과 VW SQE가 모두 서명한 서면 기한부 이행 약속
+
+### 특별특성 (VW)
+- VW는 D(안전), KM(품질 특성), I(제품 특성) 분류를 사용한다
+- 모든 D-특성: AP는 H여야 하며, 전수 자동 검사 또는 poka-yoke가 필수이다
+- KM 특성: Cpk ≥ 1.67의 SPC가 필요하다 (1.33이 아님)
 
 ---
 
-## OEM Comparison Table — H-AP Closure Requirements
+## BMW — AP 요구사항
 
-| Requirement | Ford | GM | VW | BMW | Stellantis |
+**근거 문서:** BMW Group Standard QM 10005 / BQMS requirements
+
+### 미결 이슈 목록
+- BMW는 모든 H-AP 항목을 공급사가 관리하는 공식 "미결 이슈 목록(Open Issues List)"에 등재하도록 요구한다
+- 이 목록은 각 프로젝트 게이트 검토 시 BMW SQE와 공유해야 한다
+- 미결 이슈 목록의 H-AP 항목은 증거와 함께 공식 종결될 때까지 추적된다
+- 미결 이슈 목록은 버전 관리되어야 하며 프로젝트 단계 전반에 걸쳐 추적 가능해야 한다
+
+### 게이트 검토 연계
+- BMW는 프로젝트 게이트 검토(Concept, Design, Pre-Series, Ramp-Up, SOP)를 운영한다
+- 각 게이트에서: 모든 H-AP 항목은 종결되었거나 공식 수용된 조치 계획이 있어야 한다
+- 미처리 H-AP 항목은 게이트 승인을 차단한다
+
+### 잔여 리스크 수용
+- BMW는 엔지니어링 정당화 없이 잔여 H-AP 리스크를 통상적으로 수용하지 않는다
+- 정당화에는 정량화된 잔여 리스크, 모니터링 계획, BMW SQE 승인 서명이 포함되어야 한다
+- 안전 관련 H-AP(S=9 또는 S=10)의 잔여 리스크 수용에는 BMW 엔지니어링 승인이 필요하다
+
+### 특별특성 (BMW)
+- BMW는 안전에 Merkmal(M), 배출 관련에 E를 사용한다
+- M-특성: Cpk ≥ 1.67 및 전수 자동 검사가 필요하다
+- 모든 M-특성 고장모드에 대해 AP는 H여야 한다
+
+---
+
+## Stellantis — AP 요구사항
+
+**근거 문서:** MAQMSR (Manufacturing Assurance Quality Management System Requirements)
+
+### H-AP 항목 상향 보고 경로
+- 조치가 불가능한 경우: 공급사 품질 관리자가 Stellantis SQE에게 상향 보고한다
+- Stellantis SQE는 검토 후 잔여 리스크 수용을 승인하거나 대안 조치를 요구한다
+- H-AP "미조치"에 대한 공급사의 일방적 결정은 불가하다 — 항상 SQE 승인이 필요하다
+- SQE 승인은 문서화되어 감사 증거로 보관되어야 한다
+
+### PPAP 시점
+- PPAP 제출 전 모든 H-AP 항목이 처리되어야 한다
+- "처리됨" = 조치 실행 + 증거 확보, 또는 SQE가 승인한 공식 미조치 근거
+
+---
+
+## OEM 비교표 — H-AP 종결 요구사항
+
+| 요구사항 | Ford | GM | VW | BMW | Stellantis |
 |-------------|------|----|----|-----|-----------|
-| Named responsible engineer | Yes | Yes | Yes | Yes | Yes |
-| Target date mandatory | Yes | Yes | Yes | Yes | Yes |
-| H-AP must close before PPAP | Yes (or EJ) | Yes | Yes (or SQE) | Yes (or gate) | Yes (or SQE) |
-| No-action requires OEM countersignature | Yes (EJ + SQE) | Case by case | Yes | Yes | Yes |
-| H-AP items tracked on formal list | GQTS | BIQS | FORMEL Q | Open Issues List | SQS |
-| Annual FMEA review of open H-AP | Yes | Yes | Yes | Yes | Yes |
-| Residual risk acceptance allowed | Conditional (EJ) | Conditional | Conditional (SQE) | Rare (SQE) | Conditional (SQE) |
+| 책임 엔지니어 실명 지정 | 예 | 예 | 예 | 예 | 예 |
+| 목표 일자 필수 | 예 | 예 | 예 | 예 | 예 |
+| PPAP 전 H-AP 종결 필수 | 예 (또는 EJ) | 예 | 예 (또는 SQE) | 예 (또는 게이트) | 예 (또는 SQE) |
+| 미조치 시 OEM 연서 필요 | 예 (EJ + SQE) | 사안별 | 예 | 예 | 예 |
+| H-AP 항목 공식 목록 추적 | GQTS | BIQS | FORMEL Q | Open Issues List | SQS |
+| 미결 H-AP의 연간 FMEA 검토 | 예 | 예 | 예 | 예 | 예 |
+| 잔여 리스크 수용 허용 | 조건부 (EJ) | 조건부 | 조건부 (SQE) | 드묾 (SQE) | 조건부 (SQE) |
 
 ---
 
-## Residual Risk Acceptance — Governance
+## 잔여 리스크 수용 — 관리 규칙
 
-When no corrective action is achievable, residual risk acceptance must include:
-- Written justification explaining why no improvement is technically or economically feasible
-- Risk assessment of the residual risk (likelihood × severity estimate)
-- Mitigation or monitoring plan (detection controls, containment, periodic review)
-- OEM approval (SQE countersignature where required by CSR)
-- Document retention: this record must be available for audits and PPAP review
+시정 조치가 불가능한 경우, 잔여 리스크 수용에는 다음이 포함되어야 한다.
+- 기술적 또는 경제적으로 개선이 불가능한 이유를 설명하는 서면 정당화
+- 잔여 리스크에 대한 리스크 평가 (발생 가능성 × 심각도 추정)
+- 완화 또는 모니터링 계획 (검출 관리, 봉쇄, 주기적 검토)
+- OEM 승인 (CSR이 요구하는 경우 SQE 연서)
+- 문서 보관: 이 기록은 감사 및 PPAP 검토 시 제시 가능해야 한다
 
-H-AP status must be reviewed at every project milestone (design review, process review, PPAP) to confirm that open items are still tracked and approved.
+모든 프로젝트 마일스톤(설계 검토, 공정 검토, PPAP)에서 H-AP 현황을 검토하여, 미결 항목이 여전히 추적·승인되고 있는지 확인해야 한다.
 
 ---
 
-## Practical Guidance — Applying AP in FMEA Reviews
+## 실무 가이드 — FMEA 검토에서의 AP 적용
 
-### Before PPAP submission
-1. Print or export all H-AP rows from the PFMEA/DFMEA
-2. For each row: confirm action is implemented (past tense) with evidence
-3. Confirm revised AP is documented (new S/O/D ratings with the actions in place)
-4. If any H-AP remain without action: prepare the OEM-specific no-action justification document and obtain OEM SQE signature before submission
+### PPAP 제출 전
+1. PFMEA/DFMEA의 모든 H-AP 행을 출력하거나 내보낸다
+2. 각 행에 대해: 조치가 증거와 함께 실행 완료(과거형)되었는지 확인한다
+3. 수정 AP가 문서화되었는지 확인한다 (조치 적용 후의 새 S/O/D 평점)
+4. 조치 없는 H-AP가 남아 있으면: OEM별 미조치 정당화 문서를 준비하고, 제출 전에 OEM SQE 서명을 받는다
 
-### During an audit
-If an auditor challenges an AP rating:
-1. Walk through the AP table with the auditor using S, O, and D values
-2. Show the evidence for O rating (failure rate data or Cpk) and D rating (inspection records, test results)
-3. For H-AP items, show the action status (implemented with date and evidence, or formal escalation document)
-4. Never argue that an H-AP was "acceptable as-is" without a signed justification — this is an automatic major finding
+### 감사 중
+감사원이 AP 평점에 이의를 제기하면:
+1. S, O, D 값을 사용하여 감사원과 함께 AP 표를 단계별로 검토한다
+2. O 평점의 증거(고장률 데이터 또는 Cpk)와 D 평점의 증거(검사 기록, 시험 결과)를 제시한다
+3. H-AP 항목은 조치 현황(일자와 증거가 있는 실행 완료, 또는 공식 상향 보고 문서)을 제시한다
+4. 서명된 정당화 없이 H-AP가 "현 상태로 수용 가능했다"고 주장하지 않는다 — 이는 자동으로 중대 부적합(major finding)이 된다
 
-### After a quality escape
-When a field failure or customer complaint traces to a failure mode in the PFMEA:
-1. Update the O rating to reflect actual field failure rate (will likely increase)
-2. Check the AP — it may change from M to H after the O update
-3. If it becomes H: immediately assign an action, even if the PFMEA was previously approved
-4. Notify the OEM SQE of the PFMEA update if the escape was an OEM-reported incident
+### 품질 유출 이후
+필드 고장 또는 고객 불만이 PFMEA의 고장모드로 추적되는 경우:
+1. 실제 필드 고장률을 반영하여 O 평점을 갱신한다 (대개 상승한다)
+2. AP를 확인한다 — O 갱신 후 M에서 H로 바뀔 수 있다
+3. H가 되면: PFMEA가 이전에 승인되었더라도 즉시 조치를 지정한다
+4. 해당 유출이 OEM이 보고한 사안이면 PFMEA 갱신 사실을 OEM SQE에게 통보한다

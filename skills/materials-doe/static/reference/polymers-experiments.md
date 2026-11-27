@@ -1,143 +1,143 @@
-# Polymers Experiment Reference
+# 고분자 실험 참고 자료
 
-Common experiment types, typical factor-response pairs, and standard references for polymer, rubber, and polymer composite research.
+고분자, 고무, 고분자 복합재 연구에서 자주 쓰는 실험 유형, 대표 요인-반응 쌍, 표준 참고 문헌이다.
 
-## Experiment Type 1: Injection Molding Process Optimization
+## 실험 유형 1: 사출 성형 공정 최적화
 
-Optimize processing parameters to maximize mechanical performance of injection-molded thermoplastic parts.
+사출 성형한 열가소성 부품의 기계적 성능을 최대화하도록 공정 변수를 최적화한다.
 
-### Factors and Responses
+### 요인과 반응
 
-| Factor | Unit | Typical Range |
+| 요인 | 단위 | 일반 범위 |
 |--------|------|---------------|
-| Melt temperature (°C) | °C | 200–300 (PP), 260–320 (PA6), 300–380 (PEEK) |
-| Mold temperature (°C) | °C | 20–120 |
-| Injection speed (mm/s) | mm/s | 20–150 |
-| Holding pressure (MPa) | MPa | 30–100 |
-| Cooling time (s) | s | 10–60 |
+| 용융 온도 (°C) | °C | 200–300 (PP), 260–320 (PA6), 300–380 (PEEK) |
+| 금형 온도 (°C) | °C | 20–120 |
+| 사출 속도 (mm/s) | mm/s | 20–150 |
+| 보압 (MPa) | MPa | 30–100 |
+| 냉각 시간 (s) | s | 10–60 |
 
-| Response | Unit | Standard |
+| 반응 | 단위 | 표준 |
 |----------|------|----------|
-| Tensile strength | MPa | ASTM D638 / ISO 527 |
-| Elongation at break | % | ASTM D638 / ISO 527 |
-| Impact strength (Izod) | J/m | ASTM D256 |
-| Warpage | mm | visual / CMM |
-| Surface roughness | µm | profilometer |
+| 인장강도 | MPa | ASTM D638 / ISO 527 |
+| 파단 연신율 | % | ASTM D638 / ISO 527 |
+| 충격강도 (Izod) | J/m | ASTM D256 |
+| 휨(뒤틀림) | mm | 육안 / CMM |
+| 표면 거칠기 | µm | 표면조도계 |
 
-### Standards
+### 표준
 
-- ASTM D638 — Tensile properties of plastics
-- ISO 527 — Tensile test for plastics
-- ASTM D256 — Izod impact resistance
-- ISO 294 — Injection molding test specimens
+- ASTM D638 — 플라스틱의 인장 특성
+- ISO 527 — 플라스틱 인장 시험
+- ASTM D256 — Izod 충격 저항
+- ISO 294 — 사출 성형 시편
 
-## Experiment Type 2: Filler Reinforcement and Interface Design
+## 실험 유형 2: 충전재 보강과 계면 설계
 
-Evaluate the effect of filler type, content, and surface treatment on mechanical and thermal properties of polymer composites.
+충전재 종류, 함량, 표면 처리가 고분자 복합재의 기계적·열적 특성에 미치는 영향을 평가한다.
 
-### Factors and Responses
+### 요인과 반응
 
-| Factor | Unit | Typical Range |
+| 요인 | 단위 | 일반 범위 |
 |--------|------|---------------|
-| Filler type | — | glass fiber, carbon fiber, nano-SiO2, CNT, clay, CaCO3, graphene |
-| Filler content (wt%) | wt% | 5–50 (micro), 0.1–5 (nano) |
-| Surface treatment | — | untreated, silane KH-550, MAH-g-PP, acid-treated |
-| Mixing method | — | melt compounding, solution blending, in-situ polymerization |
-| Mixing time (min) | min | 5–30 |
-| Screw speed (rpm) | rpm | 50–200 (twin-screw extruder) |
+| 충전재 종류 | — | 유리섬유, 탄소섬유, 나노 SiO2, CNT, 점토, CaCO3, 그래핀 |
+| 충전재 함량 (wt%) | wt% | 5–50 (마이크로), 0.1–5 (나노) |
+| 표면 처리 | — | 미처리, 실란 KH-550, MAH-g-PP, 산 처리 |
+| 혼합 방법 | — | 용융 컴파운딩, 용액 블렌딩, 현장(in-situ) 중합 |
+| 혼합 시간 (min) | min | 5–30 |
+| 스크루 회전수 (rpm) | rpm | 50–200 (이축 압출기) |
 
-| Response | Unit | Standard |
+| 반응 | 단위 | 표준 |
 |----------|------|----------|
-| Tensile strength | MPa | ASTM D638 |
-| Tensile modulus | GPa | ASTM D638 |
-| Flexural strength | MPa | ASTM D790 |
-| Impact strength | J/m | ASTM D256 |
-| HDT at 0.45 MPa | °C | ASTM D648 |
-| Filler dispersion quality | — | SEM image rating (1–5) |
+| 인장강도 | MPa | ASTM D638 |
+| 인장탄성률 | GPa | ASTM D638 |
+| 굴곡강도 | MPa | ASTM D790 |
+| 충격강도 | J/m | ASTM D256 |
+| 0.45 MPa 하중 열변형온도(HDT) | °C | ASTM D648 |
+| 충전재 분산 품질 | — | SEM 이미지 등급 (1–5) |
 
-### Standards
+### 표준
 
-- ASTM D638 — Tensile properties
-- ASTM D790 — Flexural properties
-- ASTM D256 — Impact resistance
-- ASTM D648 — Heat deflection temperature
-- ISO 178 — Flexural test for plastics
+- ASTM D638 — 인장 특성
+- ASTM D790 — 굴곡 특성
+- ASTM D256 — 충격 저항
+- ASTM D648 — 열변형온도
+- ISO 178 — 플라스틱 굴곡 시험
 
-## Experiment Type 3: Thermo-Oxidative and UV Aging
+## 실험 유형 3: 열산화 노화와 UV 노화
 
-Evaluate long-term thermal stability and UV resistance of polymers under accelerated aging conditions.
+가속 노화 조건에서 고분자의 장기 열 안정성과 내UV성을 평가한다.
 
-### Factors and Responses
+### 요인과 반응
 
-| Factor | Unit | Typical Range |
+| 요인 | 단위 | 일반 범위 |
 |--------|------|---------------|
-| Stabilizer type | — | hindered amine (HALS), hindered phenol, phosphite, benzotriazole UV absorber |
-| Stabilizer content (wt%) | wt% | 0.1–2.0 |
-| Exposure type | — | thermal oven, UV chamber (ASTM G154), xenon arc (ASTM G155) |
-| Exposure temperature (°C) | °C | 70–150 (thermal), 50–70 (UV panel) |
-| Exposure duration (h) | h | 500, 1000, 2000, 3000 |
-| Atmosphere | — | air, nitrogen |
+| 안정제 종류 | — | 힌더드 아민(HALS), 힌더드 페놀, 포스파이트, 벤조트리아졸계 UV 흡수제 |
+| 안정제 함량 (wt%) | wt% | 0.1–2.0 |
+| 노출 방식 | — | 열 오븐, UV 챔버 (ASTM G154), 제논 아크 (ASTM G155) |
+| 노출 온도 (°C) | °C | 70–150 (열), 50–70 (UV 패널) |
+| 노출 시간 (h) | h | 500, 1000, 2000, 3000 |
+| 분위기 | — | 공기, 질소 |
 
-| Response | Unit | Standard |
+| 반응 | 단위 | 표준 |
 |----------|------|----------|
-| Retained tensile strength | % | ASTM D638 (before/after) |
-| Retained elongation at break | % | ASTM D638 |
-| Carbonyl index (FTIR) | — | absorbance ratio 1715 cm⁻¹ / reference peak |
-| Color change (ΔE) | — | ASTM D2244 |
-| Weight loss | % | gravimetric |
-| Tg shift | °C | DSC (ASTM D3418) |
+| 인장강도 유지율 | % | ASTM D638 (노화 전/후) |
+| 파단 연신율 유지율 | % | ASTM D638 |
+| 카보닐 지수 (FTIR) | — | 흡광도 비 1715 cm⁻¹ / 기준 피크 |
+| 색차 (ΔE) | — | ASTM D2244 |
+| 질량 감소 | % | 중량법 |
+| Tg 변화 | °C | DSC (ASTM D3418) |
 
-### Standards
+### 표준
 
-- ASTM G154 — Fluorescent UV lamp exposure
-- ASTM G155 — Xenon arc exposure
-- ASTM D3045 — Heat aging of plastics (no load)
-- ASTM D2244 — Color difference calculation
-- ISO 4892 — Plastics — Methods of exposure to laboratory light sources
+- ASTM G154 — 형광 UV 램프 노출
+- ASTM G155 — 제논 아크 노출
+- ASTM D3045 — 플라스틱의 열노화(무하중)
+- ASTM D2244 — 색차 계산
+- ISO 4892 — 플라스틱 — 실험실 광원 노출 방법
 
-## Experiment Type 4: Thermoset Cure Kinetics and Gel Point
+## 실험 유형 4: 열경화성 수지의 경화 동력학과 겔화점
 
-Optimize the curing schedule of thermoset systems (epoxy, unsaturated polyester, phenolic) by mapping cure kinetics.
+경화 동력학을 파악하여 열경화성 수지계(에폭시, 불포화 폴리에스터, 페놀)의 경화 스케줄을 최적화한다.
 
-### Factors and Responses
+### 요인과 반응
 
-| Factor | Unit | Typical Range |
+| 요인 | 단위 | 일반 범위 |
 |--------|------|---------------|
-| Hardener type | — | amine (DDS, DDM), anhydride (MNA), peroxide (BPO) |
-| Hardener stoichiometric ratio | — | 0.7–1.2 (amine/epoxy equivalents) |
-| Cure temperature (°C) | °C | 80–200 |
-| Cure time (min) | min | 30–480 |
-| Post-cure temperature (°C) | °C | 120–220 |
-| Post-cure time (h) | h | 1–8 |
+| 경화제 종류 | — | 아민 (DDS, DDM), 산무수물 (MNA), 과산화물 (BPO) |
+| 경화제 당량비 | — | 0.7–1.2 (아민/에폭시 당량) |
+| 경화 온도 (°C) | °C | 80–200 |
+| 경화 시간 (min) | min | 30–480 |
+| 후경화 온도 (°C) | °C | 120–220 |
+| 후경화 시간 (h) | h | 1–8 |
 
-| Response | Unit | Standard |
+| 반응 | 단위 | 표준 |
 |----------|------|----------|
-| Gel time | min | ASTM D2471 (gel timer) |
-| Degree of cure (DSC) | % | DSC residual enthalpy |
-| Tg (onset) | °C | DSC (ASTM D3418) |
-| Storage modulus (25°C) | MPa | DMA (ASTM D4065) |
-| Gel content | % | solvent extraction (ASTM D2765) |
-| Crosslink density | mol/m³ | swelling equilibrium (Flory–Rehner) |
+| 겔화 시간 | min | ASTM D2471 (겔 타이머) |
+| 경화도 (DSC) | % | DSC 잔류 발열량 |
+| Tg (개시점) | °C | DSC (ASTM D3418) |
+| 저장 탄성률 (25°C) | MPa | DMA (ASTM D4065) |
+| 겔 함량 | % | 용매 추출 (ASTM D2765) |
+| 가교 밀도 | mol/m³ | 팽윤 평형 (Flory–Rehner) |
 
-### Standards
+### 표준
 
-- ASTM D2471 — Gel time and peak exotherm of thermosetting resins
-- ASTM D3418 — Tg and Tm by DSC
-- ASTM D4065 — DMA measurement
-- ASTM D2765 — Gel content of crosslinked plastics
+- ASTM D2471 — 열경화성 수지의 겔화 시간과 최고 발열 온도
+- ASTM D3418 — DSC에 의한 Tg와 Tm
+- ASTM D4065 — DMA 측정
+- ASTM D2765 — 가교 플라스틱의 겔 함량
 
-## Typical Orthogonal Setup: PA6/GF Composite (L9)
+## 대표 직교배열 구성: PA6/GF 복합재 (L9)
 
-4 factors, 3 levels each, 9 runs.
+요인 4개, 각 3수준, 실험 9회.
 
-| Factor | Level 1 | Level 2 | Level 3 |
+| 요인 | 수준 1 | 수준 2 | 수준 3 |
 |--------|---------|---------|---------|
-| Glass fiber content (wt%) | 10 | 20 | 30 |
-| Melt temperature (°C) | 240 | 260 | 280 |
-| Injection speed (mm/s) | 40 | 80 | 120 |
-| Mold temperature (°C) | 40 | 80 | 120 |
+| 유리섬유 함량 (wt%) | 10 | 20 | 30 |
+| 용융 온도 (°C) | 240 | 260 | 280 |
+| 사출 속도 (mm/s) | 40 | 80 | 120 |
+| 금형 온도 (°C) | 40 | 80 | 120 |
 
-| Run | GF (wt%) | Temp (°C) | Speed (mm/s) | Mold (°C) |
+| 실험 | GF (wt%) | 온도 (°C) | 속도 (mm/s) | 금형 (°C) |
 |-----|----------|-----------|--------------|-----------|
 | 1 | 10 | 240 | 40 | 40 |
 | 2 | 10 | 260 | 80 | 80 |
@@ -149,82 +149,82 @@ Optimize the curing schedule of thermoset systems (epoxy, unsaturated polyester,
 | 8 | 30 | 260 | 40 | 120 |
 | 9 | 30 | 280 | 80 | 40 |
 
-Responses: tensile strength, impact strength, warpage, surface roughness.
+반응: 인장강도, 충격강도, 휨(뒤틀림), 표면 거칠기.
 
 ---
 
-## Experiment Type 5: Polymer Composite Formulation Optimization (RSM Template)
+## 실험 유형 5: 고분자 복합재 배합 최적화 (RSM 양식)
 
-Optimize filled polymer composite formulation using response surface methodology
-for balanced mechanical and thermal properties.
+반응표면법을 이용해 충전 고분자 복합재의 배합을 최적화하여
+기계적·열적 특성의 균형을 맞춘다.
 
-### Factors and Responses (Box-Behnken, 4 factors)
+### 요인과 반응 (박스-벤켄 설계, 요인 4개)
 
-| Factor | Unit | Low (-1) | Center (0) | High (+1) |
+| 요인 | 단위 | 하 (-1) | 중심 (0) | 상 (+1) |
 |--------|------|----------|-----------|-----------|
-| Filler content | wt% | 10 | 20 | 30 |
-| Coupling agent content | wt% | 0.5 | 1.5 | 2.5 |
-| Processing temperature | °C | 180 | 200 | 220 |
-| Screw speed | rpm | 100 | 150 | 200 |
+| 충전재 함량 | wt% | 10 | 20 | 30 |
+| 커플링제 함량 | wt% | 0.5 | 1.5 | 2.5 |
+| 가공 온도 | °C | 180 | 200 | 220 |
+| 스크루 회전수 | rpm | 100 | 150 | 200 |
 
-| Response | Unit | Standard |
+| 반응 | 단위 | 표준 |
 |----------|------|----------|
-| Tensile strength | MPa | ASTM D638 |
-| Tensile modulus | GPa | ASTM D638 |
-| Impact strength (Izod) | J/m | ASTM D256 |
-| HDT at 0.45 MPa | °C | ASTM D648 |
+| 인장강도 | MPa | ASTM D638 |
+| 인장탄성률 | GPa | ASTM D638 |
+| 충격강도 (Izod) | J/m | ASTM D256 |
+| 0.45 MPa 하중 열변형온도(HDT) | °C | ASTM D648 |
 
-### Box-Behnken Design (27 runs, 4 factors)
+### 박스-벤켄 설계 (실험 27회, 요인 4개)
 
-Use the standard 4-factor BBD matrix in `static/core/response-surface.md` with:
-A = filler content, B = coupling agent content, C = processing temperature,
-D = screw speed. The design has 24 edge-midpoint runs plus 3 center points;
-each non-center run varies exactly two factors at ±1 and holds the other two at 0.
+`static/core/response-surface.md`의 표준 4요인 BBD 행렬을 다음과 같이 사용한다.
+A = 충전재 함량, B = 커플링제 함량, C = 가공 온도, D = 스크루 회전수.
+이 설계는 모서리 중점 실험 24회와 중심점 3회로 이루어진다.
+중심점이 아닌 각 실험은 정확히 두 요인을 ±1로 바꾸고 나머지 두 요인은 0에 둔다.
 
-### Analysis Plan
+### 분석 계획
 
-1. Fit quadratic model for each response
-2. ANOVA with backward elimination
-3. Check model adequacy (R², adj-R², lack-of-fit)
-4. Response surface and contour plots for key factor pairs
-5. Multi-response optimization using desirability function
-6. Confirmation runs at predicted optimum
+1. 각 반응에 2차 모델을 적합한다
+2. 후진 소거법을 적용한 분산분석
+3. 모델 적합성 확인 (R², adj-R², 적합결여)
+4. 핵심 요인 쌍에 대한 반응표면도와 등고선도
+5. 만족도 함수를 이용한 다중 반응 최적화
+6. 예측 최적점에서 확인 실험
 
 ---
 
-## Experiment Type 6: Processing Parameter Screening (Plackett-Burman Template)
+## 실험 유형 6: 공정 변수 스크리닝 (Plackett-Burman 양식)
 
-Screen many processing and formulation factors to identify those most
-affecting final part quality. Use this BEFORE detailed optimization.
+다수의 공정·배합 요인을 선별하여 최종 부품 품질에 가장 큰 영향을
+주는 요인을 찾는다. 상세 최적화에 앞서 사용한다.
 
-### Factors (L12 Plackett-Burman, 11 factors)
+### 요인 (L12 Plackett-Burman, 요인 11개)
 
-| Factor | Unit | Low (-) | High (+) |
+| 요인 | 단위 | 하 (-) | 상 (+) |
 |--------|------|---------|----------|
-| A: Filler type | — | CaCO₃ | Glass fiber |
-| B: Filler content | wt% | 10 | 30 |
-| C: Coupling agent type | — | Stearate | Silane KH-550 |
-| D: Coupling agent content | wt% | 0.5 | 2.0 |
-| E: Melt temperature | °C | 190 | 230 |
-| F: Injection speed | mm/s | 30 | 100 |
-| G: Holding pressure | MPa | 40 | 80 |
-| H: Mold temperature | °C | 30 | 80 |
-| I: Cooling time | s | 15 | 40 |
-| J: Screw speed | rpm | 80 | 180 |
-| K: Drying time | h | 2 | 8 |
+| A: 충전재 종류 | — | CaCO₃ | 유리섬유 |
+| B: 충전재 함량 | wt% | 10 | 30 |
+| C: 커플링제 종류 | — | 스테아르산염 | 실란 KH-550 |
+| D: 커플링제 함량 | wt% | 0.5 | 2.0 |
+| E: 용융 온도 | °C | 190 | 230 |
+| F: 사출 속도 | mm/s | 30 | 100 |
+| G: 보압 | MPa | 40 | 80 |
+| H: 금형 온도 | °C | 30 | 80 |
+| I: 냉각 시간 | s | 15 | 40 |
+| J: 스크루 회전수 | rpm | 80 | 180 |
+| K: 건조 시간 | h | 2 | 8 |
 
-### Responses
+### 반응
 
-| Response | Unit | Standard |
+| 반응 | 단위 | 표준 |
 |----------|------|----------|
-| Tensile strength | MPa | ASTM D638 |
-| Impact strength | J/m | ASTM D256 |
-| Warpage | mm | CMM |
-| Surface roughness | µm | Profilometer |
+| 인장강도 | MPa | ASTM D638 |
+| 충격강도 | J/m | ASTM D256 |
+| 휨(뒤틀림) | mm | CMM |
+| 표면 거칠기 | µm | 표면조도계 |
 
-### L12 Design Matrix
+### L12 설계 행렬
 
-| Run | A | B | C | D | E | F | G | H | I | J | K |
+| 실험 | A | B | C | D | E | F | G | H | I | J | K |
 |-----|---|---|---|---|---|---|---|---|---|---|---|
 | 1 | + | + | - | + | + | + | - | - | - | + | - |
 | 2 | - | + | + | - | + | + | + | - | - | - | + |
@@ -239,69 +239,69 @@ affecting final part quality. Use this BEFORE detailed optimization.
 | 11 | + | - | + | + | + | - | - | - | + | - | + |
 | 12 | - | - | - | - | - | - | - | - | - | - | - |
 
-### Analysis Guidance
+### 분석 지침
 
-1. Calculate main effects for each response
-2. Create Pareto charts of absolute effect magnitudes
-3. Use normal probability plot or Lenth's method to identify active effects
-4. Typically 3-5 factors emerge as important
-5. Follow up with full factorial or RSM on the key subset
+1. 각 반응의 주효과를 계산한다
+2. 효과 절댓값의 파레토 차트를 그린다
+3. 정규 확률도나 Lenth 방법으로 유효 효과를 찾는다
+4. 보통 3~5개 요인이 중요 요인으로 드러난다
+5. 핵심 요인 부분집합에 대해 완전요인설계나 RSM으로 후속 실험을 한다
 
 ---
 
-## Experiment Type 7: Multi-Component Blend Mixture Design (Simplex Template)
+## 실험 유형 7: 다성분 블렌드 혼합물 설계 (심플렉스 양식)
 
-Optimize polymer blend or multicomponent composite formulation
-using statistical mixture design.
+통계적 혼합물 설계를 이용해 고분자 블렌드나 다성분 복합재의
+배합을 최적화한다.
 
-### Components (4-component simplex centroid)
+### 성분 (4성분 심플렉스 중심)
 
-| Component | Range | Typical |
+| 성분 | 범위 | 대표값 |
 |-----------|-------|---------|
-| x₁: Matrix polymer (PP/PA6/epoxy) | 60 – 90% | ~75% |
-| x₂: Elastomer/rubber toughener | 5 – 20% | ~10% |
-| x₃: Rigid filler (GF/CaCO₃) | 5 – 25% | ~15% |
-| x₄: Compatibilizer/coupling agent | 0 – 5% | ~2% |
+| x₁: 기지 고분자 (PP/PA6/에폭시) | 60 – 90% | ~75% |
+| x₂: 엘라스토머/고무 강인화제 | 5 – 20% | ~10% |
+| x₃: 강성 충전재 (GF/CaCO₃) | 5 – 25% | ~15% |
+| x₄: 상용화제/커플링제 | 0 – 5% | ~2% |
 
-**Constraint:** x₁ + x₂ + x₃ + x₄ = 100% (by total mass)
+**제약 조건:** x₁ + x₂ + x₃ + x₄ = 100% (총질량 기준)
 
-Note: With constraints, use extreme vertices design rather than standard simplex.
-Below is a standard simplex centroid for reference — adjust as needed.
+참고: 제약 조건이 있으면 표준 심플렉스 대신 극단 꼭짓점 설계를 사용한다.
+아래는 참고용 표준 심플렉스 중심 설계이며, 필요에 따라 조정한다.
 
-### Simplex Centroid Design (4 components, 15 runs)
+### 심플렉스 중심 설계 (4성분, 실험 15회)
 
-| Run | x₁ Matrix | x₂ Rubber | x₃ Filler | x₄ Compat. | Description |
+| 실험 | x₁ 기지 | x₂ 고무 | x₃ 충전재 | x₄ 상용화제 | 설명 |
 |-----|----------|-----------|-----------|------------|-------------|
-| 1 | 100% | 0% | 0% | 0% | Pure matrix |
-| 2 | 0% | 100% | 0% | 0% | Pure rubber |
-| 3 | 0% | 0% | 100% | 0% | Pure filler (reference) |
-| 4 | 0% | 0% | 0% | 100% | Pure compatibilizer (reference) |
-| 5 | 50% | 50% | 0% | 0% | Matrix-rubber binary |
-| 6 | 50% | 0% | 50% | 0% | Matrix-filler binary |
-| 7 | 50% | 0% | 0% | 50% | Matrix-compatibilizer binary |
-| 8 | 0% | 50% | 50% | 0% | Rubber-filler binary |
-| 9 | 0% | 50% | 0% | 50% | Rubber-compatibilizer binary |
-| 10 | 0% | 0% | 50% | 50% | Filler-compatibilizer binary |
-| 11 | 33.3% | 33.3% | 33.3% | 0% | Ternary 1-2-3 |
-| 12 | 33.3% | 33.3% | 0% | 33.3% | Ternary 1-2-4 |
-| 13 | 33.3% | 0% | 33.3% | 33.3% | Ternary 1-3-4 |
-| 14 | 0% | 33.3% | 33.3% | 33.3% | Ternary 2-3-4 |
-| 15 | 25% | 25% | 25% | 25% | Overall centroid |
+| 1 | 100% | 0% | 0% | 0% | 순수 기지 |
+| 2 | 0% | 100% | 0% | 0% | 순수 고무 |
+| 3 | 0% | 0% | 100% | 0% | 순수 충전재 (참고용) |
+| 4 | 0% | 0% | 0% | 100% | 순수 상용화제 (참고용) |
+| 5 | 50% | 50% | 0% | 0% | 기지-고무 2성분 |
+| 6 | 50% | 0% | 50% | 0% | 기지-충전재 2성분 |
+| 7 | 50% | 0% | 0% | 50% | 기지-상용화제 2성분 |
+| 8 | 0% | 50% | 50% | 0% | 고무-충전재 2성분 |
+| 9 | 0% | 50% | 0% | 50% | 고무-상용화제 2성분 |
+| 10 | 0% | 0% | 50% | 50% | 충전재-상용화제 2성분 |
+| 11 | 33.3% | 33.3% | 33.3% | 0% | 3성분 1-2-3 |
+| 12 | 33.3% | 33.3% | 0% | 33.3% | 3성분 1-2-4 |
+| 13 | 33.3% | 0% | 33.3% | 33.3% | 3성분 1-3-4 |
+| 14 | 0% | 33.3% | 33.3% | 33.3% | 3성분 2-3-4 |
+| 15 | 25% | 25% | 25% | 25% | 전체 중심점 |
 
-### Responses
+### 반응
 
-| Response | Unit | Standard |
+| 반응 | 단위 | 표준 |
 |----------|------|----------|
-| Tensile strength | MPa | ASTM D638 |
-| Elongation at break | % | ASTM D638 |
-| Impact strength | J/m | ASTM D256 |
-| HDT | °C | ASTM D648 |
-| Melt flow index | g/10min | ASTM D1238 |
+| 인장강도 | MPa | ASTM D638 |
+| 파단 연신율 | % | ASTM D638 |
+| 충격강도 | J/m | ASTM D256 |
+| 열변형온도(HDT) | °C | ASTM D648 |
+| 용융지수 | g/10min | ASTM D1238 |
 
-### Analysis Plan
+### 분석 계획
 
-1. Fit quadratic mixture model (special cubic if ternary points available)
-2. ANOVA for significance of component effects
-3. Ternary contour plots for key combinations (hold one component constant)
-4. Multi-response optimization using desirability function
-5. Confirmation at optimal blend composition
+1. 2차 혼합물 모델을 적합한다 (3성분 점이 있으면 특수 3차 모델)
+2. 성분 효과의 유의성에 대한 분산분석
+3. 핵심 조합에 대한 삼각 등고선도 (한 성분을 고정)
+4. 만족도 함수를 이용한 다중 반응 최적화
+5. 최적 블렌드 조성에서 확인 실험

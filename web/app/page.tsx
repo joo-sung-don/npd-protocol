@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { loadProducts, processSteps, PROTOCOLS_DIR } from "@/lib/protocols";
 import { Chip, ProcessTrack, ReviewBar } from "@/components/ui";
+import { JUDGE, VerdictChip } from "@/components/ReportView";
+import type { Judge } from "@/lib/protocols";
 
 export const dynamic = "force-dynamic";
 
@@ -51,6 +53,25 @@ export default function Home() {
                   <h2 className="text-lg font-bold text-slate-900 group-hover:underline">{v.title}</h2>
                   {v.header["문서번호"] && <p className="mt-0.5 text-xs text-slate-500">{v.header["문서번호"]}</p>}
                 </div>
+                {v.report ? (
+                  <div className="space-y-2 rounded-xl bg-slate-50 p-3">
+                    <div className="flex flex-wrap items-center gap-1.5">
+                      <span className="text-xs font-semibold text-slate-500">보고서 결론</span>
+                      <VerdictChip verdict={v.report.verdict} />
+                    </div>
+                    <div className="flex flex-wrap gap-1">
+                      {(Object.keys(JUDGE) as Judge[])
+                        .filter((k) => v.report!.counts[k])
+                        .map((k) => (
+                          <span key={k} className={`rounded-full px-2 py-0.5 text-[11px] font-bold ${JUDGE[k].cls}`}>
+                            {JUDGE[k].label} {v.report!.counts[k]}
+                          </span>
+                        ))}
+                    </div>
+                  </div>
+                ) : (
+                  <p className="rounded-xl bg-slate-50 p-3 text-xs text-slate-500">개발 계획 보고서 없음</p>
+                )}
                 <dl className="grid grid-cols-4 gap-2 text-center">
                   {[
                     ["고위험 FM", `${mx.fmHigh}/${mx.fmTotal}`, ""],

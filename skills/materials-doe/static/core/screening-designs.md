@@ -1,55 +1,55 @@
-# Screening Designs
+# 스크리닝 설계
 
-Factor screening designs for identifying important factors from many candidates.
-Use when you have 5+ factors and want to efficiently find the few that matter most.
+후보 요인이 많을 때 중요한 요인을 가려내기 위한 요인 스크리닝 설계이다.
+요인이 5개 이상이고, 영향이 큰 소수 요인을 효율적으로 찾고자 할 때 사용한다.
 
-## Overview
+## 개요
 
-Screening designs are used in early experimentation to separate the "vital few"
-factors from the "trivial many". They trade off the ability to estimate
-interactions for efficiency in estimating main effects.
+스크리닝 설계는 실험 초기 단계에서 "핵심 소수" 요인을 "사소한 다수" 요인과
+분리하는 데 쓴다. 교호작용 추정 능력을 포기하는 대신 주효과를 효율적으로
+추정한다.
 
-### When to use screening designs
+### 스크리닝 설계를 쓰는 경우
 
-- You have many candidate factors (typically 5-20+)
-- You're not sure which factors actually affect the response
-- You want to reduce the factor space before more detailed study
-- Experiment budget is limited
+- 후보 요인이 많다(보통 5~20개 이상)
+- 어떤 요인이 실제로 반응에 영향을 주는지 확실하지 않다
+- 상세 연구에 앞서 요인 공간을 줄이고자 한다
+- 실험 예산이 제한적이다
 
-### When NOT to use screening designs
+### 스크리닝 설계를 쓰지 않는 경우
 
-- You already know which factors are important (use factorial or RSM instead)
-- You need to estimate interaction effects precisely
-- You have very few factors (≤4)
+- 중요한 요인을 이미 알고 있다(이 경우 요인설계나 RSM을 쓴다)
+- 교호작용 효과를 정밀하게 추정해야 한다
+- 요인 수가 매우 적다(≤4)
 
-### Screening strategy
+### 스크리닝 전략
 
 ```
-Many factors → Screening (PB/2^(k-p)) → Few key factors → Full factorial/RSM → Optimization
+다수 요인 → 스크리닝 (PB/2^(k-p)) → 소수 핵심 요인 → 완전요인설계/RSM → 최적화
 ```
 
 ---
 
-## Plackett-Burman Designs
+## 플래킷-버만 설계 (Plackett-Burman)
 
-### Principle
+### 원리
 
-Plackett-Burman (PB) designs are two-level screening designs with:
-- N runs (N is a multiple of 4: 12, 20, 24, 28, ...)
-- Can estimate up to N-1 factor main effects
-- Main effects are confounded with two-factor interactions
-- Very efficient for factor screening
+플래킷-버만(PB) 설계는 다음 특성을 갖는 2수준 스크리닝 설계이다.
+- 실험 수 N(N은 4의 배수: 12, 20, 24, 28, ...)
+- 최대 N-1개 요인의 주효과를 추정할 수 있다
+- 주효과가 2요인 교호작용과 교락된다
+- 요인 스크리닝에 매우 효율적이다
 
-### Key properties
+### 주요 특성
 
-- All main effects are uncorrelated with each other (orthogonal)
-- Main effects are partially confounded with two-factor interactions
-- Use when interactions are believed to be small relative to main effects
-- "Effect sparsity" principle: only a few factors are active
+- 모든 주효과는 서로 상관이 없다(직교)
+- 주효과는 2요인 교호작용과 부분적으로 교락된다
+- 교호작용이 주효과에 비해 작다고 판단될 때 사용한다
+- "효과 희소성(effect sparsity)" 원칙: 활성 요인은 소수에 불과하다
 
-### L12 Plackett-Burman (up to 11 factors)
+### L12 플래킷-버만 설계 (최대 11개 요인)
 
-| Run | A | B | C | D | E | F | G | H | I | J | K |
+| 실험 | A | B | C | D | E | F | G | H | I | J | K |
 |-----|---|---|---|---|---|---|---|---|---|---|---|
 | 1 | + | + | - | + | + | + | - | - | - | + | - |
 | 2 | - | + | + | - | + | + | + | - | - | - | + |
@@ -64,12 +64,12 @@ Plackett-Burman (PB) designs are two-level screening designs with:
 | 11 | + | - | + | + | + | - | - | - | + | - | + |
 | 12 | - | - | - | - | - | - | - | - | - | - | - |
 
-Note: Run 12 is all minus (baseline). Some versions use all plus as the last run,
-or alternate. This version is the standard Hadamard-matrix construction.
+참고: 12번 실험은 모두 마이너스(기준선)이다. 일부 버전은 마지막 실험을 모두 플러스로
+두거나 번갈아 배치한다. 이 버전은 표준 아다마르(Hadamard) 행렬 구성이다.
 
-### L20 Plackett-Burman (up to 19 factors)
+### L20 플래킷-버만 설계 (최대 19개 요인)
 
-| Run | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S |
+| 실험 | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S |
 |-----|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | 1 | + | + | - | - | + | + | + | + | - | + | - | + | - | + | + | - | - | - | + |
 | 2 | + | + | + | - | - | + | + | + | + | - | + | - | + | - | + | + | - | - | - |
@@ -92,9 +92,9 @@ or alternate. This version is the standard Hadamard-matrix construction.
 | 19 | + | - | - | + | + | + | + | - | + | - | + | - | + | + | + | - | - | + | + |
 | 20 | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - |
 
-### Choosing the right PB design
+### 적합한 PB 설계 고르기
 
-| Design | Max factors | Runs |
+| 설계 | 최대 요인 수 | 실험 수 |
 |--------|------------|------|
 | L8 | 7 | 8 |
 | L12 | 11 | 12 |
@@ -102,80 +102,80 @@ or alternate. This version is the standard Hadamard-matrix construction.
 | L20 | 19 | 20 |
 | L24 | 23 | 24 |
 
-**Recommendation:** Use the smallest design that accommodates your factors.
-L12 is the most commonly used (good balance of runs and factor capacity).
+**권장:** 요인을 모두 수용할 수 있는 가장 작은 설계를 쓴다.
+L12가 가장 널리 쓰인다(실험 수와 요인 수용력의 균형이 좋다).
 
-### Analysis methods for PB designs
+### PB 설계의 분석 방법
 
-1. **Main effect estimate**: (Avg response at + level) − (Avg response at − level)
+1. **주효과 추정**: (+ 수준에서의 평균 반응) − (− 수준에서의 평균 반응)
 
-2. **Pareto chart**: Bar chart of effect magnitudes, sorted from largest to smallest.
-   Helps visually identify which factors are most important.
+2. **파레토 차트**: 효과 크기를 큰 순서로 정렬한 막대그래프이다.
+   어떤 요인이 가장 중요한지 시각적으로 파악하는 데 도움이 된다.
 
-3. **Normal probability plot**: Plot effects on normal probability paper.
-   Unimportant effects fall on a straight line; important effects stand out.
+3. **정규 확률도**: 효과를 정규 확률지에 도시한다.
+   중요하지 않은 효과는 직선 위에 놓이고, 중요한 효과는 직선에서 벗어난다.
 
-4. **Half-normal plot**: Absolute effect values on probability paper.
-   Similar to normal plot but all on one side.
+4. **반정규 확률도**: 효과의 절댓값을 확률지에 도시한다.
+   정규 확률도와 비슷하지만 모든 점이 한쪽에 놓인다.
 
-5. **Lenth's method**: Statistical test for active effects without replication.
-   Uses a pseudo-standard-error from the smallest effects.
+5. **Lenth 방법**: 반복 없이 활성 효과를 판정하는 통계적 검정이다.
+   가장 작은 효과들로부터 유사 표준오차(pseudo-standard-error)를 구해 쓴다.
 
-### Practical guidance
+### 실무 지침
 
-- Start with the smallest design that fits your factors
-- Usually 2-4 factors emerge as "active" from a PB study
-- Follow up with a full factorial or RSM on the key factors
-- Be aware that a "significant" factor might actually be an interaction
-  that is aliased with that factor's main effect
+- 요인을 수용할 수 있는 가장 작은 설계로 시작한다
+- PB 실험에서는 보통 2~4개 요인이 "활성"으로 나타난다
+- 핵심 요인에 대해 완전요인설계나 RSM으로 후속 실험을 한다
+- "유의한" 요인이 실제로는 그 요인의 주효과와 교락된 교호작용일 수 있음에
+  유의한다
 
 ---
 
-## Fractional Factorial Designs (2^(k-p))
+## 부분요인설계 (2^(k-p))
 
-### Principle
+### 원리
 
-A fractional factorial design uses a subset (fraction) of the full 2^k factorial runs.
-The fraction is 1/2^p of the full factorial.
+부분요인설계는 2^k 완전요인설계 실험의 일부(부분)만 사용한다.
+그 부분은 완전요인설계의 1/2^p이다.
 
-Notation: 2^(k-p)
-- k = number of factors
-- p = fraction exponent (1 = 1/2 fraction, 2 = 1/4 fraction, etc.)
-- Total runs = 2^(k-p)
+표기: 2^(k-p)
+- k = 요인 수
+- p = 부분 지수(1 = 1/2 부분, 2 = 1/4 부분 등)
+- 총 실험 수 = 2^(k-p)
 
-### Resolution
+### 분해능
 
-The resolution describes how effects are confounded:
+분해능은 효과들이 어떻게 교락되는지를 나타낸다.
 
-| Resolution | Meaning | Example |
+| 분해능 | 의미 | 예 |
 |------------|---------|---------|
-| **III** | Main effects confounded with 2FI | 2^(3-1) (R=III if I=ABC) |
-| **IV** | Main effects clear of 2FI; 2FI confounded with other 2FI | 2^(4-1) (R=IV) |
-| **V** | Main effects and 2FI clear of each other; 2FI confounded with 3FI | 2^(5-1) (R=V) |
+| **III** | 주효과가 2FI와 교락 | 2^(3-1) (I=ABC이면 R=III) |
+| **IV** | 주효과는 2FI와 교락되지 않음; 2FI끼리 교락 | 2^(4-1) (R=IV) |
+| **V** | 주효과와 2FI가 서로 교락되지 않음; 2FI는 3FI와 교락 | 2^(5-1) (R=V) |
 
-**Higher resolution is better but requires more runs.**
+**분해능이 높을수록 좋지만 실험 수가 더 많이 필요하다.**
 
-### 2^(3-1) Design (Resolution III, 4 runs)
+### 2^(3-1) 설계 (분해능 III, 실험 4회)
 
-Generator: C = AB (or I = ABC)
+생성자: C = AB (또는 I = ABC)
 
-| Run | A | B | C = AB |
+| 실험 | A | B | C = AB |
 |-----|---|---|--------|
 | 1 | - | - | + |
 | 2 | + | - | - |
 | 3 | - | + | - |
 | 4 | + | + | + |
 
-Alias structure:
+교락 구조:
 - A = BC
 - B = AC
 - C = AB
 
-### 2^(4-1) Design (Resolution IV, 8 runs)
+### 2^(4-1) 설계 (분해능 IV, 실험 8회)
 
-Generator: D = ABC (or I = ABCD)
+생성자: D = ABC (또는 I = ABCD)
 
-| Run | A | B | C | D = ABC |
+| 실험 | A | B | C | D = ABC |
 |-----|---|---|---|---------|
 | 1 | - | - | - | - |
 | 2 | + | - | - | + |
@@ -186,16 +186,16 @@ Generator: D = ABC (or I = ABCD)
 | 7 | - | + | + | - |
 | 8 | + | + | + | + |
 
-Alias structure:
-- All main effects are clear of 2FIs
-- 2FIs are confounded with each other:
+교락 구조:
+- 모든 주효과는 2FI와 교락되지 않는다
+- 2FI끼리는 서로 교락된다:
   - AB = CD, AC = BD, AD = BC
 
-### 2^(5-1) Design (Resolution V, 16 runs)
+### 2^(5-1) 설계 (분해능 V, 실험 16회)
 
-Generator: E = ABCD (or I = ABCDE)
+생성자: E = ABCD (또는 I = ABCDE)
 
-| Run | A | B | C | D | E = ABCD |
+| 실험 | A | B | C | D | E = ABCD |
 |-----|---|---|---|---|----------|
 | 1 | - | - | - | - | + |
 | 2 | + | - | - | - | - |
@@ -214,15 +214,15 @@ Generator: E = ABCD (or I = ABCDE)
 | 15 | - | + | + | + | - |
 | 16 | + | + | + | + | + |
 
-Alias structure:
-- All main effects and 2FIs are estimable
-- 2FIs are confounded with 3FIs (which are usually small)
+교락 구조:
+- 모든 주효과와 2FI를 추정할 수 있다
+- 2FI는 3FI(대개 작다)와 교락된다
 
-### 2^(5-2) Design (Resolution III, 8 runs)
+### 2^(5-2) 설계 (분해능 III, 실험 8회)
 
-Generators: D = AB, E = AC (or I = ABD = ACE = BCDE)
+생성자: D = AB, E = AC (또는 I = ABD = ACE = BCDE)
 
-| Run | A | B | C | D = AB | E = AC |
+| 실험 | A | B | C | D = AB | E = AC |
 |-----|---|---|---|--------|--------|
 | 1 | - | - | - | + | + |
 | 2 | + | - | - | - | - |
@@ -233,71 +233,71 @@ Generators: D = AB, E = AC (or I = ABD = ACE = BCDE)
 | 7 | - | + | + | - | - |
 | 8 | + | + | + | + | + |
 
-### When to use fractional factorial vs Plackett-Burman
+### 부분요인설계와 플래킷-버만 설계의 선택 기준
 
-| Criterion | Fractional Factorial | Plackett-Burman |
+| 기준 | 부분요인설계 | 플래킷-버만 설계 |
 |-----------|---------------------|-----------------|
-| Factor count | 2-10 | 7-23 |
-| Runs | 2^(k-p) (power of 2) | Multiple of 4 |
-| Resolution | Known and controlled | Complex aliasing |
-| Alias structure | Simple, systematic | Partial confounding |
-| Follow-up | Easy to augment to full factorial | Need completely new design |
-| Best for | Small-moderate factor count | Large factor count, initial screen |
+| 요인 수 | 2-10 | 7-23 |
+| 실험 수 | 2^(k-p) (2의 거듭제곱) | 4의 배수 |
+| 분해능 | 알려져 있고 통제 가능 | 복잡한 교락 |
+| 교락 구조 | 단순하고 체계적 | 부분 교락 |
+| 후속 실험 | 완전요인설계로 쉽게 확장 | 완전히 새로운 설계 필요 |
+| 적합 대상 | 소~중간 규모 요인 수 | 많은 요인 수, 초기 스크리닝 |
 
 ---
 
-## Fold-Over Designs
+## 폴드오버 설계 (Fold-Over)
 
-### Principle
+### 원리
 
-Fold-over is a technique to de-alias (separate) confounded effects by adding
-a second fraction with signs reversed on one or more factors.
+폴드오버는 하나 이상의 요인 부호를 뒤집은 두 번째 부분 실험을 추가해
+교락된 효과를 분리(교락 해소)하는 기법이다.
 
-### Full fold-over (reverse all signs)
+### 완전 폴드오버 (모든 부호 반전)
 
-- Doubles the number of runs
-- Separates main effects from two-factor interactions
-- Example: 2^(3-1) full fold-over → becomes 2^3 full factorial
+- 실험 수가 두 배가 된다
+- 주효과를 2요인 교호작용과 분리한다
+- 예: 2^(3-1) 완전 폴드오버 → 2^3 완전요인설계가 된다
 
-### Single-factor fold-over
+### 단일 요인 폴드오버
 
-- Reverse signs of ONE factor only
-- De-aliases that factor's main effect and all its interactions
-- Useful when only one factor is suspected of having large interactions
-
----
-
-## Sequential Screening Strategy
-
-**Recommended workflow:**
-
-1. **Phase 1: PB screening** (many factors → few key factors)
-   - Run L12 or L20 PB design
-   - Identify 2-4 most important factors
-   - Drop the rest
-
-2. **Phase 2: Full factorial or fractional factorial** (characterize key factors)
-   - Run full 2^k factorial on the key factors (k = 2-4)
-   - Estimate all main effects and 2FIs
-   - Check for curvature via center points
-
-3. **Phase 3: RSM** (optimize)
-   - If curvature is significant → augment to CCD or run BBD
-   - Fit quadratic model
-   - Find optimal conditions
-
-4. **Phase 4: Confirmation**
-   - Run 3-5 replicates at predicted optimum
-   - Verify predictions
+- 요인 하나의 부호만 뒤집는다
+- 그 요인의 주효과와 그 요인이 관련된 모든 교호작용의 교락을 해소한다
+- 한 요인만 큰 교호작용을 가질 것으로 의심될 때 유용하다
 
 ---
 
-## Best Practices
+## 순차적 스크리닝 전략
 
-1. **Use screening liberally** — it's almost always cheaper than over-testing unimportant factors
-2. **Don't skip screening** when you have 5+ factors — the probability of picking the right factors by intuition is low
-3. **Randomize** run order
-4. **Include center points** if budget allows (for curvature check)
-5. **Don't overinterpret** screening results — follow up with more detailed designs
-6. **Use effect sparsity** principle: expect only ~20% of factors to be important
-7. **Be aware of aliasing** — a "significant factor" might be masking an interaction
+**권장 작업 흐름:**
+
+1. **1단계: PB 스크리닝** (다수 요인 → 소수 핵심 요인)
+   - L12 또는 L20 PB 설계를 실행한다
+   - 가장 중요한 요인 2~4개를 찾는다
+   - 나머지는 제외한다
+
+2. **2단계: 완전요인설계 또는 부분요인설계** (핵심 요인 특성 파악)
+   - 핵심 요인(k = 2~4)에 대해 2^k 완전요인설계를 실행한다
+   - 모든 주효과와 2FI를 추정한다
+   - 중심점으로 곡률을 확인한다
+
+3. **3단계: RSM** (최적화)
+   - 곡률이 유의하면 → CCD로 확장하거나 BBD를 실행한다
+   - 2차 모델을 적합한다
+   - 최적 조건을 찾는다
+
+4. **4단계: 확인 실험**
+   - 예측된 최적점에서 3~5회 반복 실험한다
+   - 예측을 검증한다
+
+---
+
+## 모범 사례
+
+1. **스크리닝을 적극적으로 활용한다** — 중요하지 않은 요인을 과도하게 시험하는 것보다 거의 항상 저렴하다
+2. 요인이 5개 이상이면 **스크리닝을 건너뛰지 않는다** — 직관으로 올바른 요인을 고를 확률은 낮다
+3. 실험 순서를 **랜덤화**한다
+4. 예산이 허락하면 **중심점을 포함**한다(곡률 확인용)
+5. 스크리닝 결과를 **과잉 해석하지 않는다** — 더 상세한 설계로 후속 실험을 한다
+6. **효과 희소성** 원칙을 활용한다: 요인의 약 20%만 중요할 것으로 예상한다
+7. **교락에 유의한다** — "유의한 요인"이 교호작용을 가리고 있을 수 있다

@@ -1,10 +1,10 @@
 ---
 name: action-priority-ap
 description: >-
-  Assign AP table ratings (H-AP, M-AP, L-AP) in PFMEA or DFMEA — the RPN replacement from
-  AIAG-VDA FMEA Handbook 2019. Explains H/M/L classification logic, mandatory action
-  requirements for High Priority items, and OEM-specific thresholds. Use when assigning risk
-  levels in PFMEA or DFMEA, or auditing FMEA documents for AP compliance.
+  PFMEA 또는 DFMEA에서 AP 표 평점(H-AP, M-AP, L-AP)을 부여한다 — AIAG-VDA FMEA Handbook 2019의
+  RPN 대체 방식이다. H/M/L 분류 로직, High Priority 항목의 필수 조치 요구사항, OEM별 기준을
+  설명한다. PFMEA 또는 DFMEA에서 리스크 수준을 부여하거나, FMEA 문서의 AP 준수 여부를 감사할 때
+  사용한다. Triggers: AP 판정, 조치 우선순위, RPN 대체, Action Priority, AP 감사.
 license: MIT
 metadata:
   author: RBraga01
@@ -22,127 +22,127 @@ metadata:
   standard_edition: "AIAG-VDA FMEA Handbook 2019"
 ---
 
-# Action Priority (AP) — AIAG-VDA 2019
+# 조치 우선순위(Action Priority, AP) — AIAG-VDA 2019
 
-## Goal
+## 목표
 
-Assign and audit Action Priority (AP) ratings correctly using the AIAG-VDA 2019 method, ensuring high-risk items receive justified action or formal risk acceptance. This skill is used when classifying risk levels in PFMEA or DFMEA, reviewing existing ratings, or auditing FMEA documents for AP compliance.
-
----
-
-## Required AP Review Checklist
-
-☐ Confirm the linked Failure Effect, Failure Mode, and Failure Cause are correct before assigning AP
-☐ Confirm S is based on the Failure Effect (severity to the customer or end user)
-☐ Confirm O is based on the Failure Cause with current prevention controls in place
-☐ Confirm D is based on current detection controls for this Failure Mode
-☐ All S, O, and D ratings are supported by data, field history, capability data, or documented engineering judgement — not guesses
-☐ Assign AP using the full AP determination rules (see [ap-table.md](../pfmea-process/assets/ap-table.md)) — not only the summary patterns in this skill
-☐ For formal PPAP submissions, customer-facing FMEAs, or any disputed rating, confirm against your licensed AIAG-VDA FMEA Handbook — the rating criteria that make an S, O or D value defensible are in the handbook, not in this skill
-☐ For every H-AP item: define a corrective action with owner and target date, or document a formal escalation rationale
-☐ Reassess AP only after the corrective action is implemented and verified — not when only planned
-☐ Verify Special Characteristics are rated S = 9 or 10
-☐ Document the evaluation decision for every M-AP item (action taken or rationale for no action)
-☐ Document rationale for every L-AP item
+AIAG-VDA 2019 방법으로 조치 우선순위(AP) 평점을 올바르게 부여·감사하여, 고위험 항목이 근거 있는 조치 또는 공식적인 리스크 수용을 받도록 한다. 이 스킬은 PFMEA 또는 DFMEA에서 리스크 수준을 분류하거나, 기존 평점을 검토하거나, FMEA 문서의 AP 준수 여부를 감사할 때 사용한다.
 
 ---
 
-## Why AP replaces RPN
+## 필수 AP 검토 체크리스트
 
-The legacy **RPN = Severity × Occurrence × Detection** had critical flaws:
+☐ AP 부여 전, 연결된 고장영향, 고장모드, 고장원인이 올바른지 확인
+☐ S가 고장영향(고객 또는 최종 사용자에 대한 심각도)에 근거하는지 확인
+☐ O가 현행 예방 관리(prevention control)가 적용된 상태의 고장원인에 근거하는지 확인
+☐ D가 해당 고장모드에 대한 현행 검출 관리(detection control)에 근거하는지 확인
+☐ 모든 S, O, D 평점이 추측이 아닌 데이터, 필드 이력, 공정 능력 데이터 또는 문서화된 엔지니어링 판단으로 뒷받침됨
+☐ 이 스킬의 요약 패턴만이 아니라 전체 AP 판정 규칙([ap-table.md](../pfmea-process/assets/ap-table.md) 참조)으로 AP 부여
+☐ 공식 PPAP 제출, 고객 대상 FMEA, 또는 이견이 있는 평점은 라이선스를 보유한 AIAG-VDA FMEA Handbook으로 확인 — S, O, D 값을 방어 가능하게 하는 평가 기준은 이 스킬이 아니라 핸드북에 있다
+☐ 모든 H-AP 항목: 담당자와 목표 일자가 있는 시정 조치를 정의하거나, 공식 상향 보고 근거를 문서화
+☐ AP 재평가는 시정 조치가 계획되었을 때가 아니라 실행·검증된 후에만 수행
+☐ 특별특성(Special Characteristics)이 S = 9 또는 10으로 평가되었는지 확인
+☐ 모든 M-AP 항목에 대한 평가 결정(조치 내용 또는 미조치 근거)을 문서화
+☐ 모든 L-AP 항목에 대한 근거를 문서화
 
-**Problem 1 — Same RPN, very different risk**
+---
+
+## AP가 RPN을 대체하는 이유
+
+기존 **RPN = Severity × Occurrence × Detection** 방식에는 치명적 결함이 있었다.
+
+**문제 1 — 같은 RPN, 전혀 다른 리스크**
 - S=6, O=6, D=6 → RPN = 216
 - S=9, O=8, D=3 → RPN = 216
-The second scenario involves a safety-related severity (S=9) and high occurrence — far more dangerous — yet produces the same RPN.
+두 번째 시나리오는 안전 관련 심각도(S=9)와 높은 발생도를 포함하여 훨씬 위험하지만, 같은 RPN이 산출된다.
 
-**Problem 2 — Easy to game**
-Teams learned to lower RPN cheaply by improving detection (adding an inspection step). D: 8→3 drops RPN by 62.5%. But the defect is still being made — it's just being caught later. Prevention (reducing occurrence) is harder but far more valuable.
+**문제 2 — 조작이 쉬움**
+팀들은 검출을 개선(검사 공정 추가)하는 방식으로 RPN을 손쉽게 낮추는 법을 익혔다. D를 8→3으로 낮추면 RPN이 62.5% 감소한다. 그러나 결함은 여전히 만들어지고 있으며, 단지 나중에 걸러질 뿐이다. 예방(발생도 감소)은 더 어렵지만 훨씬 가치 있다.
 
-**Problem 3 — No mandatory threshold**
-RPN had no defined threshold for mandatory action. "High RPN" meant different things to different teams and customers.
+**문제 3 — 필수 기준 없음**
+RPN에는 필수 조치에 대한 정의된 기준이 없었다. "높은 RPN"의 의미가 팀과 고객마다 달랐다.
 
-**The AP fix:**
-- S=9 or S=10 → **always H** (mandatory action), regardless of O and D
-- AP looks at S and O together first (risk of harm occurring), then considers D
-- Requires documented action or documented rationale for no action
+**AP의 해결책:**
+- S=9 또는 S=10 → O와 D에 관계없이 **항상 H** (필수 조치)
+- AP는 S와 O를 먼저 함께 본 뒤(위해 발생 리스크), D를 고려한다
+- 문서화된 조치 또는 미조치에 대한 문서화된 근거를 요구한다
 
 ---
 
-## AP Classification
+## AP 분류
 
-### H — High Priority
+### H — 높은 우선순위(High Priority)
 
-**Action required.** Assign a responsible person and a target completion date.
+**조치 필수.** 책임자와 목표 완료 일자를 지정한다.
 
-If no improvement is achievable (technically or economically), the team must:
-1. Document why no action is possible
-2. Escalate to management for acceptance of residual risk
-3. Get management sign-off
+개선이 (기술적 또는 경제적으로) 불가능하면 팀은 다음을 수행해야 한다.
+1. 조치가 불가능한 이유를 문서화한다
+2. 잔여 리스크 수용을 위해 경영진에게 상향 보고한다
+3. 경영진 승인 서명을 받는다
 
-H-AP items must never be silently ignored.
+H-AP 항목은 절대 묵시적으로 무시되어서는 안 된다.
 
-**Conditions that always produce H:**
-- S = 9 or 10 (any O, any D)
+**항상 H가 되는 조건:**
+- S = 9 또는 10 (모든 O, 모든 D)
 - S = 8 + O = 6–10 + D = 6–10
 
-### M — Medium Priority
+### M — 중간 우선순위(Medium Priority)
 
-**Action recommended.** The team should evaluate whether risk reduction is beneficial.
+**조치 권장.** 팀은 리스크 저감이 유익한지 평가해야 한다.
 
-M-AP does not mean "no action needed." It means action is not mandatory, but the team must document its evaluation decision:
-- Action taken → describe the action
-- No action → document why (risk accepted, cost-prohibitive, technically infeasible)
+M-AP는 "조치 불필요"를 의미하지 않는다. 조치가 필수는 아니지만, 팀은 평가 결정을 문서화해야 한다.
+- 조치함 → 조치 내용을 기술한다
+- 조치 안 함 → 그 이유를 문서화한다 (리스크 수용, 비용 과다, 기술적 불가)
 
-### L — Low Priority
+### L — 낮은 우선순위(Low Priority)
 
-**No action required.** Document rationale for the record.
-
----
-
-## AP Assessment Workflow
-
-> This skill explains AP logic and decision patterns. Use the full AP determination rules ([ap-table.md](../pfmea-process/assets/ap-table.md)) for final rating assignment. Do not rely solely on the summary patterns below for disputed cases or formal PPAP submissions — those require the rating criteria in your licensed AIAG-VDA FMEA Handbook.
-
-**Before assigning AP:** Do not assign AP unless S, O, and D are already justified based on the linked failure effect, failure cause, and current controls. AP is only as good as the ratings it is built on.
-
-For each FC (Failure Cause) row in the PFMEA/DFMEA:
-
-```
-1. Assign S (for the linked Failure Effect)
-2. Is S = 9 or 10?
-   → Yes: AP = H. Done.
-   → No: continue
-
-3. Assign O (for this Failure Cause with current prevention controls)
-4. Assign D (for this Failure Mode with current detection controls)
-5. Look up AP in the full table (see ../pfmea-process/assets/ap-table.md)
-```
-
-**All S, O, and D ratings must be supported by test data, field history, capability data, or documented engineering judgement.**
+**조치 불필요.** 기록을 위해 근거를 문서화한다.
 
 ---
 
-## Action priority by S bracket
+## AP 평가 워크플로
 
-> The patterns below are practical summaries for working use. Final AP assignment must always be confirmed against the full AIAG-VDA AP table. For disputed cases or audits, the full table takes precedence.
+> 이 스킬은 AP 로직과 판정 패턴을 설명한다. 최종 평점 부여에는 전체 AP 판정 규칙([ap-table.md](../pfmea-process/assets/ap-table.md))을 사용한다. 이견이 있는 사례나 공식 PPAP 제출 시에는 아래 요약 패턴에만 의존하지 않는다 — 이들은 라이선스를 보유한 AIAG-VDA FMEA Handbook의 평가 기준이 필요하다.
 
-### S = 9–10 (Safety / Regulatory)
+**AP 부여 전:** 연결된 고장영향, 고장원인, 현행 관리를 근거로 S, O, D가 이미 정당화되지 않았다면 AP를 부여하지 않는다. AP는 그 기반이 되는 평점만큼만 신뢰할 수 있다.
+
+PFMEA/DFMEA의 각 FC(고장원인) 행에 대해:
+
+```
+1. S 부여 (연결된 고장영향 기준)
+2. S = 9 또는 10인가?
+   → 예: AP = H. 종료.
+   → 아니오: 계속
+
+3. O 부여 (현행 예방 관리가 적용된 이 고장원인 기준)
+4. D 부여 (현행 검출 관리가 적용된 이 고장모드 기준)
+5. 전체 표에서 AP 조회 (../pfmea-process/assets/ap-table.md 참조)
+```
+
+**모든 S, O, D 평점은 시험 데이터, 필드 이력, 공정 능력 데이터 또는 문서화된 엔지니어링 판단으로 뒷받침되어야 한다.**
+
+---
+
+## S 구간별 조치 우선순위
+
+> 아래 패턴은 실무용 요약이다. 최종 AP 부여는 항상 전체 AIAG-VDA AP 표로 확인해야 한다. 이견이 있는 사례나 감사에서는 전체 표가 우선한다.
+
+### S = 9–10 (안전 / 법규)
 
 | O | D | AP |
 |---|---|----|
-| Any | Any | **H** |
+| 모두 | 모두 | **H** |
 
-### S = 8 (Loss of primary function)
+### S = 8 (주기능 상실)
 
 | O | D | AP |
 |---|---|----|
-| 6–10 | Any | **H** |
+| 6–10 | 모두 | **H** |
 | 4–5 | 6–10 | **H** |
 | 4–5 | 1–5 | **M** |
-| 1–3 | Any | **M** |
+| 1–3 | 모두 | **M** |
 
-### S = 7 (Reduced primary function)
+### S = 7 (주기능 저하)
 
 | O | D | AP |
 |---|---|----|
@@ -152,9 +152,9 @@ For each FC (Failure Cause) row in the PFMEA/DFMEA:
 | 4–5 | 7–10 | **M** |
 | 4–5 | 4–6 | **M** |
 | 4–5 | 1–3 | **L** |
-| 1–3 | Any | **L** |
+| 1–3 | 모두 | **L** |
 
-### S = 6 (Loss of comfort/convenience)
+### S = 6 (편의/쾌적 기능 상실)
 
 | O | D | AP |
 |---|---|----|
@@ -163,60 +163,60 @@ For each FC (Failure Cause) row in the PFMEA/DFMEA:
 | 8–10 | 1–3 | **M** |
 | 5–7 | 7–10 | **M** |
 | 5–7 | 1–6 | **L** |
-| 1–4 | Any | **L** |
+| 1–4 | 모두 | **L** |
 
 ### S = 1–5
 
-All combinations → **L**
+모든 조합 → **L**
 
 ---
 
-## Revised AP — Governance Rule
+## 수정 AP — 관리 규칙
 
-Do not lower AP based on planned actions. Revised AP may only be assigned after the corrective action is implemented and the implementation is verified with objective evidence. A planned action is not a completed action.
-
----
-
-## Reviewing an existing FMEA for AP compliance
-
-Audit questions:
-1. Are all S=9/10 rows assigned AP=H?
-2. Do all H-AP rows have an assigned owner AND target date?
-3. Are there any H-AP rows with no action and no documented escalation rationale?
-4. For rows where AP was improved (revised AP column): is the action implemented and verified — not just planned?
-5. Are Special Characteristics all rated S=9 or S=10?
-6. Are S, O, and D justified with data or engineering rationale, or were they guessed?
+계획된 조치를 근거로 AP를 낮추지 않는다. 수정 AP(Revised AP)는 시정 조치가 실행되고 그 실행이 객관적 증거로 검증된 후에만 부여할 수 있다. 계획된 조치는 완료된 조치가 아니다.
 
 ---
 
-## Customer-specific notes
+## 기존 FMEA의 AP 준수 검토
 
-| OEM | AP requirement |
+감사 질문:
+1. 모든 S=9/10 행에 AP=H가 부여되었는가?
+2. 모든 H-AP 행에 담당자와 목표 일자가 모두 지정되었는가?
+3. 조치도 없고 문서화된 상향 보고 근거도 없는 H-AP 행이 있는가?
+4. AP가 개선된 행(수정 AP 열)의 경우: 조치가 단지 계획된 것이 아니라 실행·검증되었는가?
+5. 특별특성이 모두 S=9 또는 S=10으로 평가되었는가?
+6. S, O, D가 데이터나 엔지니어링 근거로 정당화되었는가, 아니면 추측되었는가?
+
+---
+
+## 고객별 참고 사항
+
+| OEM | AP 요구사항 |
 |-----|---------------|
-| Ford | H-AP items require mandatory action or documented engineering justification (EJ) |
-| GM | BIQS requires all H-AP items closed before PPAP Level 3 |
-| VW/Audi | AP H must be actioned or formally accepted by responsible engineer |
-| BMW | AP H items listed on open issues list until closed |
-| Stellantis | H-AP items require SQE approval for acceptance without action |
+| Ford | H-AP 항목은 필수 조치 또는 문서화된 엔지니어링 정당화(EJ)가 필요하다 |
+| GM | BIQS는 PPAP Level 3 이전에 모든 H-AP 항목의 종결을 요구한다 |
+| VW/Audi | AP H는 조치되거나 책임 엔지니어가 공식 수용해야 한다 |
+| BMW | AP H 항목은 종결 시까지 미결 이슈 목록(open issues list)에 등재된다 |
+| Stellantis | H-AP 항목을 조치 없이 수용하려면 SQE 승인이 필요하다 |
 
-Customer-Specific Requirements (CSR) are revision-controlled and may change. Always verify the latest customer requirement before release, PPAP, or customer submission. See [oem-requirements.md](references/oem-requirements.md) for OEM-specific detail.
+고객 특정 요구사항(Customer-Specific Requirements, CSR)은 개정 관리되며 변경될 수 있다. 출도, PPAP, 고객 제출 전에 항상 최신 고객 요구사항을 확인한다. OEM별 상세 내용은 [oem-requirements.md](references/oem-requirements.md)를 참조한다.
 
-## Output Format
+## 출력 형식
 
-At the start of each use, ask the user:
+매 사용 시작 시 사용자에게 묻는다.
 
-> "How would you like to receive the output?
-> **A** — Structured Markdown (formatted tables and sections, ready to copy)
-> **B** — Plain tables (simplified structure for Excel or Word)
-> **C** — Narrative report (flowing text for a formal document or email)
+> "출력을 어떤 형식으로 받으시겠습니까?
+> **A** — 구조화된 Markdown (서식이 적용된 표와 섹션, 바로 복사 가능)
+> **B** — 단순 표 (Excel 또는 Word용 간소화 구조)
+> **C** — 서술형 보고서 (공식 문서 또는 이메일용 문장형 텍스트)
 >
-> Default: A."
+> 기본값: A."
 
-Adapt all output sections to the chosen format. If the platform or session context already defines a format preference, skip this question.
+선택한 형식에 맞춰 모든 출력 섹션을 조정한다. 플랫폼 또는 세션 맥락에서 이미 형식 선호가 정의되어 있으면 이 질문을 생략한다.
 
-## Changelog
+## 변경 이력
 
-| Version | Date | Author | Change |
+| 버전 | 일자 | 작성자 | 변경 내용 |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-01 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-03 | @migmcc | Polished AP classification logic, added OEM CSR requirements table |
+| 1.0 | 2026-06-01 | @RBraga01 | 최초 배포 |
+| 1.1 | 2026-06-03 | @migmcc | AP 분류 로직 정비, OEM CSR 요구사항 표 추가 |

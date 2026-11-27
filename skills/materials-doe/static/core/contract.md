@@ -1,52 +1,52 @@
-# DOE Skill Contract
+# DOE 스킬 계약
 
-This contract defines the output handoff fields and quality gates for the materials-doe skill.
+이 계약은 materials-doe 스킬의 출력 인계 필드와 품질 게이트를 정의한다.
 
-## Promises
+## 약속
 
-- Produce experiment plans, factor tables, and analysis scripts that follow DOE best practice.
-- Select the design from factor count, objective, interaction risk, and constraint type.
-- Keep all statistical claims tied to data, formulas, or standard procedures.
-- Produce handoff-ready outputs when another `materials-*` skill is the better continuation point.
+- DOE 모범 사례를 따르는 실험 계획, 요인 표, 분석 스크립트를 만든다.
+- 요인 수, 목적, 교호작용 위험, 제약 유형에 따라 설계를 선택한다.
+- 모든 통계적 주장은 데이터, 공식, 표준 절차에 근거한다.
+- 다른 `materials-*` 스킬이 이어받는 편이 나을 때는 인계 가능한 산출물을 만든다.
 
-## Refusals
+## 거부 사항
 
-- Do not invent experimental data, factor levels, or statistical significance.
-- Do not silently skip replications or interaction effects without stating the assumption.
-- Do not recommend a design mode without checking the user's factor count and constraint type.
-- Do not treat engineering mix proportioning as a statistical mixture design.
-- Use `[needs data: ...]` for unresolved inputs instead of assuming values.
+- 실험 데이터, 요인 수준, 통계적 유의성을 지어내지 않는다.
+- 가정을 밝히지 않은 채 반복이나 교호작용 효과를 슬그머니 생략하지 않는다.
+- 사용자의 요인 수와 제약 유형을 확인하지 않고 설계 방식을 권하지 않는다.
+- 공학적 배합 설계를 통계적 혼합물 설계로 취급하지 않는다.
+- 미결 입력은 값을 가정하지 말고 `[needs data: ...]`로 표시한다.
 
-## Handoff Fields
+## 인계 필드
 
-| Field | Description | Format |
+| 필드 | 설명 | 형식 |
 |---|---|---|
-| `experiment_plan` | Full experiment layout: factor-level table, run order, replication strategy | Markdown table or CSV |
-| `design_mode` | One of: `classical`, `orthogonal`, `screening`, `response-surface`, `mix-design`, `mixture-design` | Enum string |
-| `factors` | Factor names, levels, units, and ranges | Markdown table |
-| `analysis_script` | Python script for range analysis, ANOVA, or mix calculation | `.py` file |
-| `methods_paragraph` | Draft methods text describing the DOE procedure | Markdown paragraph |
-| `figure_script` | Python script for main-effect plots, interaction plots, or mix charts | `.py` file |
-| `data_template` | Empty CSV template with correct column headers for data entry | `.csv` file |
-| `optimal_combination` | Predicted optimal factor-level combination and expected response | Markdown summary |
+| `experiment_plan` | 전체 실험 배치: 요인-수준 표, 실험 순서, 반복 전략 | Markdown 표 또는 CSV |
+| `design_mode` | 다음 중 하나: `classical`, `orthogonal`, `screening`, `response-surface`, `mix-design`, `mixture-design` | 열거형 문자열 |
+| `factors` | 요인 이름, 수준, 단위, 범위 | Markdown 표 |
+| `analysis_script` | 범위 분석(극차 분석), 분산분석(ANOVA), 배합 계산용 Python 스크립트 | `.py` 파일 |
+| `methods_paragraph` | DOE 절차를 기술한 방법(Methods) 초안 | Markdown 문단 |
+| `figure_script` | 주효과도, 교호작용도, 배합 차트용 Python 스크립트 | `.py` 파일 |
+| `data_template` | 데이터 입력용 열 머리글을 갖춘 빈 CSV 양식 | `.csv` 파일 |
+| `optimal_combination` | 예측 최적 요인-수준 조합과 기대 반응 | Markdown 요약 |
 
-## Quality Gates
+## 품질 게이트
 
-Before handing off to a downstream skill, verify:
+하위 스킬로 인계하기 전에 다음을 확인한다.
 
-1. **Factor completeness** — every factor has a name, unit, and at least two levels.
-2. **Orthogonality** — for orthogonal designs, the array is a standard L9/L16/L25 or equivalent.
-3. **Replication plan** — at least one replicate per run is recommended; if omitted, state the assumption.
-4. **Analysis match** — the analysis method matches the design mode (range analysis for orthogonal, ANOVA for classical, domain formula for mix design).
-5. **Control group** — classical designs include a baseline/control treatment.
-6. **Mix design constraints** — for mix design mode, target strength, slump, and durability requirements are specified.
-7. **Script reproducibility** — analysis and figure scripts run without modification on the data template.
+1. **요인 완전성** — 모든 요인에 이름, 단위, 2개 이상의 수준이 있다.
+2. **직교성** — 직교 설계라면 배열이 표준 L9/L16/L25 또는 그에 준하는 것이다.
+3. **반복 계획** — 실험마다 최소 1회 반복을 권한다. 생략하면 그 가정을 명시한다.
+4. **분석 일치** — 분석 방법이 설계 방식과 맞는다(직교는 범위 분석, 고전은 분산분석, 배합 설계는 분야별 공식).
+5. **대조군** — 고전 설계에 기준/대조 처리가 포함되어 있다.
+6. **배합 설계 제약** — 배합 설계 방식이라면 목표 강도, 슬럼프, 내구성 요구 조건이 명시되어 있다.
+7. **스크립트 재현성** — 분석 및 그림 스크립트가 데이터 양식에서 수정 없이 실행된다.
 
-## Handoff Routing
+## 인계 경로
 
-| Downstream skill | Trigger |
+| 하위 스킬 | 조건 |
 |---|---|
-| `materials-data` | When the experiment plan needs a FAIR-compliant data package |
-| `materials-figure` | When main-effect or interaction plots are needed |
-| `materials-writing` | When a methods paragraph or results section is needed |
-| `materials-polishing` | When the methods paragraph needs English refinement |
+| `materials-data` | 실험 계획에 FAIR 원칙을 따르는 데이터 패키지가 필요할 때 |
+| `materials-figure` | 주효과도나 교호작용도가 필요할 때 |
+| `materials-writing` | 방법 문단이나 결과 절이 필요할 때 |
+| `materials-polishing` | 방법 문단의 영문 다듬기가 필요할 때 |

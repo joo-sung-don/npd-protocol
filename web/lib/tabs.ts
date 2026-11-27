@@ -3,7 +3,13 @@ export type TabDef = { key: string; title: string; chapter?: string };
 export type TabGroup = { title: string; tabs: TabDef[] };
 
 export const TAB_GROUPS: TabGroup[] = [
-  { title: "요약", tabs: [{ key: "overview", title: "한눈에 보기" }] },
+  {
+    title: "요약",
+    tabs: [
+      { key: "report", title: "개발 계획 보고서" },
+      { key: "overview", title: "진행 현황" },
+    ],
+  },
   { title: "① 개발 조건", tabs: [{ key: "c0", title: "개요·전제", chapter: "0" }] },
   {
     title: "② 검토",

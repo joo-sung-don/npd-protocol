@@ -1,12 +1,12 @@
-# Orthogonal Arrays and Analysis Formulas
+# 직교배열과 분석 공식
 
-Standard orthogonal arrays for screening and main-effect estimation in materials science and engineering experiments.
+재료과학·공학 실험에서 스크리닝과 주효과 추정에 쓰는 표준 직교배열이다.
 
-## L9 Orthogonal Array (3^4)
+## L9 직교배열 (3^4)
 
-4 factors, 3 levels each, 9 runs.
+요인 4개, 각 3수준, 실험 9회.
 
-| Run | A | B | C | D |
+| 실험 | A | B | C | D |
 |-----|---|---|---|---|
 | 1 | 1 | 1 | 1 | 1 |
 | 2 | 1 | 2 | 2 | 2 |
@@ -18,11 +18,11 @@ Standard orthogonal arrays for screening and main-effect estimation in materials
 | 8 | 3 | 2 | 1 | 3 |
 | 9 | 3 | 3 | 2 | 1 |
 
-## L16 Orthogonal Array (4^5)
+## L16 직교배열 (4^5)
 
-5 factors, 4 levels each, 16 runs.
+요인 5개, 각 4수준, 실험 16회.
 
-| Run | A | B | C | D | E |
+| 실험 | A | B | C | D | E |
 |-----|---|---|---|---|---|
 | 1 | 1 | 1 | 1 | 1 | 1 |
 | 2 | 1 | 2 | 2 | 2 | 2 |
@@ -41,11 +41,11 @@ Standard orthogonal arrays for screening and main-effect estimation in materials
 | 15 | 4 | 3 | 2 | 4 | 1 |
 | 16 | 4 | 4 | 1 | 3 | 2 |
 
-## L25 Orthogonal Array (5^6)
+## L25 직교배열 (5^6)
 
-6 factors, 5 levels each, 25 runs.
+요인 6개, 각 5수준, 실험 25회.
 
-| Run | A | B | C | D | E | F |
+| 실험 | A | B | C | D | E | F |
 |-----|---|---|---|---|---|---|
 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
 | 2 | 1 | 2 | 2 | 2 | 2 | 2 |
@@ -73,58 +73,58 @@ Standard orthogonal arrays for screening and main-effect estimation in materials
 | 24 | 5 | 4 | 3 | 2 | 1 | 5 |
 | 25 | 5 | 5 | 4 | 3 | 2 | 1 |
 
-## Range Analysis (极差分析)
+## 범위 분석(극차 분석)
 
-For each factor, compute the following after completing all runs:
+모든 실험을 마친 뒤 각 요인에 대해 다음을 계산한다.
 
-### Step 1: Sum by level (K_i)
+### 1단계: 수준별 합 (K_i)
 
-For factor A at level j:
+요인 A의 수준 j에 대해:
 
 $$K_{A,j} = \sum_{k \in \text{runs where } A = j} y_k$$
 
-where $y_k$ is the response value for run $k$.
+여기서 $y_k$는 실험 $k$의 반응값이다.
 
-### Step 2: Mean by level (k_i)
+### 2단계: 수준별 평균 (k_i)
 
 $$k_{A,j} = \frac{K_{A,j}}{n_j}$$
 
-where $n_j$ is the number of runs at level $j$.
+여기서 $n_j$는 수준 $j$에서의 실험 수이다.
 
-### Step 3: Range (R)
+### 3단계: 범위 (R)
 
 $$R_A = \max(k_{A,j}) - \min(k_{A,j})$$
 
-The factor with the largest R is the most influential factor.
+R이 가장 큰 요인이 가장 영향력이 큰 요인이다.
 
-### Optimal combination prediction
+### 최적 조합 예측
 
-The optimal level for each factor is the level with the best $k_i$ value (highest for "larger-is-better", lowest for "smaller-is-better", closest to target for "nominal-is-best").
+각 요인의 최적 수준은 $k_i$ 값이 가장 좋은 수준이다("망대특성"이면 최댓값, "망소특성"이면 최솟값, "망목특성"이면 목표값에 가장 가까운 값).
 
-Predicted optimal response:
+예측 최적 반응:
 
 $$\hat{y}_{opt} = \bar{y} + \sum_{i} (k_{i,opt} - \bar{y})$$
 
-where $\bar{y}$ is the grand mean of all runs.
+여기서 $\bar{y}$는 전체 실험의 총평균이다.
 
-## ANOVA Table
+## 분산분석(ANOVA) 표
 
-For a single-factor or multi-factor classical design:
+단일 요인 또는 다요인 고전 설계의 경우:
 
-| Source | SS | df | MS | F |
+| 변동 요인(Source) | SS | df | MS | F |
 |--------|-----|-----|-----|-----|
-| Factor A | $SS_A$ | $a - 1$ | $MS_A = SS_A / (a-1)$ | $F_A = MS_A / MS_E$ |
-| Factor B | $SS_B$ | $b - 1$ | $MS_B = SS_B / (b-1)$ | $F_B = MS_B / MS_E$ |
-| Error | $SS_E$ | $N - a - b + 1$ | $MS_E = SS_E / (N-a-b+1)$ | — |
-| Total | $SS_T$ | $N - 1$ | — | — |
+| 요인 A | $SS_A$ | $a - 1$ | $MS_A = SS_A / (a-1)$ | $F_A = MS_A / MS_E$ |
+| 요인 B | $SS_B$ | $b - 1$ | $MS_B = SS_B / (b-1)$ | $F_B = MS_B / MS_E$ |
+| 오차 | $SS_E$ | $N - a - b + 1$ | $MS_E = SS_E / (N-a-b+1)$ | — |
+| 합계 | $SS_T$ | $N - 1$ | — | — |
 
-Where:
+여기서:
 
-- $a$ = number of levels of factor A
-- $b$ = number of levels of factor B
-- $N$ = total number of runs
+- $a$ = 요인 A의 수준 수
+- $b$ = 요인 B의 수준 수
+- $N$ = 전체 실험 수
 
-### Sum of squares formulas
+### 제곱합 공식
 
 $$SS_T = \sum_{i=1}^{N} y_i^2 - \frac{(\sum y_i)^2}{N}$$
 
@@ -132,8 +132,8 @@ $$SS_A = \frac{1}{n_a} \sum_{j=1}^{a} K_{A,j}^2 - \frac{(\sum y_i)^2}{N}$$
 
 $$SS_E = SS_T - SS_A - SS_B$$
 
-### Significance test
+### 유의성 검정
 
-Compare $F_A$ to the critical value $F_{\alpha}(a-1, N-a-b+1)$ from the F-distribution table at significance level $\alpha$ (typically 0.05).
+유의수준 $\alpha$(보통 0.05)에서 F 분포표의 임계값 $F_{\alpha}(a-1, N-a-b+1)$와 $F_A$를 비교한다.
 
-If $F_A > F_{crit}$, the factor has a statistically significant effect on the response.
+$F_A > F_{crit}$이면 그 요인은 반응에 통계적으로 유의한 영향을 준다.

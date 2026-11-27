@@ -12,305 +12,305 @@ reviewed_by: RBraga01
 license: MIT
 ---
 
-# PFMEA — AIAG-VDA 2019 Reference
+# PFMEA — AIAG-VDA 2019 참조
 
-Reference for Process FMEA per the AIAG-VDA FMEA Handbook (2019 joint edition).
-Use alongside the [pfmea-process](../SKILL.md) skill and the [ap-table](../assets/ap-table.md).
+AIAG-VDA FMEA Handbook(2019 공동판)에 따른 공정 FMEA 참조 문서이다.
+[pfmea-process](../SKILL.md) 스킬 및 [ap-table](../assets/ap-table.md)과 함께 사용한다.
 
-> **Scope:** This document covers reference logic — rating tables, failure chain rules, audit findings, and governance.
-> For the step-by-step execution workflow, see [pfmea-process SKILL.md](../SKILL.md).
+> **범위:** 이 문서는 참조 논리 — 평가 기준표, 고장 사슬 규칙, 심사 지적사항, 거버넌스 — 를 다룬다.
+> 단계별 실행 워크플로는 [pfmea-process SKILL.md](../SKILL.md)를 참조한다.
 
 ---
 
-## The 7-Step Approach — Summary
+## 7단계 접근법 — 요약
 
-| Step | Name | Key output |
+| 단계 | 명칭 | 핵심 산출물 |
 |------|------|-----------|
-| 1 | Planning and Preparation | FMEA header, scope, team, timeline |
-| 2 | Structure Analysis | Process hierarchy: Item → Process Step → Work Element |
-| 3 | Function Analysis | Function of each process step and work element |
-| 4 | Failure Analysis | Failure Effect → Failure Mode → Failure Cause chains |
-| 5 | Risk Analysis | S / O / D ratings → Action Priority (H / M / L) |
-| 6 | Optimization | Actions for H-AP items, revised ratings |
-| 7 | Results Documentation | Final PFMEA, Control Plan linkage, revision history |
+| 1 | 계획 및 준비 | FMEA 헤더, 범위, 팀, 일정 |
+| 2 | 구조 분석 | 공정 계층: 항목 → 공정 단계 → 작업 요소 |
+| 3 | 기능 분석 | 각 공정 단계와 작업 요소의 기능 |
+| 4 | 고장 분석 | 고장영향 → 고장모드 → 고장원인 사슬 |
+| 5 | 리스크 분석 | S / O / D 평가 → 조치 우선순위(H / M / L) |
+| 6 | 최적화 | H-AP 항목에 대한 조치, 개정 평가 |
+| 7 | 결과 문서화 | 최종 PFMEA, 관리계획서 연계, 개정 이력 |
 
 ---
 
-## Step 2 — Structure Analysis
+## Step 2 — 구조 분석
 
-### Process hierarchy
+### 공정 계층
 
 ```
-Process Item          (e.g., Steering Column Assembly Line)
-└── Process Step      (e.g., Station 3 — Torque tightening of bolt M8)
-    └── Work Element  (e.g., Pneumatic driver, 4M inputs)
+공정 항목          (예: 스티어링 컬럼 조립 라인)
+└── 공정 단계      (예: 3번 스테이션 — 볼트 M8 토크 체결)
+    └── 작업 요소  (예: 공압 드라이버, 4M 입력)
 ```
 
-**4M work elements** for each process step:
+각 공정 단계의 **4M 작업 요소**:
 
-| M | Examples |
+| M | 예시 |
 |---|---------|
-| Man | Operator, setter, maintenance technician |
-| Machine | Press, robot, torque wrench, conveyor, fixture |
-| Method | Work instruction, sequence, parameter settings |
-| Material | Component, raw material, lubricant, consumable |
+| Man | 작업자, 셋업 담당자, 설비 보전 기술자 |
+| Machine | 프레스, 로봇, 토크 렌치, 컨베이어, 지그 |
+| Method | 작업표준서, 작업 순서, 파라미터 설정 |
+| Material | 부품, 원자재, 윤활제, 소모품 |
 
-Every work element that can cause a failure mode should appear in the structure.
+고장모드를 일으킬 수 있는 모든 작업 요소가 구조에 나타나야 한다.
 
-**Traceability rule:** Every Work Element listed here must map to at least one Failure Cause in Step 4. A work element with no associated failure cause indicates an incomplete analysis — missing failure paths are the most common source of undetected risk.
+**추적성 규칙:** 여기에 나열한 모든 작업 요소는 Step 4에서 최소 1개의 고장원인에 연결되어야 한다. 연결된 고장원인이 없는 작업 요소는 분석이 불완전하다는 뜻이며, 누락된 고장 경로는 검출되지 않은 리스크의 가장 흔한 원천이다.
 
-### Structure Analysis tips
-- One row in the PFMEA per failure cause, not per failure mode
-- If a process step has 3 failure modes and each has 2 causes → 6 rows minimum
-- All process steps from the Process Flow Diagram (PFD) must appear
+### 구조 분석 팁
+- PFMEA의 행은 고장모드 단위가 아니라 고장원인 단위로 하나씩 둔다
+- 공정 단계에 고장모드가 3개이고 각각 원인이 2개이면 → 최소 6행
+- 공정 흐름도(PFD)의 모든 공정 단계가 나타나야 한다
 
 ---
 
-## Step 3 — Function Analysis
+## Step 3 — 기능 분석
 
-### Function statement format
+### 기능 서술 형식
 
-> **Verb + Noun + Measurable Standard**
+> **동사 + 명사 + 측정 가능한 기준**
 
-| Bad (incomplete) | Good (complete) |
+| 나쁜 예(불완전) | 좋은 예(완전) |
 |-----------------|----------------|
-| "Tighten bolt" | "Tighten bolt M8 to 22 ± 2 Nm" |
-| "Inspect parts" | "100% inspect dimension A to 25.0 ± 0.5 mm" |
-| "Apply adhesive" | "Apply adhesive bead, width 4–6 mm, length 120 ± 5 mm" |
+| "볼트 체결" | "볼트 M8을 22 ± 2 Nm로 체결" |
+| "부품 검사" | "치수 A를 25.0 ± 0.5 mm 기준으로 전수 검사" |
+| "접착제 도포" | "접착제 비드 도포, 폭 4–6 mm, 길이 120 ± 5 mm" |
 
-**Special Characteristics flag:**
-All Special Characteristics (SC) from the drawing must be identified at this step.
-Use the customer-specific symbol (◆ for Ford, ★ for GM, shield for VW, etc.).
-SC failure modes always carry S = 9 or S = 10.
+**특별특성 표시:**
+도면상의 모든 특별특성(SC)을 이 단계에서 식별해야 한다.
+고객별 기호를 사용한다(Ford는 ◆, GM은 ★, VW는 방패 기호 등).
+SC 고장모드는 항상 S = 9 또는 S = 10이다.
 
-**Testability rule:** Every Function must be measurable — a verification method must exist. "Tighten correctly" is not acceptable; "Tighten to 22 ± 2 Nm, verified by torque wrench calibrated to ±5%" is. A function with no measurable standard cannot be rated for Occurrence or Detection in Step 5.
+**시험 가능성 규칙:** 모든 기능은 측정 가능해야 하며, 검증 방법이 존재해야 한다. "올바르게 체결"은 인정되지 않고, "±5%로 교정된 토크 렌치로 검증하여 22 ± 2 Nm로 체결"은 인정된다. 측정 가능한 기준이 없는 기능은 Step 5에서 발생도나 검출도를 평가할 수 없다.
 
 ---
 
-## Step 4 — Failure Analysis
+## Step 4 — 고장 분석
 
-### Failure chain direction
+### 고장 사슬 방향
 
-Work from Effect → Mode → Cause (not the other way around):
+영향 → 모드 → 원인 순으로 작업한다(역방향 금지).
 
 ```
-Failure Effect (FE): what the customer experiences
+고장영향(FE): 고객이 겪는 것
       ↑
-Failure Mode (FM): how the process step fails its function
+고장모드(FM): 공정 단계가 기능을 수행하지 못하는 방식
       ↑
-Failure Cause (FC): why the failure mode occurs
+고장원인(FC): 고장모드가 발생하는 이유
 ```
 
-### Failure Effect levels
+### 고장영향 수준
 
-**End-user effect** (most severe — S = 7–10):
-The impact on the vehicle operator or end-user if the failure reaches the field.
+**최종 사용자 영향**(가장 심각 — S = 7–10):
+고장이 필드에 도달했을 때 차량 운전자 또는 최종 사용자에게 미치는 영향.
 
-**Manufacturing effect** (S = 1–6):
-The impact on the next operation, the assembly line, or internal quality.
+**제조 영향**(S = 1–6):
+다음 공정, 조립 라인, 또는 내부 품질에 미치는 영향.
 
-Both must be documented. Severity is rated based on the **end-user effect**.
+두 가지 모두 문서화해야 한다. 심각도는 **최종 사용자 영향**을 기준으로 평가한다.
 
-### Failure Mode examples by process type
+### 공정 유형별 고장모드 예시
 
-| Process type | Example failure modes |
+| 공정 유형 | 고장모드 예시 |
 |-------------|----------------------|
-| Torquing / fastening | Under-torque, over-torque, cross-thread, wrong fastener |
-| Welding / joining | Cold joint, missing weld, wrong position, insufficient penetration |
-| Assembly | Missing component, wrong component, backwards installation, damaged during assembly |
-| Inspection | False accept (bad part passes), false reject (good part fails) |
-| Material handling | Wrong material loaded, contamination, incorrect FIFO |
-| Machining | Out of tolerance (too big, too small), wrong surface finish, wrong geometry |
+| 토크 체결 / 체결 | 토크 부족, 토크 과다, 나사산 엇물림, 잘못된 체결 부품 |
+| 용접 / 접합 | 냉접, 용접 누락, 위치 오류, 용입 부족 |
+| 조립 | 부품 누락, 오부품, 역방향 장착, 조립 중 손상 |
+| 검사 | 오합격(불량품 통과), 오불합격(양품 불합격) |
+| 자재 취급 | 오자재 투입, 오염, FIFO 미준수 |
+| 기계 가공 | 공차 이탈(과대, 과소), 표면 조도 불량, 형상 오류 |
 
-### Multiple causes per failure mode
+### 고장모드당 복수 원인
 
-Each failure cause gets its own row. For one failure mode, typical causes include:
+고장원인마다 별도의 행을 둔다. 고장모드 하나에 대한 대표적인 원인은 다음과 같다.
 
-**Machine:** tool worn, fixture misaligned, parameter drift, calibration expired
-**Man:** procedure not followed, untrained operator, workstation ergonomics
-**Method:** incorrect parameter in work instruction, ambiguous instruction
-**Material:** incoming non-conformance, incorrect grade, contamination
+**Machine:** 공구 마모, 지그 정렬 불량, 파라미터 드리프트, 교정 기한 만료
+**Man:** 절차 미준수, 미숙련 작업자, 작업장 인간공학 문제
+**Method:** 작업표준서의 파라미터 오류, 모호한 지시
+**Material:** 수입 부적합, 등급 오류, 오염
 
-**Failure Cause validation:** Failure Causes must be validated using structured root cause analysis (e.g., [5-Why](../../../problem-solving/5why-root-cause/)). Unverified assumptions — "probably," "may be," "could be" — are not acceptable as final Failure Causes. For post-escape PFMEA updates, the FC must match the validated root cause from the 8D or CAPA closure, not a revised team opinion.
+**고장원인 검증:** 고장원인은 구조화된 근본원인 분석(예: [5-Why](../../../problem-solving/5why-root-cause/))으로 검증해야 한다. "아마도", "~일 수 있다", "~일지도 모른다" 같은 검증되지 않은 가정은 최종 고장원인으로 인정되지 않는다. 유출 이후 PFMEA 개정 시 고장원인은 수정된 팀 의견이 아니라 8D 또는 CAPA 종결에서 검증된 근본원인과 일치해야 한다.
 
-This closes the system loop: **8D escape → 5-Why → validated FC → PFMEA update → Control Plan update → Work Instruction update.**
+이로써 시스템 루프가 닫힌다: **8D 유출 → 5-Why → 검증된 FC → PFMEA 개정 → 관리계획서 개정 → 작업표준서 개정.**
 
 ---
 
-## Step 5 — Severity Rating Table
+## Step 5 — 심각도 평가 기준표
 
-Severity rates the **impact of the Failure Effect on the customer** (end-user or next operation).
-Severity is a property of the Failure Effect, not the Failure Mode or Cause.
-**Severity does not change unless the design changes.**
+심각도는 **고장영향이 고객(최종 사용자 또는 다음 공정)에게 미치는 영향**을 평가한다.
+심각도는 고장모드나 고장원인이 아니라 고장영향의 속성이다.
+**설계가 바뀌지 않는 한 심각도는 바뀌지 않는다.**
 
-| S | Criteria |
+| S | 기준 |
 |---|---------|
-| 10 | Failure affects safe vehicle operation or involves non-compliance with government regulation — without warning |
-| 9 | Failure affects safe vehicle operation or involves non-compliance with government regulation — with warning |
-| 8 | Loss of primary function (vehicle operable, primary function lost) |
-| 7 | Degraded primary function (vehicle operable, primary function reduced) |
-| 6 | Loss of comfort/convenience function |
-| 5 | Degraded comfort/convenience function |
-| 4 | Appearance or audible noise, vehicle operable, item does not conform — noticed by most customers (>75%) |
-| 3 | Appearance or audible noise, vehicle operable, item does not conform — noticed by some customers (25–75%) |
-| 2 | Appearance or audible noise, vehicle operable, item does not conform — noticed by discriminating customers (<25%) |
-| 1 | No discernible effect |
+| 10 | 고장이 차량의 안전 운행에 영향을 주거나 정부 법규 미준수를 수반함 — 경고 없음 |
+| 9 | 고장이 차량의 안전 운행에 영향을 주거나 정부 법규 미준수를 수반함 — 경고 있음 |
+| 8 | 주요 기능 상실(차량 운행 가능, 주요 기능 상실) |
+| 7 | 주요 기능 저하(차량 운행 가능, 주요 기능 저하) |
+| 6 | 편의/안락 기능 상실 |
+| 5 | 편의/안락 기능 저하 |
+| 4 | 외관 또는 이음, 차량 운행 가능, 항목 부적합 — 대부분의 고객이 인지(>75%) |
+| 3 | 외관 또는 이음, 차량 운행 가능, 항목 부적합 — 일부 고객이 인지(25–75%) |
+| 2 | 외관 또는 이음, 차량 운행 가능, 항목 부적합 — 예민한 고객이 인지(<25%) |
+| 1 | 인지 가능한 영향 없음 |
 
-**Critical rule:** S = 9 or S = 10 → AP = H regardless of O and D. No exceptions.
+**핵심 규칙:** S = 9 또는 S = 10 → O와 D에 관계없이 AP = H. 예외 없다.
 
 ---
 
-## Step 5 — Occurrence Rating Table
+## Step 5 — 발생도 평가 기준표
 
-Occurrence rates the **likelihood that the Failure Cause leads to the Failure Mode**,
-given current prevention controls.
+발생도는 현재 예방 관리를 전제로 **고장원인이 고장모드로 이어질 가능성**을
+평가한다.
 
-| O | Failure rate | Criteria |
+| O | 고장률 | 기준 |
 |---|-------------|---------|
-| 10 | ≥ 1 in 2 | Certain — failure is almost inevitable |
-| 9 | 1 in 8 | Very high |
-| 8 | 1 in 20 | High |
-| 7 | 1 in 80 | Moderately high |
-| 6 | 1 in 400 | Moderate |
-| 5 | 1 in 2,000 | Low |
-| 4 | 1 in 15,000 | Low — isolated failures |
-| 3 | 1 in 150,000 | Very low |
-| 2 | 1 in 1,500,000 | Remote |
-| 1 | < 1 in 1,500,000 | Failure eliminated by prevention control |
+| 10 | ≥ 2개 중 1개 | 확실 — 고장이 거의 불가피함 |
+| 9 | 8개 중 1개 | 매우 높음 |
+| 8 | 20개 중 1개 | 높음 |
+| 7 | 80개 중 1개 | 다소 높음 |
+| 6 | 400개 중 1개 | 보통 |
+| 5 | 2,000개 중 1개 | 낮음 |
+| 4 | 15,000개 중 1개 | 낮음 — 고립된 고장 |
+| 3 | 150,000개 중 1개 | 매우 낮음 |
+| 2 | 1,500,000개 중 1개 | 희박함 |
+| 1 | < 1,500,000개 중 1개 | 예방 관리로 고장 제거됨 |
 
-**Notes:**
-- O = 1 requires a poka-yoke or elimination control that makes the cause physically impossible
-- Use process capability data (Cp, Cpk) to set O where statistical data exists
-- In the absence of data, use historical failure rates from similar processes
+**참고:**
+- O = 1은 원인을 물리적으로 불가능하게 만드는 포카요케 또는 제거 관리가 필요하다
+- 통계 데이터가 있으면 공정능력 데이터(Cp, Cpk)로 O를 정한다
+- 데이터가 없으면 유사 공정의 과거 고장률을 사용한다
 
 ---
 
-## Step 5 — Detection Rating Table
+## Step 5 — 검출도 평가 기준표
 
-Detection rates the **effectiveness of current detection controls** at catching the failure mode
-before product reaches the next customer (internal or external).
+검출도는 제품이 다음 고객(내부 또는 외부)에게 도달하기 전에 고장모드를 잡아내는
+**현재 검출 관리의 효과**를 평가한다.
 
-| D | Criteria |
+| D | 기준 |
 |---|---------|
-| 10 | No detection control — failure not detectable |
-| 9 | Control unlikely to detect — indirect or random check |
-| 8 | Control may detect — visual, non-systematic |
-| 7 | Low chance of detection — manual inspection, sampling |
-| 6 | May detect — systematic visual or manual, moderate capability |
-| 5 | Control likely to detect — variable gauging, attribute gauging |
-| 4 | Good chance of detection — systematic gauging, moderate automation |
-| 3 | Almost certain to detect — automated control, high reliability |
-| 2 | Control certain to detect — 100% automated inspection, auto-reject |
-| 1 | Prevention control makes failure impossible — poka-yoke, design change |
+| 10 | 검출 관리 없음 — 고장 검출 불가 |
+| 9 | 관리로 검출될 가능성 낮음 — 간접 또는 무작위 점검 |
+| 8 | 관리로 검출될 수도 있음 — 육안, 비체계적 |
+| 7 | 검출 가능성 낮음 — 수작업 검사, 샘플링 |
+| 6 | 검출될 수도 있음 — 체계적 육안 또는 수작업, 보통 수준의 능력 |
+| 5 | 관리로 검출될 가능성 높음 — 계량형 게이지, 계수형 게이지 |
+| 4 | 검출 가능성 양호 — 체계적 게이지 측정, 중간 수준 자동화 |
+| 3 | 거의 확실히 검출 — 자동 관리, 높은 신뢰성 |
+| 2 | 관리로 확실히 검출 — 100% 자동 검사, 자동 배출 |
+| 1 | 예방 관리로 고장 불가능 — 포카요케, 설계 변경 |
 
-**Notes:**
-- D = 1 and D = 2 require automated detection (not human-dependent)
-- 100% manual inspection by an operator ≈ D = 6 (accounting for human fatigue and error)
-- Automated vision systems with calibrated sensitivity ≈ D = 2 or D = 3
+**참고:**
+- D = 1과 D = 2는 자동 검출(사람에 의존하지 않음)이 필요하다
+- 작업자에 의한 100% 수작업 검사 ≈ D = 6 (인간의 피로와 실수를 감안)
+- 감도가 교정된 자동 비전 시스템 ≈ D = 2 또는 D = 3
 
-**Ratings justification rule:** All S / O / D ratings must include a documented justification — process capability data (Cpk), historical failure rates, field return data, or engineering rationale. A rating without justification is an unverified estimate and will be challenged in OEM audits. Where available, use real process data (SPC, Cpk, field returns) in preference to estimated ratings.
-
----
-
-## Step 6 — Optimization
-
-### Action priority for H-AP items
-
-**Rule:** every H-AP row must have either an action (owner + date) or a documented escalation.
-
-**Preferred action types** (in order of preference):
-
-1. **Error prevention (poka-yoke)** — physical impossibility of the failure (O reduced to 1)
-2. **Process redesign** — eliminate the root cause by changing the process
-3. **Reduce occurrence** — add or improve a prevention control
-4. **Improve detection** — add or improve a detection control (last resort — does not prevent defects)
-
-Avoid closing H-AP items by only improving D (detection). Auditors and customers look for this pattern
-as a sign that the team is not addressing root causes.
-
-### Revised ratings
-
-After actions are implemented, re-rate S / O / D and compute the revised AP.
-Document:
-- Revised S (usually unchanged unless design changed)
-- Revised O (should decrease if prevention control added)
-- Revised D (should decrease if detection control added)
-- Revised AP (should be M or L after H-AP actions)
-
-### Action tracking and governance
-
-All actions must be tracked to completion with objective evidence: implementation date, responsible person's confirmation, and revised S/O/D recorded in the PFMEA. Evidence of action completion (photo, calibration record, updated WI revision) must be archived.
-
-**Escalation rule:** Open H-AP items past their target date must be escalated to management. Document: the reason for delay, the revised target date, and management acknowledgement. A PFMEA with overdue open H-AP items is not acceptable for PPAP submission or OEM audit.
+**평가 근거 규칙:** 모든 S / O / D 평가에는 문서화된 근거 — 공정능력 데이터(Cpk), 과거 고장률, 필드 반품 데이터, 또는 엔지니어링 근거 — 가 있어야 한다. 근거 없는 평가는 검증되지 않은 추정치이며 OEM 심사에서 지적받는다. 가능하면 추정 평가보다 실제 공정 데이터(SPC, Cpk, 필드 반품)를 우선 사용한다.
 
 ---
 
-## Step 7 — PFMEA to Control Plan Linkage
+## Step 6 — 최적화
 
-Every **detection control** in the PFMEA must have a corresponding entry in the Control Plan.
-Every **prevention control** must be reflected in the Work Instruction.
+### H-AP 항목의 조치 우선순위
 
-| PFMEA field | → | Control Plan / WI field |
+**규칙:** 모든 H-AP 행에는 조치(담당자 + 일자) 또는 문서화된 에스컬레이션이 있어야 한다.
+
+**선호 조치 유형**(선호 순):
+
+1. **실수 방지(포카요케)** — 고장의 물리적 불가능화(O가 1로 감소)
+2. **공정 재설계** — 공정을 변경하여 근본원인 제거
+3. **발생도 저감** — 예방 관리 추가 또는 개선
+4. **검출 개선** — 검출 관리 추가 또는 개선(최후 수단 — 결함을 예방하지 못함)
+
+D(검출도)만 개선하여 H-AP 항목을 종결하지 않는다. 심사원과 고객은 이 패턴을
+팀이 근본원인을 다루지 않는다는 신호로 본다.
+
+### 개정 평가
+
+조치 실행 후 S / O / D를 재평가하고 개정 AP를 산출한다.
+다음을 문서화한다.
+- 개정 S(설계 변경이 없으면 보통 그대로)
+- 개정 O(예방 관리를 추가했으면 감소해야 함)
+- 개정 D(검출 관리를 추가했으면 감소해야 함)
+- 개정 AP(H-AP 조치 후 M 또는 L이어야 함)
+
+### 조치 추적 및 거버넌스
+
+모든 조치는 객관적 증거 — 실행일, 책임자 확인, PFMEA에 기록된 개정 S/O/D — 와 함께 완료까지 추적한다. 조치 완료 증거(사진, 교정 기록, 개정된 WI 판)는 보관해야 한다.
+
+**에스컬레이션 규칙:** 목표일이 지난 미결 H-AP 항목은 경영진에 에스컬레이션해야 한다. 지연 사유, 수정 목표일, 경영진 확인을 문서화한다. 기한이 지난 미결 H-AP 항목이 있는 PFMEA는 PPAP 제출이나 OEM 심사에서 인정되지 않는다.
+
+---
+
+## Step 7 — PFMEA와 관리계획서 연계
+
+PFMEA의 모든 **검출 관리**는 관리계획서에 대응 항목이 있어야 한다.
+모든 **예방 관리**는 작업표준서에 반영되어야 한다.
+
+| PFMEA 항목 | → | 관리계획서 / WI 항목 |
 |------------|---|------------------------|
-| Detection control | → | Control method (CP) |
-| Control frequency | → | Sample size and frequency (CP) |
-| Special Characteristic | → | SC symbol on CP and drawing |
-| Prevention control | → | Process parameter / instruction step (WI) |
+| 검출 관리 | → | 관리 방법(CP) |
+| 관리 주기 | → | 샘플 크기 및 주기(CP) |
+| 특별특성 | → | CP와 도면의 SC 기호 |
+| 예방 관리 | → | 공정 파라미터 / 작업 지시 단계(WI) |
 
-Failure to maintain this linkage is one of the most common IATF 16949 audit findings.
+이 연계를 유지하지 못하는 것은 가장 흔한 IATF 16949 심사 지적사항 중 하나이다.
 
-### Mandatory PFMEA review events (IATF 16949 §8.3.3.3)
+### 필수 PFMEA 검토 이벤트 (IATF 16949 §8.3.3.3)
 
-The PFMEA must be reviewed and updated at each of the following events:
+PFMEA는 다음 각 이벤트 시 검토하고 개정해야 한다.
 
-| Trigger | Required action | Timing |
+| 촉발 요인 | 필요 조치 | 시기 |
 |---------|----------------|--------|
-| Quality escape confirmed (8D closed) | Update FC, ratings, and actions to match validated root cause | Within 30 days of 8D closure |
-| Process change (equipment, method, material, layout) | Update structure, function, and failure analysis for changed elements | Before the change is released to production |
-| Annual review (IATF minimum) | Review all H-AP items; confirm ratings are still current; check CP and WI alignment | At least once per calendar year |
-| New customer-specific requirement | Review severity ratings and SC designations | Before next PPAP or submission |
+| 품질 유출 확인(8D 종결) | 검증된 근본원인에 맞게 FC, 평가, 조치를 개정 | 8D 종결 후 30일 이내 |
+| 공정 변경(설비, 방법, 자재, 레이아웃) | 변경된 요소의 구조, 기능, 고장 분석을 개정 | 변경 사항을 양산에 적용하기 전 |
+| 연간 검토(IATF 최소 요구) | 모든 H-AP 항목 검토, 평가가 여전히 유효한지 확인, CP 및 WI 정합성 점검 | 매 역년 최소 1회 |
+| 신규 고객 특정 요구사항 | 심각도 평가와 SC 지정 검토 | 다음 PPAP 또는 제출 전 |
 
-A PFMEA that has never been updated since initial release is a red flag in any IATF or OEM audit.
+최초 배포 이후 한 번도 개정되지 않은 PFMEA는 IATF 또는 OEM 심사에서 위험 신호이다.
 
 ---
 
-## Common PFMEA Audit Findings
+## 흔한 PFMEA 심사 지적사항
 
-| Finding | Root cause | Fix |
+| 지적사항 | 근본원인 | 개선 |
 |---------|-----------|-----|
-| S = 9/10 with AP = M | AP table not applied correctly | Check AP table; S ≥ 9 always produces H |
-| H-AP items with no owner or date | Optimization step skipped | Assign owner (name) and date to every H-AP row |
-| Special Characteristics with S < 9 | Severity rated at manufacturing level, not end-user | Re-rate at end-user impact |
-| Detection controls in PFMEA not in Control Plan | Steps 5 and 7 done in silos | Cross-check PFMEA and CP for every control |
-| Prevention controls not in Work Instructions | WI not updated after PFMEA | Update WI revision, reissue, retain evidence |
-| Occurrence rated without data justification | Guessing | Add reference to historical rate or Cpk data |
-| PFMEA not updated after quality escape | Reactive updates missed | PFMEA must be revised within 30 days of a confirmed escape |
-| Failure Causes are assumptions, not validated | 5-Why or RCA not performed | Validate each FC with structured analysis; post-escape FC must match 8D root cause |
-| Ratings with no data justification | Team estimated without evidence | Add Cpk reference, historical rate, or engineering rationale to each rating |
+| S = 9/10인데 AP = M | AP 표를 올바르게 적용하지 않음 | AP 표 확인; S ≥ 9는 항상 H |
+| 담당자나 일자가 없는 H-AP 항목 | 최적화 단계 누락 | 모든 H-AP 행에 담당자(실명)와 일자 지정 |
+| S < 9인 특별특성 | 최종 사용자가 아닌 제조 수준에서 심각도 평가 | 최종 사용자 영향 기준으로 재평가 |
+| PFMEA의 검출 관리가 관리계획서에 없음 | Step 5와 7을 따로따로 수행 | 모든 관리 항목에 대해 PFMEA와 CP 교차 점검 |
+| 예방 관리가 작업표준서에 없음 | PFMEA 이후 WI 미개정 | WI 개정, 재발행, 증거 보관 |
+| 데이터 근거 없이 발생도 평가 | 추측 | 과거 고장률 또는 Cpk 데이터 참조 추가 |
+| 품질 유출 후 PFMEA 미개정 | 사후 개정 누락 | 유출 확인 후 30일 이내 PFMEA 개정 필수 |
+| 고장원인이 검증되지 않은 가정임 | 5-Why 또는 RCA 미수행 | 구조화된 분석으로 각 FC 검증; 유출 후 FC는 8D 근본원인과 일치해야 함 |
+| 데이터 근거 없는 평가 | 팀이 증거 없이 추정 | 각 평가에 Cpk 참조, 과거 고장률, 또는 엔지니어링 근거 추가 |
 
 ---
 
-## Global PFMEA Validation Checklist
+## 종합 PFMEA 검증 체크리스트
 
-Use at PFMEA release, PPAP submission, or audit preparation. All items must be confirmed before the PFMEA is considered complete.
+PFMEA 배포, PPAP 제출, 심사 준비 시 사용한다. PFMEA가 완료된 것으로 보려면 모든 항목이 확인되어야 한다.
 
-| # | Item | Complete? |
+| # | 항목 | 완료? |
 |---|------|-----------|
-| 1 | All process steps from the Process Flow Diagram are included in Structure Analysis | ☐ |
-| 2 | Every Work Element maps to at least one Failure Cause in Step 4 | ☐ |
-| 3 | All Functions are defined with Verb + Noun + Measurable Standard | ☐ |
-| 4 | Every Function has a measurable verification method | ☐ |
-| 5 | Failure chain direction is Effect → Mode → Cause for every row | ☐ |
-| 6 | All Failure Causes are evidence-based — no unverified assumptions used as final causes | ☐ |
-| 7 | For post-escape updates: FCs match the validated 8D/CAPA root cause | ☐ |
-| 8 | All Special Characteristics identified and carry S = 9 or S = 10 | ☐ |
-| 9 | S/O/D ratings include data justification (Cpk, historical rate, or engineering rationale) | ☐ |
-| 10 | S/O/D ratings agreed by the cross-functional team and documented | ☐ |
-| 11 | AP table applied correctly — S = 9 or 10 produces H regardless of O and D | ☐ |
-| 12 | Every H-AP item has a named owner and target date | ☐ |
-| 13 | No H-AP item is closed with detection improvement only (without written justification) | ☐ |
-| 14 | All actions implemented and verified — revised S/O/D recorded with evidence | ☐ |
-| 15 | No H-AP item is overdue without documented escalation to management | ☐ |
-| 16 | Detection controls in PFMEA match corresponding entries in the Control Plan | ☐ |
-| 17 | Prevention controls in PFMEA reflected in Work Instructions (current revision) | ☐ |
-| 18 | PFMEA review triggered by one of: quality escape, process change, or annual review | ☐ |
+| 1 | 공정 흐름도의 모든 공정 단계가 구조 분석에 포함됨 | ☐ |
+| 2 | 모든 작업 요소가 Step 4에서 최소 1개의 고장원인에 연결됨 | ☐ |
+| 3 | 모든 기능이 동사 + 명사 + 측정 가능한 기준으로 정의됨 | ☐ |
+| 4 | 모든 기능에 측정 가능한 검증 방법이 있음 | ☐ |
+| 5 | 모든 행의 고장 사슬 방향이 영향 → 모드 → 원인임 | ☐ |
+| 6 | 모든 고장원인이 증거 기반임 — 검증되지 않은 가정을 최종 원인으로 사용하지 않음 | ☐ |
+| 7 | 유출 후 개정의 경우: FC가 검증된 8D/CAPA 근본원인과 일치함 | ☐ |
+| 8 | 모든 특별특성이 식별되었고 S = 9 또는 S = 10임 | ☐ |
+| 9 | S/O/D 평가에 데이터 근거(Cpk, 과거 고장률, 또는 엔지니어링 근거)가 포함됨 | ☐ |
+| 10 | S/O/D 평가를 다기능 팀이 합의하고 문서화함 | ☐ |
+| 11 | AP 표가 올바르게 적용됨 — S = 9 또는 10은 O와 D에 관계없이 H | ☐ |
+| 12 | 모든 H-AP 항목에 지정된 담당자와 목표일이 있음 | ☐ |
+| 13 | 검출 개선만으로 종결된 H-AP 항목이 없음(서면 근거가 없는 경우) | ☐ |
+| 14 | 모든 조치가 실행 및 검증됨 — 개정 S/O/D가 증거와 함께 기록됨 | ☐ |
+| 15 | 경영진에 대한 문서화된 에스컬레이션 없이 기한이 지난 H-AP 항목이 없음 | ☐ |
+| 16 | PFMEA의 검출 관리가 관리계획서의 대응 항목과 일치함 | ☐ |
+| 17 | PFMEA의 예방 관리가 작업표준서(최신 개정판)에 반영됨 | ☐ |
+| 18 | PFMEA 검토가 품질 유출, 공정 변경, 연간 검토 중 하나로 촉발됨 | ☐ |

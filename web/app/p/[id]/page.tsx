@@ -5,6 +5,7 @@ import { loadProduct, processSteps, type Product, type Version } from "@/lib/pro
 import { ALL_TABS, TAB_GROUPS, findTab } from "@/lib/tabs";
 import { Markdown, TAG_LEGEND, TagChip } from "@/components/Markdown";
 import { Chip, ProcessTrack, ReviewBar, Stat } from "@/components/ui";
+import { ReportView } from "@/components/ReportView";
 
 export const dynamic = "force-dynamic";
 
@@ -39,7 +40,7 @@ export default async function ProductPage({ params, searchParams }: Props) {
   return (
     <div className="space-y-6">
       {/* 제품 머리 */}
-      <section className="space-y-3">
+      <section className="space-y-3 print:hidden">
         <Link href="/" className="text-xs text-slate-500 hover:text-slate-900">
           ← 제품 목록
         </Link>
@@ -81,9 +82,9 @@ export default async function ProductPage({ params, searchParams }: Props) {
         )}
       </section>
 
-      <div className="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-[220px_minmax(0,1fr)]">
+      <div className="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-[220px_minmax(0,1fr)] print:block">
         {/* 탭(목차) — 넓은 화면은 왼쪽 고정, 좁은 화면은 가로 스크롤 */}
-        <nav aria-label="프로토콜 목차" className="min-w-0 lg:sticky lg:top-20 lg:self-start">
+        <nav aria-label="프로토콜 목차" className="min-w-0 print:hidden lg:sticky lg:top-20 lg:self-start">
           <div className="-mx-4 flex gap-1 overflow-x-auto px-4 pb-1 lg:mx-0 lg:flex-col lg:gap-4 lg:overflow-visible lg:px-0">
             {TAB_GROUPS.map((g) => (
               <div key={g.title} className="flex shrink-0 gap-1 lg:flex-col lg:gap-0.5">
@@ -91,7 +92,7 @@ export default async function ProductPage({ params, searchParams }: Props) {
                 {g.tabs.map((t) => {
                   const on = t.key === tab.key;
                   const missing = t.chapter && !v.chapters[t.chapter];
-                  const missingReview = t.key === "review" && !v.review;
+                  const missingReview = (t.key === "review" && !v.review) || (t.key === "report" && !v.report);
                   return (
                     <Link
                       key={t.key}
@@ -116,9 +117,9 @@ export default async function ProductPage({ params, searchParams }: Props) {
         </nav>
 
         {/* 본문 */}
-        <article className="min-w-0 rounded-2xl border border-slate-200 bg-white p-5 sm:p-8">
+        <article className="min-w-0 rounded-2xl border border-slate-200 bg-white p-5 sm:p-8 print:border-0 print:p-0">
           <TabBody p={p} v={v} tabKey={tab.key} />
-          <div className="mt-10 flex justify-between gap-3 border-t border-slate-100 pt-5 text-sm">
+          <div className="mt-10 flex justify-between gap-3 border-t border-slate-100 pt-5 text-sm print:hidden">
             {prev ? (
               <Link href={href(prev.key)} className="text-slate-500 hover:text-slate-900">
                 ← {prev.title}
@@ -151,10 +152,21 @@ function TabBody({ p, v, tabKey }: { p: Product; v: Version; tabKey: string }) {
   const mx = v.metrics;
   const tab = findTab(tabKey);
 
+  if (tabKey === "report") {
+    if (!v.report)
+      return (
+        <Empty
+          title="개발 계획 보고서"
+          text="이 버전에는 보고서 파일(_report.md)이 없습니다. Claude Code에서 '이 프로토콜로 개발 계획 보고서 만들어줘'라고 요청하세요."
+        />
+      );
+    return <ReportView r={v.report} file={v.file.replace(/\.md$/, "_report.md")} />;
+  }
+
   if (tabKey === "overview") {
     return (
       <div className="space-y-8">
-        <TabTitle sub="프로토콜 작성 프로세스의 단계별 상태와 핵심 수치">한눈에 보기</TabTitle>
+        <TabTitle sub="프로토콜 작성 프로세스의 단계별 상태와 핵심 수치">진행 현황</TabTitle>
         <section className="space-y-3">
           <h3 className="text-sm font-semibold text-slate-700">프로세스 진행</h3>
           <ProcessTrack steps={processSteps(v)} />
@@ -301,7 +313,7 @@ function TabBody({ p, v, tabKey }: { p: Product; v: Version; tabKey: string }) {
       {tabKey === "history" && (
         <div className="mt-6 flex flex-wrap gap-2 text-sm">
           {p.versions.map((x) => (
-            <Link key={x.version} href={`/p/${encodeURIComponent(p.id)}?tab=overview&v=${x.version}`} className="rounded-lg border border-slate-200 px-3 py-1.5 hover:border-slate-400">
+            <Link key={x.version} href={`/p/${encodeURIComponent(p.id)}?tab=report&v=${x.version}`} className="rounded-lg border border-slate-200 px-3 py-1.5 hover:border-slate-400">
               v{x.version} 열기 <span className="text-xs text-slate-400">{x.file}</span>
             </Link>
           ))}

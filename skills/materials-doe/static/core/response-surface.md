@@ -1,151 +1,151 @@
-# Response Surface Methodology (RSM)
+# 반응표면법(RSM)
 
-Response surface methodology for modeling and optimizing materials experiments.
-Use when you have 2-5 key factors and want to find optimal conditions or understand factor interactions.
+소재 실험의 모델링과 최적화를 위한 반응표면법이다.
+핵심 요인이 2~5개이고 최적 조건을 찾거나 요인 간 교호작용을 이해하고자 할 때 사용한다.
 
-## Overview
+## 개요
 
-Response Surface Methodology (RSM) is a collection of statistical techniques for
-developing, improving, and optimizing processes. It fits empirical models to
-experimental data using designs that efficiently explore the factor space.
+반응표면법(RSM)은 공정을 개발·개선·최적화하기 위한 통계 기법의 모음이다.
+요인 공간을 효율적으로 탐색하는 설계를 사용해 실험 데이터에 경험적 모델을
+적합한다.
 
-### When to use RSM
+### RSM을 쓰는 경우
 
-- You have already screened factors and know which 2-5 are most important
-- You want to find optimal factor settings for one or more responses
-- You suspect curvature in the response (linear model is not enough)
-- You want to understand factor interactions in detail
+- 이미 요인을 스크리닝했고 가장 중요한 2~5개 요인을 알고 있다
+- 하나 이상의 반응에 대한 최적 요인 설정을 찾고자 한다
+- 반응에 곡률이 있을 것으로 의심된다(선형 모델로는 부족하다)
+- 요인 간 교호작용을 상세히 이해하고자 한다
 
-### When NOT to use RSM
+### RSM을 쓰지 않는 경우
 
-- You have more than 5 factors (screen first with Plackett-Burman)
-- You are in early exploration and don't know which factors matter
-- Each experiment is extremely expensive (use more efficient designs)
+- 요인이 5개를 넘는다(먼저 플래킷-버만 설계로 스크리닝한다)
+- 초기 탐색 단계로 어떤 요인이 중요한지 모른다
+- 실험 1회 비용이 매우 크다(더 효율적인 설계를 쓴다)
 
-### Two most common RSM designs
+### 가장 흔한 두 가지 RSM 설계
 
-| Design | Factors | Runs | Advantages | Disadvantages |
+| 설계 | 요인 수 | 실험 수 | 장점 | 단점 |
 |--------|---------|------|------------|---------------|
-| Central Composite (CCD) | 2-5 | 2^k + 2k + c | Rotatable, covers corners | Extreme axial points may be infeasible |
-| Box-Behnken (BBD) | 3-5 | 2k(k-1) + c | No extreme points, spherical | Doesn't cover factor space corners |
+| 중심합성설계(CCD) | 2-5 | 2^k + 2k + c | 회전성, 꼭짓점 포함 | 극단의 축점이 실현 불가능할 수 있음 |
+| 박스-벤켄 설계(BBD) | 3-5 | 2k(k-1) + c | 극단점 없음, 구형 | 요인 공간의 꼭짓점을 포함하지 않음 |
 
-c = center points (typically 3-6)
+c = 중심점 수(보통 3~6)
 
 ---
 
-## Central Composite Design (CCD)
+## 중심합성설계(CCD)
 
-### Principle
+### 원리
 
-A CCD consists of three parts:
+CCD는 세 부분으로 구성된다.
 
-1. **Factorial points** — a 2^k full factorial (coded levels: ±1)
-2. **Axial (star) points** — points along each axis at distance α from center
-3. **Center points** — several replicates at the center (0, 0, ..., 0)
+1. **요인점** — 2^k 완전요인설계(코드 수준: ±1)
+2. **축점(star point)** — 각 축을 따라 중심에서 거리 α에 놓인 점
+3. **중심점** — 중심(0, 0, ..., 0)에서의 여러 번 반복
 
-### Choosing α
+### α 선택
 
-The value of α determines the design properties:
+α 값이 설계의 특성을 결정한다.
 
-| α value | Property | Use case |
+| α 값 | 특성 | 사용 상황 |
 |---------|----------|----------|
-| α = 1 | Face-centered (CCF) | Factor levels cannot go beyond the extremes |
-| α = 2^(k/4) | Rotatable (CCD) | Prediction variance is the same at all points equidistant from center |
-| α = sqrt(k) | Spherical | All points on a sphere of radius sqrt(k) |
+| α = 1 | 면중심(CCF) | 요인 수준이 극단값을 넘을 수 없을 때 |
+| α = 2^(k/4) | 회전성(CCD) | 중심에서 같은 거리에 있는 모든 점의 예측 분산이 같다 |
+| α = sqrt(k) | 구형 | 모든 점이 반지름 sqrt(k)인 구 위에 놓인다 |
 
-### Standard CCD Designs
+### 표준 CCD 설계
 
-#### CCD for 2 factors (rotatable, α = 1.414)
+#### 2요인 CCD (회전성, α = 1.414)
 
-Total runs: 4 factorial + 4 axial + 5 center = **13 runs**
+총 실험 수: 요인점 4 + 축점 4 + 중심점 5 = **13회**
 
-| Run | A | B | Type |
+| 실험 | A | B | 유형 |
 |-----|---|---|------|
-| 1 | -1 | -1 | factorial |
-| 2 | +1 | -1 | factorial |
-| 3 | -1 | +1 | factorial |
-| 4 | +1 | +1 | factorial |
-| 5 | -1.414 | 0 | axial |
-| 6 | +1.414 | 0 | axial |
-| 7 | 0 | -1.414 | axial |
-| 8 | 0 | +1.414 | axial |
-| 9 | 0 | 0 | center |
-| 10 | 0 | 0 | center |
-| 11 | 0 | 0 | center |
-| 12 | 0 | 0 | center |
-| 13 | 0 | 0 | center |
+| 1 | -1 | -1 | 요인점 |
+| 2 | +1 | -1 | 요인점 |
+| 3 | -1 | +1 | 요인점 |
+| 4 | +1 | +1 | 요인점 |
+| 5 | -1.414 | 0 | 축점 |
+| 6 | +1.414 | 0 | 축점 |
+| 7 | 0 | -1.414 | 축점 |
+| 8 | 0 | +1.414 | 축점 |
+| 9 | 0 | 0 | 중심점 |
+| 10 | 0 | 0 | 중심점 |
+| 11 | 0 | 0 | 중심점 |
+| 12 | 0 | 0 | 중심점 |
+| 13 | 0 | 0 | 중심점 |
 
-#### CCD for 3 factors (rotatable, α = 1.682)
+#### 3요인 CCD (회전성, α = 1.682)
 
-Total runs: 8 factorial + 6 axial + 6 center = **20 runs**
+총 실험 수: 요인점 8 + 축점 6 + 중심점 6 = **20회**
 
-| Run | A | B | C | Type |
+| 실험 | A | B | C | 유형 |
 |-----|---|---|---|------|
-| 1 | -1 | -1 | -1 | factorial |
-| 2 | +1 | -1 | -1 | factorial |
-| 3 | -1 | +1 | -1 | factorial |
-| 4 | +1 | +1 | -1 | factorial |
-| 5 | -1 | -1 | +1 | factorial |
-| 6 | +1 | -1 | +1 | factorial |
-| 7 | -1 | +1 | +1 | factorial |
-| 8 | +1 | +1 | +1 | factorial |
-| 9 | -1.682 | 0 | 0 | axial |
-| 10 | +1.682 | 0 | 0 | axial |
-| 11 | 0 | -1.682 | 0 | axial |
-| 12 | 0 | +1.682 | 0 | axial |
-| 13 | 0 | 0 | -1.682 | axial |
-| 14 | 0 | 0 | +1.682 | axial |
-| 15 | 0 | 0 | 0 | center |
-| 16 | 0 | 0 | 0 | center |
-| 17 | 0 | 0 | 0 | center |
-| 18 | 0 | 0 | 0 | center |
-| 19 | 0 | 0 | 0 | center |
-| 20 | 0 | 0 | 0 | center |
+| 1 | -1 | -1 | -1 | 요인점 |
+| 2 | +1 | -1 | -1 | 요인점 |
+| 3 | -1 | +1 | -1 | 요인점 |
+| 4 | +1 | +1 | -1 | 요인점 |
+| 5 | -1 | -1 | +1 | 요인점 |
+| 6 | +1 | -1 | +1 | 요인점 |
+| 7 | -1 | +1 | +1 | 요인점 |
+| 8 | +1 | +1 | +1 | 요인점 |
+| 9 | -1.682 | 0 | 0 | 축점 |
+| 10 | +1.682 | 0 | 0 | 축점 |
+| 11 | 0 | -1.682 | 0 | 축점 |
+| 12 | 0 | +1.682 | 0 | 축점 |
+| 13 | 0 | 0 | -1.682 | 축점 |
+| 14 | 0 | 0 | +1.682 | 축점 |
+| 15 | 0 | 0 | 0 | 중심점 |
+| 16 | 0 | 0 | 0 | 중심점 |
+| 17 | 0 | 0 | 0 | 중심점 |
+| 18 | 0 | 0 | 0 | 중심점 |
+| 19 | 0 | 0 | 0 | 중심점 |
+| 20 | 0 | 0 | 0 | 중심점 |
 
-#### Face-Centered CCD for 3 factors (α = 1)
+#### 3요인 면중심 CCD (α = 1)
 
-Total runs: 8 factorial + 6 axial + 6 center = **20 runs**
-All factor levels are at -1, 0, or +1 (no extrapolation needed).
+총 실험 수: 요인점 8 + 축점 6 + 중심점 6 = **20회**
+모든 요인 수준이 -1, 0, +1 중 하나이다(외삽이 필요 없다).
 
-| Run | A | B | C | Type |
+| 실험 | A | B | C | 유형 |
 |-----|---|---|---|------|
-| 1 | -1 | -1 | -1 | factorial (corner) |
-| 2 | +1 | -1 | -1 | factorial (corner) |
-| 3 | -1 | +1 | -1 | factorial (corner) |
-| 4 | +1 | +1 | -1 | factorial (corner) |
-| 5 | -1 | -1 | +1 | factorial (corner) |
-| 6 | +1 | -1 | +1 | factorial (corner) |
-| 7 | -1 | +1 | +1 | factorial (corner) |
-| 8 | +1 | +1 | +1 | factorial (corner) |
-| 9 | -1 | 0 | 0 | axial (face center) |
-| 10 | +1 | 0 | 0 | axial (face center) |
-| 11 | 0 | -1 | 0 | axial (face center) |
-| 12 | 0 | +1 | 0 | axial (face center) |
-| 13 | 0 | 0 | -1 | axial (face center) |
-| 14 | 0 | 0 | +1 | axial (face center) |
-| 15 | 0 | 0 | 0 | center |
-| 16 | 0 | 0 | 0 | center |
-| 17 | 0 | 0 | 0 | center |
-| 18 | 0 | 0 | 0 | center |
-| 19 | 0 | 0 | 0 | center |
-| 20 | 0 | 0 | 0 | center |
+| 1 | -1 | -1 | -1 | 요인점(꼭짓점) |
+| 2 | +1 | -1 | -1 | 요인점(꼭짓점) |
+| 3 | -1 | +1 | -1 | 요인점(꼭짓점) |
+| 4 | +1 | +1 | -1 | 요인점(꼭짓점) |
+| 5 | -1 | -1 | +1 | 요인점(꼭짓점) |
+| 6 | +1 | -1 | +1 | 요인점(꼭짓점) |
+| 7 | -1 | +1 | +1 | 요인점(꼭짓점) |
+| 8 | +1 | +1 | +1 | 요인점(꼭짓점) |
+| 9 | -1 | 0 | 0 | 축점(면 중심) |
+| 10 | +1 | 0 | 0 | 축점(면 중심) |
+| 11 | 0 | -1 | 0 | 축점(면 중심) |
+| 12 | 0 | +1 | 0 | 축점(면 중심) |
+| 13 | 0 | 0 | -1 | 축점(면 중심) |
+| 14 | 0 | 0 | +1 | 축점(면 중심) |
+| 15 | 0 | 0 | 0 | 중심점 |
+| 16 | 0 | 0 | 0 | 중심점 |
+| 17 | 0 | 0 | 0 | 중심점 |
+| 18 | 0 | 0 | 0 | 중심점 |
+| 19 | 0 | 0 | 0 | 중심점 |
+| 20 | 0 | 0 | 0 | 중심점 |
 
 ---
 
-## Box-Behnken Design (BBD)
+## 박스-벤켄 설계(BBD)
 
-### Principle
+### 원리
 
-Box-Behnken designs are rotatable (or nearly rotatable) designs with:
-- All points lie on a sphere of radius sqrt(2)
-- No extreme corner points (all factors never at extremes simultaneously)
-- Efficient for estimating quadratic models
+박스-벤켄 설계는 다음 특성을 갖는 회전성(또는 거의 회전성) 설계이다.
+- 모든 점이 반지름 sqrt(2)인 구 위에 놓인다
+- 극단의 꼭짓점이 없다(모든 요인이 동시에 극단값에 놓이지 않는다)
+- 2차 모델 추정에 효율적이다
 
-### BBD for 3 factors
+### 3요인 BBD
 
-Total runs: 12 factorial + 3 center = **15 runs** (with 3 center points)
+총 실험 수: 요인점 12 + 중심점 3 = **15회** (중심점 3개 포함)
 
-| Run | A | B | C |
+| 실험 | A | B | C |
 |-----|---|---|---|
 | 1 | -1 | -1 | 0 |
 | 2 | +1 | -1 | 0 |
@@ -163,11 +163,11 @@ Total runs: 12 factorial + 3 center = **15 runs** (with 3 center points)
 | 14 | 0 | 0 | 0 |
 | 15 | 0 | 0 | 0 |
 
-### BBD for 4 factors
+### 4요인 BBD
 
-Total runs: 24 factorial + 3 center = **27 runs** (with 3 center points)
+총 실험 수: 요인점 24 + 중심점 3 = **27회** (중심점 3개 포함)
 
-| Run | A | B | C | D |
+| 실험 | A | B | C | D |
 |-----|---|---|---|---|
 | 1 | -1 | -1 | 0 | 0 |
 | 2 | +1 | -1 | 0 | 0 |
@@ -197,119 +197,119 @@ Total runs: 24 factorial + 3 center = **27 runs** (with 3 center points)
 | 26 | 0 | 0 | 0 | 0 |
 | 27 | 0 | 0 | 0 | 0 |
 
-Each non-center run varies exactly two factors at ±1 and holds the other two at 0.
+중심점이 아닌 각 실험은 정확히 두 요인을 ±1로 바꾸고 나머지 두 요인은 0으로 고정한다.
 
-### When to choose BBD vs CCD
+### BBD와 CCD의 선택 기준
 
-| Criterion | CCD | BBD |
+| 기준 | CCD | BBD |
 |-----------|-----|-----|
-| Factor space coverage | Covers corners and beyond | Spherical, no corners |
-| Extreme points | Yes (axial points beyond ±1) | No (all points at 0 or ±1) |
-| Number of runs (3 factors) | 20 | 15 |
-| Number of runs (4 factors) | 30+ | 27 |
-| Predictions at corners | Good | Interpolation needed |
-| Rotatable | Yes (with right α) | Yes |
-| Factor feasibility | May need extrapolation | All within tested levels |
+| 요인 공간 포함 범위 | 꼭짓점과 그 바깥까지 포함 | 구형, 꼭짓점 없음 |
+| 극단점 | 있음(축점이 ±1 바깥) | 없음(모든 점이 0 또는 ±1) |
+| 실험 수 (3요인) | 20 | 15 |
+| 실험 수 (4요인) | 30+ | 27 |
+| 꼭짓점에서의 예측 | 양호 | 내삽 필요 |
+| 회전성 | 있음(적절한 α 사용 시) | 있음 |
+| 요인 실현 가능성 | 외삽이 필요할 수 있음 | 모두 시험 수준 범위 안 |
 
-**Guidance:**
-- Use CCD if you need predictions at extreme combinations, or if you started with a factorial design and are augmenting
-- Use BBD if factor levels at extremes are expensive, dangerous, or infeasible simultaneously
+**지침:**
+- 극단 조합에서의 예측이 필요하거나, 요인설계로 시작해 이를 확장하는 경우에는 CCD를 쓴다
+- 극단 수준이 동시에 놓이는 조건이 비싸거나 위험하거나 실현 불가능하면 BBD를 쓴다
 
 ---
 
-## Analysis Workflow
+## 분석 작업 흐름
 
-### Step 1: First-order model (steepest ascent)
+### 1단계: 1차 모델 (최급상승법)
 
-If you are far from the optimum, start with a first-order design:
+최적점에서 멀리 떨어져 있다면 1차 설계로 시작한다.
 
 ```
 y = β₀ + β₁x₁ + β₂x₂ + ... + β_kx_k
 ```
 
-1. Fit first-order model
-2. Check for lack-of-fit (center points provide curvature test)
-3. If significant curvature → move to second-order (CCD/BBD)
-4. If no curvature → follow path of steepest ascent
-5. Stop when curvature detected or limits reached
+1. 1차 모델을 적합한다
+2. 적합결여를 확인한다(중심점으로 곡률 검정을 한다)
+3. 곡률이 유의하면 → 2차 설계(CCD/BBD)로 넘어간다
+4. 곡률이 없으면 → 최급상승 경로를 따라간다
+5. 곡률이 감지되거나 한계에 도달하면 멈춘다
 
-### Step 2: Second-order model (quadratic)
+### 2단계: 2차 모델
 
-For optimization, fit a full quadratic model:
+최적화를 위해 완전 2차 모델을 적합한다.
 
 ```
 y = β₀ + Σβ_i·x_i + ΣΣβ_ij·x_i·x_j + Σβ_ii·x_i²
 ```
 
-Includes:
-- Linear terms (β_i): main effects
-- Interaction terms (β_ij): two-factor interactions
-- Quadratic terms (β_ii): curvature
+포함 항:
+- 선형 항(β_i): 주효과
+- 교호작용 항(β_ij): 2요인 교호작용
+- 2차 항(β_ii): 곡률
 
-### Step 3: ANOVA table structure
+### 3단계: 분산분석(ANOVA) 표 구조
 
-| Source | DF |
+| 변동 요인(Source) | 자유도(DF) |
 |--------|----|
-| Model | p-1 |
-|   Linear | k |
-|   Interaction | k(k-1)/2 |
-|   Quadratic | k |
-| Residual | n-p |
-|   Lack-of-fit | n-p - n_c+1 |
-|   Pure error | n_c-1 |
-| Total | n-1 |
+| 모델 | p-1 |
+|   선형 | k |
+|   교호작용 | k(k-1)/2 |
+|   2차 | k |
+| 잔차 | n-p |
+|   적합결여 | n-p - n_c+1 |
+|   순오차 | n_c-1 |
+| 전체 | n-1 |
 
-n = total runs, p = number of terms, k = number of factors, n_c = center points
+n = 총 실험 수, p = 항 수, k = 요인 수, n_c = 중심점 수
 
-### Step 4: Response surface visualization
+### 4단계: 반응표면 시각화
 
-- **2 factors**: 3D surface plot + contour plot
-- **3 factors**: Contour plots for pairs of factors at fixed levels of the third
-- **4+ factors**: Select the 2 most important factors for visualization
+- **2요인**: 3D 표면도 + 등고선도
+- **3요인**: 세 번째 요인을 고정 수준에 둔 상태에서 요인 쌍별 등고선도
+- **4요인 이상**: 가장 중요한 2개 요인을 골라 시각화한다
 
-### Step 5: Optimization
+### 5단계: 최적화
 
-**Single-response optimization:**
-- Find factor settings that maximize/minimize the response
-- Check if optimum is inside the design region or at boundary
-- Run confirmation experiments at predicted optimum
+**단일 반응 최적화:**
+- 반응을 최대화/최소화하는 요인 설정을 찾는다
+- 최적점이 설계 영역 내부에 있는지 경계에 있는지 확인한다
+- 예측된 최적점에서 확인 실험을 한다
 
-**Multi-response optimization:**
-- Desirability function approach:
-  - For each response, compute desirability d_i (0 to 1)
-  - Overall desirability D = (d₁·d₂·...·d_m)^(1/m)
-  - Find factor settings that maximize D
-- Pareto front approach for conflicting objectives
+**다중 반응 최적화:**
+- 만족도 함수 접근법:
+  - 각 반응에 대해 만족도 d_i(0~1)를 계산한다
+  - 전체 만족도 D = (d₁·d₂·...·d_m)^(1/m)
+  - D를 최대화하는 요인 설정을 찾는다
+- 상충하는 목표에는 파레토 프론트 접근법을 쓴다
 
 ---
 
-## Coded vs Actual Units
+## 코드 단위와 실제 단위
 
-All designs above use coded units (-1, 0, +1). Convert to actual units:
+위의 모든 설계는 코드 단위(-1, 0, +1)를 쓴다. 실제 단위로는 다음과 같이 변환한다.
 
 ```
 Actual = Center + (Coded × Step)
 ```
 
-where:
-- Center = (High + Low) / 2
-- Step = (High - Low) / 2
+여기서:
+- Center(중심) = (High + Low) / 2
+- Step(간격) = (High - Low) / 2
 
-**Example:** Factor A with low=4%, high=8%
-- Center = 6%
-- Step = 2%
-- Coded -1 → 4%
-- Coded 0 → 6%
-- Coded +1 → 8%
-- Coded +1.414 (axial) → 6 + 1.414×2 = 8.83%
+**예:** 요인 A의 하한=4%, 상한=8%
+- 중심 = 6%
+- 간격 = 2%
+- 코드 -1 → 4%
+- 코드 0 → 6%
+- 코드 +1 → 8%
+- 코드 +1.414 (축점) → 6 + 1.414×2 = 8.83%
 
 ---
 
-## Best Practices
+## 모범 사례
 
-1. **Randomize run order** to protect against time-related confounds
-2. **Include center points** (3-6 replicates) for curvature detection and pure error
-3. **Screen first** with PB or fractional factorial before RSM if you have many factors
-4. **Check model assumptions**: normality, constant variance, outliers
-5. **Run confirmation experiments** at predicted optimal conditions
-6. **Don't extrapolate** beyond the design region — predictions are unreliable
+1. 시간에 따른 교락을 막기 위해 **실험 순서를 랜덤화**한다
+2. 곡률 검출과 순오차 추정을 위해 **중심점을 포함**한다(3~6회 반복)
+3. 요인이 많으면 RSM 전에 PB나 부분요인설계로 **먼저 스크리닝**한다
+4. **모델 가정을 확인**한다: 정규성, 등분산성, 이상치
+5. 예측된 최적 조건에서 **확인 실험을 한다**
+6. 설계 영역 밖으로 **외삽하지 않는다** — 예측을 신뢰할 수 없다

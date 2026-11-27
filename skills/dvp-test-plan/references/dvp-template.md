@@ -12,393 +12,393 @@ reviewed_by: RBraga01
 license: MIT
 ---
 
-# DVP&R — Template and Test Reference
+# DVP&R — 템플릿 및 시험 참조 자료
 
-Blank DVP&R template with column instructions, test category reference, sample size guidance, pass/fail documentation requirements, and DFMEA linkage table.
-Use alongside the [dvp-test-plan](../SKILL.md) skill.
+열별 작성 지침, 시험 범주 참조, 샘플 수 지침, 판정 기준 문서화 요구사항, DFMEA 연결 표를 포함한 빈 DVP&R 템플릿이다.
+[dvp-test-plan](../SKILL.md) 스킬과 함께 사용한다.
 
-> **Scope:** This document covers the blank DVP&R template structure, column-by-column instructions, a reference library of test categories and example standards, sample size requirements per category, pass/fail criteria documentation standards, and the DFMEA-to-DVP linkage methodology. For the step-by-step DVP build and audit workflow, see [dvp-test-plan SKILL.md](../SKILL.md).
+> **범위:** 이 문서는 빈 DVP&R 템플릿 구조, 열별 작성 지침, 시험 범주 및 표준 예시 참조 라이브러리, 범주별 샘플 수 요구사항, 판정 기준 문서화 기준, DFMEA–DVP 연결 방법론을 다룬다. 단계별 DVP 작성 및 감사 절차는 [dvp-test-plan SKILL.md](../SKILL.md)를 참조한다.
 
 ---
 
-## 1. DVP&R Template — Blank Structure
+## 1. DVP&R 템플릿 — 빈 구조
 
-**Document header fields (above the table):**
+**문서 헤더 항목(표 상단):**
 
 ```
-Part Number:                          Rev:
-Part Name / Description:
-Programme / Vehicle / Platform:
-Customer:
-Design Engineer:                      Phone / Email:
-Quality Engineer:                     Phone / Email:
-DVP&R Number:                         Rev:
-Date Issued:                          Date Updated:
-DFMEA Reference:                      DFMEA Rev:
-Approved by (Engineering):            Date:
-Approved by (Quality):                Date:
+부품 번호 (Part Number):                   개정 (Rev):
+부품명 / 설명 (Part Name / Description):
+프로그램 / 차종 / 플랫폼 (Programme / Vehicle / Platform):
+고객 (Customer):
+설계 엔지니어 (Design Engineer):           전화 / 이메일:
+품질 엔지니어 (Quality Engineer):          전화 / 이메일:
+DVP&R 번호 (DVP&R Number):                 개정 (Rev):
+발행일 (Date Issued):                      갱신일 (Date Updated):
+DFMEA 참조 (DFMEA Reference):              DFMEA 개정 (DFMEA Rev):
+승인 — 엔지니어링 (Approved by Engineering): 일자:
+승인 — 품질 (Approved by Quality):         일자:
 ```
 
-**Column structure — one row per test:**
+**열 구조 — 시험 하나당 한 행:**
 
-| Col # | Column Name | Brief instruction |
+| 열 번호 | 열 이름 | 간단 지침 |
 |-------|------------|-------------------|
-| 1 | Test Number | Sequential ID (DVP-001, DVP-002, ...) |
-| 2 | DFMEA Reference | Failure mode number(s) this test validates |
-| 3 | Test Name / Description | Full, specific test name with standard and duration |
-| 4 | Test Specification / Method | Standard number + revision (e.g., ASTM B117-19) |
-| 5 | Pass / Fail Criteria | Specific, measurable acceptance threshold |
-| 6 | Sample Size | Number of parts to be tested |
-| 7 | Who Performs | Internal / External lab name |
-| 8 | Phase | P = Prototype / PL = Pre-launch / PR = Production |
-| 9 | Planned Date | Scheduled completion date |
-| 10 | Actual Date | Date test was completed (filled during execution) |
-| 11 | Result | Pass / Fail / In Progress / Waived |
-| 12 | Report Reference | Lab report number or document reference |
-| 13 | Comments / Notes | Failures, deviations, re-test references |
+| 1 | 시험 번호 | 순차 ID(DVP-001, DVP-002, ...) |
+| 2 | DFMEA 참조 | 이 시험이 검증하는 고장모드 번호 |
+| 3 | 시험명 / 설명 | 표준과 시험 시간을 포함한 완전하고 구체적인 시험명 |
+| 4 | 시험 사양 / 방법 | 표준 번호 + 개정판(예: ASTM B117-19) |
+| 5 | 판정 기준(합격/불합격 기준) | 구체적이고 측정 가능한 합격 한계값 |
+| 6 | 샘플 수 | 시험할 부품 수량 |
+| 7 | 수행 주체 | 사내 / 외부 시험기관명 |
+| 8 | 단계 | P = Prototype / PL = Pre-launch / PR = Production |
+| 9 | 계획 일자 | 완료 예정일 |
+| 10 | 실제 일자 | 시험 완료일(시험 수행 중 기입) |
+| 11 | 결과 | Pass / Fail / In Progress / Waived |
+| 12 | 보고서 참조 | 시험 성적서 번호 또는 문서 참조 |
+| 13 | 비고 / 메모 | 불합격, 편차, 재시험 참조 |
 
 ---
 
-## 2. Column-by-Column Instructions
+## 2. 열별 작성 지침
 
-### Column 1 — Test Number
+### 1열 — 시험 번호
 
-Sequential reference number, unique within the DVP. Format: `DVP-001`, `DVP-002`, etc. Re-tests after failure add a suffix: `DVP-012-R1` (first re-test), `DVP-012-R2` (second re-test). Never delete a failed test row — failure history is a design record.
+DVP 내에서 고유한 순차 참조 번호이다. 형식: `DVP-001`, `DVP-002` 등. 불합격 후 재시험은 접미사를 붙인다: `DVP-012-R1`(1차 재시험), `DVP-012-R2`(2차 재시험). 불합격 시험 행은 절대 삭제하지 않는다 — 불합격 이력도 설계 기록이다.
 
-**Common mistakes:**
-- Renumbering after adding rows mid-programme — creates gaps in the audit trail
-- Deleting rows where tests failed and re-tests passed — conceals design history; the original Fail result must remain visible
-
----
-
-### Column 2 — DFMEA Reference
-
-The failure mode ID(s) from the DFMEA that this test is designed to validate. Enter the exact DFMEA row reference (e.g., "FM-014", "Function: Seal Housing / Failure Mode: Crack under thermal cycling"). If one test covers multiple failure modes, list all references.
-
-**Common mistakes:**
-- "See DFMEA" without a specific row reference — traceability cannot be confirmed
-- A test row with no DFMEA reference — every test must validate something; if there is no DFMEA failure mode, the test may be redundant or the DFMEA is incomplete
-- DFMEA updated after DVP was issued — DVP not updated to capture new H-AP failure modes
+**흔한 실수:**
+- 프로그램 도중 행을 추가한 뒤 번호를 다시 매김 — 감사 추적(audit trail)에 공백이 생긴다
+- 시험이 불합격하고 재시험이 합격한 행을 삭제함 — 설계 이력을 은폐하는 것이다. 원래 Fail 결과는 계속 보여야 한다
 
 ---
 
-### Column 3 — Test Name / Description
+### 2열 — DFMEA 참조
 
-The full, specific name of the test. Be precise: not "durability test" but "Thermal Shock Test -40°C to +125°C, 500 cycles, 30 min dwell per IEC 60068-2-14". Not "salt spray" but "Salt Spray Corrosion Test — 240 hours per ASTM B117".
+이 시험이 검증하도록 설계된 DFMEA 고장모드 ID를 기입한다. 정확한 DFMEA 행 참조를 기입한다(예: "FM-014", "기능: 씰 하우징 / 고장모드: 열 사이클에 의한 균열"). 하나의 시험이 여러 고장모드를 커버하면 모든 참조를 나열한다.
 
-The name must be specific enough that a different engineer unfamiliar with the programme could identify and procure the test without calling anyone.
-
-**Common mistakes:**
-- Generic names ("environmental test", "performance test") that require interpretation
-- Test name that omits duration, number of cycles, or key parameters
-- Name inconsistent with the test standard listed in Column 4
+**흔한 실수:**
+- 구체적인 행 참조 없이 "DFMEA 참조"라고만 기입함 — 추적성을 확인할 수 없다
+- DFMEA 참조가 없는 시험 행 — 모든 시험은 무언가를 검증해야 한다. 대응하는 DFMEA 고장모드가 없다면 시험이 불필요하거나 DFMEA가 불완전한 것이다
+- DVP 발행 후 DFMEA가 갱신됨 — 새 H-AP 고장모드를 반영하도록 DVP가 갱신되지 않았다
 
 ---
 
-### Column 4 — Test Specification / Method
+### 3열 — 시험명 / 설명
 
-The specific standard, revision, and any applicable test profile. Format: `[Standard body] [Number]-[Year], [Clause if specific]`.
+시험의 완전하고 구체적인 명칭이다. 정확하게 쓴다: "내구 시험"이 아니라 "열충격 시험 -40°C ~ +125°C, 500 사이클, 극한 온도별 유지 30분, IEC 60068-2-14 준거". "염수분무"가 아니라 "염수분무 부식 시험 — 240시간, ASTM B117 준거".
 
-Examples:
-- `ASTM B117-19` (Salt Spray)
-- `IEC 60068-2-1:2007, Test Ab (Cold Storage)` (Cold)
-- `ISO 16750-3:2023, Table 2 (Road Surface Load)` (Vibration)
-- `SAE J2530:2013` (Road Wheel Fatigue)
-- Customer spec: `Ford ES-XW7T-1A278-AC, Rev 3` (OEM spec)
+명칭은 프로그램을 모르는 다른 엔지니어가 누구에게도 묻지 않고 시험을 식별하고 의뢰할 수 있을 만큼 구체적이어야 한다.
 
-If using an internal test method without an external standard: reference the internal test specification number, revision, and the validation data that established the method. Internal-only tests on safety/regulatory characteristics are not acceptable.
-
-**Common mistakes:**
-- Omitting the revision year — standards change; the revision must be the version in effect at the time of testing
-- Using a superseded standard version — check IHS, ASTM, ISO websites for current edition
-- Referencing a customer spec number without revision — the spec may have changed between programme launch and test execution
+**흔한 실수:**
+- 해석이 필요한 일반적 명칭("환경 시험", "성능 시험")
+- 시험 시간, 사이클 수, 주요 파라미터가 빠진 시험명
+- 4열에 기재된 시험 표준과 일치하지 않는 명칭
 
 ---
 
-### Column 5 — Pass / Fail Criteria
+### 4열 — 시험 사양 / 방법
 
-The specific, measurable acceptance threshold. Every criterion must be unambiguous — a different engineer should be able to make the same Pass/Fail call from the lab report without consulting the DVP author.
+구체적인 표준, 개정판, 해당되는 시험 프로파일을 기입한다. 형식: `[표준 기관] [번호]-[연도], [특정 조항이 있으면 조항]`.
 
-**Good examples:**
-- "No corrosion (red rust) on functional surfaces after 240h; white corrosion on non-functional surfaces acceptable"
-- "Burst pressure ≥ 180 bar; no leakage at 120 bar steady-state for 5 minutes"
-- "Maximum deformation ≤ 2.0 mm measured at load point A after 10,000 cycles"
-- "All dimensions within ±0.05 mm of nominal per drawing revision C, all 12 critical dims"
+예시:
+- `ASTM B117-19` (염수분무)
+- `IEC 60068-2-1:2007, Test Ab (Cold Storage)` (저온)
+- `ISO 16750-3:2023, Table 2 (Road Surface Load)` (진동)
+- `SAE J2530:2013` (로드휠 피로)
+- 고객 사양: `Ford ES-XW7T-1A278-AC, Rev 3` (OEM 사양)
 
-**Common mistakes:**
-- "Meets specification" without stating what the specification says — not auditable
-- "No failure" without defining what constitutes a failure
-- "Acceptable appearance" without a reference standard or measurable limit
-- Criteria that reference a document not included in the PPAP package
+외부 표준이 없는 사내 시험 방법을 사용하는 경우: 사내 시험 사양 번호, 개정판, 그리고 해당 방법을 확립한 밸리데이션 데이터를 참조한다. 안전/법규 특성에 대한 사내 단독 시험은 허용되지 않는다.
 
----
-
-### Column 6 — Sample Size
-
-The number of parts to be tested. Must be a specific number, not "TBD" or "as available". See Section 4 for sample size requirements by test category.
-
-**Common mistakes:**
-- n = 1 for destructive, durability, or reliability tests — single sample cannot establish statistical confidence
-- Sample size selected for convenience ("we only have 3 parts") without evaluating whether 3 is sufficient
-- No differentiation between samples for concurrent tests vs. sequential tests on the same parts
+**흔한 실수:**
+- 개정 연도 누락 — 표준은 개정되므로, 시험 시점에 유효한 판을 기입해야 한다
+- 폐지(대체)된 표준판 사용 — IHS, ASTM, ISO 웹사이트에서 현행판을 확인한다
+- 개정판 없이 고객 사양 번호만 참조함 — 프로그램 착수와 시험 수행 사이에 사양이 변경되었을 수 있다
 
 ---
 
-### Column 7 — Who Performs
+### 5열 — 판정 기준(합격/불합격 기준)
 
-Identify the performing laboratory by name and type:
-- **Internal:** "[Company name] Internal Lab — [facility location]"
-- **External:** "[Lab name], [City, Country], ISO/IEC 17025 cert # [number]"
-- **Customer lab:** "Customer lab — [OEM facility]"
+구체적이고 측정 가능한 합격 한계값이다. 모든 기준은 모호하지 않아야 한다 — 다른 엔지니어가 DVP 작성자에게 묻지 않고 시험 성적서만으로 동일한 Pass/Fail 판정을 내릴 수 있어야 한다.
 
-For regulatory / safety tests: must be an external accredited laboratory. ISO/IEC 17025 accreditation with scope covering the specific test method is required.
+**좋은 예:**
+- "240h 후 기능면에 부식(적청) 없음. 비기능면의 백청은 허용"
+- "파열 압력 ≥ 180 bar. 120 bar 정압 5분 유지 시 누설 없음"
+- "10,000 사이클 후 하중점 A에서 측정한 최대 변형량 ≤ 2.0 mm"
+- "도면 개정 C 기준 공칭값 대비 모든 치수 ±0.05 mm 이내, 핵심 치수 12개 전부"
 
-**Common mistakes:**
-- "Internal / External TBD" — the performer must be committed in the DVP, not decided later
-- Internal lab assigned to safety or regulatory tests that require external accreditation
-- Lab name recorded but no accreditation reference — cannot verify the lab's competence
+**흔한 실수:**
+- 사양 내용을 명시하지 않은 "사양 충족" — 감사가 불가능하다
+- 무엇이 고장인지 정의하지 않은 "고장 없음"
+- 기준 표준이나 측정 가능한 한계 없이 "외관 양호"
+- PPAP 패키지에 포함되지 않은 문서를 참조하는 기준
 
 ---
 
-### Column 8 — Phase
+### 6열 — 샘플 수
 
-| Code | Phase | When |
+시험할 부품 수량이다. "TBD"나 "확보 가능한 만큼"이 아닌 구체적인 숫자여야 한다. 시험 범주별 샘플 수 요구사항은 4절을 참조한다.
+
+**흔한 실수:**
+- 파괴, 내구, 신뢰성 시험에 n = 1 — 샘플 1개로는 통계적 신뢰수준을 확보할 수 없다
+- 3개가 충분한지 평가하지 않고 편의에 따라 샘플 수를 정함("부품이 3개밖에 없다")
+- 동시 진행 시험용 샘플과 동일 부품으로 순차 진행하는 시험용 샘플을 구분하지 않음
+
+---
+
+### 7열 — 수행 주체
+
+수행 시험기관의 명칭과 유형을 명시한다.
+- **사내:** "[회사명] 사내 시험실 — [사업장 위치]"
+- **외부:** "[시험기관명], [도시, 국가], ISO/IEC 17025 인정 번호 [번호]"
+- **고객 시험실:** "고객 시험실 — [OEM 사업장]"
+
+법규 / 안전 시험은 반드시 외부 공인 시험기관이어야 한다. 해당 시험 방법을 인정 범위에 포함하는 ISO/IEC 17025 인정이 필요하다.
+
+**흔한 실수:**
+- "사내 / 외부 TBD" — 수행 주체는 나중에 정하는 것이 아니라 DVP에서 확정되어야 한다
+- 외부 인정이 필요한 안전 또는 법규 시험을 사내 시험실에 배정함
+- 시험기관명만 기록하고 인정 정보가 없음 — 시험기관의 적격성을 검증할 수 없다
+
+---
+
+### 8열 — 단계
+
+| 코드 | 단계 | 시기 |
 |------|-------|------|
-| P | Prototype | Tests on design concept or prototype tooled parts — typically pre-production handmade or soft-tool parts |
-| PL | Pre-launch | Tests on hard-tooled production-intent parts; all safety/regulatory must be PL or PR |
-| PR | Production | Tests requiring production parts (OEM specs often mandate PR for certification) |
+| P | Prototype(시작품) | 설계 개념 또는 시작 금형 부품에 대한 시험 — 일반적으로 양산 전 수작업 또는 간이(soft) 금형 부품 |
+| PL | Pre-launch(양산 준비) | 양산 금형(hard tool)으로 만든 양산 의도 부품에 대한 시험. 모든 안전/법규 시험은 PL 또는 PR이어야 한다 |
+| PR | Production(양산) | 양산 부품이 필요한 시험(OEM 사양은 인증용으로 PR을 요구하는 경우가 많다) |
 
-A test may appear in multiple phases (e.g., dimensional verification at P, PL, and PR). Each phase gets its own row or sub-row with its own result.
-
----
-
-### Column 9 — Planned Date
-
-The target completion date for the test, consistent with the programme timing plan. Must be before the PPAP submission date. For multi-phase tests, enter the planned date for this phase's execution.
+하나의 시험이 여러 단계에 걸쳐 나타날 수 있다(예: P, PL, PR 각각의 치수 검증). 각 단계는 별도의 행 또는 하위 행으로 작성하고 각자의 결과를 기록한다.
 
 ---
 
-### Column 10 — Actual Date
+### 9열 — 계획 일자
 
-Filled during or after test execution. If a test is still "In Progress" at PPAP submission, it is an open item and the PPAP cannot be approved unless the customer grants a deviation with a committed completion date.
+프로그램 일정 계획과 일치하는 시험 완료 목표일이다. PPAP 제출일보다 앞서야 한다. 여러 단계에 걸친 시험은 해당 단계 수행의 계획 일자를 기입한다.
 
 ---
 
-### Column 11 — Result
+### 10열 — 실제 일자
 
-| Status | Meaning |
+시험 수행 중 또는 수행 후에 기입한다. PPAP 제출 시점에 시험이 여전히 "In Progress"이면 미결 항목이며, 고객이 확정된 완료일을 조건으로 편차를 승인하지 않는 한 PPAP를 승인받을 수 없다.
+
+---
+
+### 11열 — 결과
+
+| 상태 | 의미 |
 |--------|---------|
-| Pass | Test completed; all pass/fail criteria met; lab report available |
-| Fail | Test completed; one or more criteria not met; DFMEA action opened |
-| In Progress | Test started but not complete |
-| Not Started | Test not yet begun (should not exist at PPAP submission) |
-| Waived | Customer has formally waived this test with written approval referencing the DVP row |
-| Re-test — Pass | Re-test after corrective action; original Fail row retained |
+| Pass | 시험 완료, 모든 판정 기준 충족, 시험 성적서 있음 |
+| Fail | 시험 완료, 하나 이상의 기준 미충족, DFMEA 조치 개시 |
+| In Progress | 시험 시작했으나 미완료 |
+| Not Started | 시험 미착수(PPAP 제출 시점에는 존재해서는 안 된다) |
+| Waived | 고객이 해당 DVP 행을 명시한 서면 승인으로 이 시험을 공식 면제함 |
+| Re-test — Pass | 시정 조치 후 재시험 합격. 원래 Fail 행은 유지 |
 
 ---
 
-### Column 12 — Report Reference
+### 12열 — 보고서 참조
 
-The lab report number, document number, or unique identifier that allows the test result to be retrieved and verified. For external labs: the lab's own report number. For internal tests: the internal document number per the supplier's quality records system.
+시험 결과를 조회하고 검증할 수 있게 하는 시험 성적서 번호, 문서 번호 또는 고유 식별자이다. 외부 시험기관: 시험기관 자체의 성적서 번호. 사내 시험: 공급사 품질 기록 체계에 따른 사내 문서 번호.
 
-**Common mistakes:**
-- "See attached" without a document number — the DVP must be self-sufficient; attachments are supporting evidence, not the reference
-- No report issued for internal tests — even internal tests must generate a traceable record
-
----
-
-### Column 13 — Comments / Notes
-
-Used for: failure descriptions, deviation references, re-test cross-references, notes on partial passes, and any conditions that affect the validity of the result (e.g., "sample 3 damaged in transit — result based on samples 1, 2, 4, 5"). If a Waiver was granted, reference the waiver document number here.
+**흔한 실수:**
+- 문서 번호 없이 "첨부 참조" — DVP는 그 자체로 완결되어야 한다. 첨부 자료는 뒷받침 증거일 뿐 참조가 아니다
+- 사내 시험에 대해 성적서를 발행하지 않음 — 사내 시험도 추적 가능한 기록을 남겨야 한다
 
 ---
 
-## 3. Test Category Reference
+### 13열 — 비고 / 메모
 
-### Category A — Functional / Performance Tests
+불합격 내용, 편차 참조, 재시험 상호 참조, 부분 합격에 대한 메모, 그리고 결과의 유효성에 영향을 주는 모든 조건을 기록한다(예: "샘플 3 운송 중 파손 — 샘플 1, 2, 4, 5 기준 결과"). 면제(Waiver)가 승인된 경우 여기에 면제 문서 번호를 기입한다.
 
-Verifies the product performs its intended design function under normal operating conditions.
+---
 
-| Test Type | Example Standards | Typical Parameter |
+## 3. 시험 범주 참조
+
+### 범주 A — 기능 / 성능 시험
+
+정상 운용 조건에서 제품이 의도한 설계 기능을 수행하는지 검증한다.
+
+| 시험 유형 | 표준 예시 | 대표 파라미터 |
 |-----------|-------------------|-------------------|
-| Tensile / Pull strength | ISO 6892-1, ASTM E8/E8M | Maximum load, elongation at break |
-| Compressive strength | ISO 604, ASTM D695 | Load at yield / at failure |
-| Burst / proof pressure | SAE J1019, OEM specs | Pressure at burst; no leakage at proof pressure |
-| Torque / breakaway torque | AIAG MSA reference, OEM specs | Minimum breakaway, installation torque |
-| Electrical resistance / continuity | IEC 60512, OEM CSR | Resistance limits (mΩ or Ω range) |
-| Flow rate / pressure drop | ISO 4021, OEM specs | Flow at specified pressure delta |
-| Sealing / leak test | SAE J771, ISO 10110 | Maximum leak rate (mbar·l/s, cc/min) |
-| Insertion / extraction force | IEC 60512-13, OEM specs | Min/max force within defined stroke |
-| Load-deflection / spring rate | ASTM D1895, OEM specs | Deflection at specified load |
+| 인장 / 인발 강도 | ISO 6892-1, ASTM E8/E8M | 최대 하중, 파단 연신율 |
+| 압축 강도 | ISO 604, ASTM D695 | 항복 시 / 파괴 시 하중 |
+| 파열 / 내압(proof) 압력 | SAE J1019, OEM 사양 | 파열 압력, 내압 시 누설 없음 |
+| 토크 / 풀림(breakaway) 토크 | AIAG MSA 참조, OEM 사양 | 최소 풀림 토크, 체결 토크 |
+| 전기 저항 / 도통 | IEC 60512, OEM CSR | 저항 한계(mΩ 또는 Ω 범위) |
+| 유량 / 압력 강하 | ISO 4021, OEM 사양 | 규정 차압에서의 유량 |
+| 밀봉 / 누설 시험 | SAE J771, ISO 10110 | 최대 누설률(mbar·l/s, cc/min) |
+| 삽입 / 발거력 | IEC 60512-13, OEM 사양 | 규정 스트로크 내 최소/최대 힘 |
+| 하중-변위 / 스프링 상수 | ASTM D1895, OEM 사양 | 규정 하중에서의 변위 |
 
-**Sample size guidance:** n ≥ 3 for destructive tests; n ≥ 5 for non-destructive functional tests where variability exists.
+**샘플 수 지침:** 파괴 시험은 n ≥ 3, 편차가 존재하는 비파괴 기능 시험은 n ≥ 5.
 
 ---
 
-### Category B — Environmental Tests
+### 범주 B — 환경 시험
 
-Simulates the operating environment over the product's design life. Duration and severity levels must represent the design life or a validated accelerated equivalent.
+제품 설계 수명 동안의 운용 환경을 모사한다. 시험 시간과 가혹도 수준은 설계 수명 또는 검증된 가속 등가 조건을 대표해야 한다.
 
-| Test Type | Example Standards | Key Parameters |
+| 시험 유형 | 표준 예시 | 주요 파라미터 |
 |-----------|-------------------|----------------|
-| Salt spray / corrosion | ASTM B117-19, ISO 9227 | Duration (hours); neutral salt spray (NSS) vs. acetic acid (AASS) |
-| Thermal shock | IEC 60068-2-14, SAE J2236 | Temperature range; number of cycles; dwell time per extreme |
-| Thermal cycling (slow ramp) | IEC 60068-2-14 Test Na; JEDEC JESD22-A104 | Ramp rate (°C/min); cycles; temperature extremes |
-| Temperature soak (high) | IEC 60068-2-2, MIL-STD-810H Method 501 | Temperature; duration; loaded or unloaded |
-| Temperature soak (low) | IEC 60068-2-1, MIL-STD-810H Method 502 | Temperature; duration |
-| Humidity / Damp heat | IEC 60068-2-78, ISO 16750-4 | Temperature + RH %; duration (h) |
-| Humidity cycling / condensation | IEC 60068-2-30; ASTM D2247 | Cycles; temperature/humidity profile |
-| UV / xenon weathering | SAE J2527, ISO 4892-2 | Irradiance (W/m²); duration (kJ/m²); acceptance (ΔE colour shift, crack rating) |
-| Fluid immersion / resistance | SAE J1717, OEM specs | Fluid types; concentration; immersion duration; visual + functional post-check |
-| Pressure / altitude | IEC 60068-2-13, MIL-STD-810H Method 500 | Altitude (m); duration |
+| 염수분무 / 부식 | ASTM B117-19, ISO 9227 | 시험 시간(h), 중성 염수분무(NSS) vs. 아세트산 염수분무(AASS) |
+| 열충격 | IEC 60068-2-14, SAE J2236 | 온도 범위, 사이클 수, 극한 온도별 유지 시간 |
+| 열 사이클(완속 램프) | IEC 60068-2-14 Test Na; JEDEC JESD22-A104 | 승온 속도(°C/min), 사이클 수, 극한 온도 |
+| 고온 방치 | IEC 60068-2-2, MIL-STD-810H Method 501 | 온도, 시간, 부하 또는 무부하 |
+| 저온 방치 | IEC 60068-2-1, MIL-STD-810H Method 502 | 온도, 시간 |
+| 습도 / 고온고습 | IEC 60068-2-78, ISO 16750-4 | 온도 + RH %, 시간(h) |
+| 습도 사이클 / 결로 | IEC 60068-2-30; ASTM D2247 | 사이클 수, 온도/습도 프로파일 |
+| UV / 제논 내후성 | SAE J2527, ISO 4892-2 | 조사도(W/m²), 조사량(kJ/m²), 합격 기준(ΔE 색차, 균열 등급) |
+| 유체 침지 / 내유체성 | SAE J1717, OEM 사양 | 유체 종류, 농도, 침지 시간, 시험 후 외관 + 기능 확인 |
+| 압력 / 고도 | IEC 60068-2-13, MIL-STD-810H Method 500 | 고도(m), 시간 |
 
-**Sample size guidance:** n ≥ 3 minimum; n ≥ 5 preferred for qualification. For multi-condition matrices (multiple fluid types or multiple temperature levels), n = 3 per condition.
+**샘플 수 지침:** 최소 n ≥ 3, 인정(qualification) 시험은 n ≥ 5 권장. 다조건 매트릭스(여러 유체 종류 또는 여러 온도 수준)는 조건당 n = 3.
 
 ---
 
-### Category C — Safety / Regulatory Tests
+### 범주 C — 안전 / 법규 시험
 
-Mandated by law, homologation, or OEM CSR. Must be performed by an externally accredited lab. Results must accompany the PPAP package. Failure in this category prevents PPAP approval without a customer and regulatory authority deviation.
+법률, 인증 또는 OEM CSR에 의해 의무화된 시험이다. 외부 공인 시험기관에서 수행해야 하며, 결과는 PPAP 패키지에 첨부해야 한다. 이 범주에서 불합격하면 고객 및 규제 당국의 편차 승인 없이는 PPAP 승인을 받을 수 없다.
 
-| Regulation / Standard | Scope | Typical Parts |
+| 법규 / 표준 | 범위 | 대표 부품 |
 |-----------------------|-------|---------------|
-| ECE R10 (UN Regulation 10) | Electromagnetic Compatibility — vehicles | All electrical / electronic components |
-| FMVSS 302 | Flammability of interior materials | Interior plastic, foam, fabric |
-| FMVSS 205 | Glazing materials | Window glass |
-| ECE R94 / R95 | Frontal / lateral crash | Structural and passive safety components |
-| ISO 26262 | Functional safety — road vehicles (ASIL level) | Safety-critical electronics / SW |
-| REACH (EC No 1907/2006) | Chemical substance restrictions | All parts (substance declaration) |
-| RoHS (2011/65/EU) | Restriction of hazardous substances | Electrical and electronic equipment |
-| ELV Directive (2000/53/EC) | End-of-life vehicle — prohibited materials | All automotive parts |
-| IATF 16949 §8.3.3.3 | Special characteristics — safety validation | All SC-classified characteristics |
-| ISO 11452 / CISPR 25 | EMC — radiated / conducted (component level) | Electronics, sensors, actuators |
+| ECE R10 (UN Regulation 10) | 전자파 적합성 — 차량 | 모든 전기 / 전자 부품 |
+| FMVSS 302 | 실내 재료 난연성 | 실내 플라스틱, 폼, 직물 |
+| FMVSS 205 | 글레이징 재료 | 창유리 |
+| ECE R94 / R95 | 정면 / 측면 충돌 | 구조 및 수동 안전 부품 |
+| ISO 26262 | 기능 안전 — 도로 차량(ASIL 등급) | 안전 핵심 전자장치 / SW |
+| REACH (EC No 1907/2006) | 화학 물질 제한 | 모든 부품(물질 신고) |
+| RoHS (2011/65/EU) | 유해 물질 사용 제한 | 전기 및 전자 장비 |
+| ELV Directive (2000/53/EC) | 폐차 — 금지 물질 | 모든 자동차 부품 |
+| IATF 16949 §8.3.3.3 | 특별 특성 — 안전 밸리데이션 | SC로 분류된 모든 특성 |
+| ISO 11452 / CISPR 25 | EMC — 방사 / 전도(부품 수준) | 전자장치, 센서, 액추에이터 |
 
-**Sample size guidance:** Per the specific regulation or standard — typically n = 3 per test configuration; some regulations define minimum sample quantities explicitly. Never waive regulatory tests without written authority from the relevant regulatory body in addition to customer sign-off.
+**샘플 수 지침:** 해당 법규 또는 표준에 따른다 — 일반적으로 시험 구성당 n = 3이며, 일부 법규는 최소 샘플 수량을 명시적으로 규정한다. 고객 승인 외에 관련 규제 기관의 서면 승인 없이는 법규 시험을 절대 면제하지 않는다.
 
 ---
 
-### Category D — Dimensional / Material Tests
+### 범주 D — 치수 / 재료 시험
 
-Verification that design dimensions and material properties are realised in the production part.
+설계 치수와 재료 물성이 양산 부품에서 구현되었는지 검증한다.
 
-| Test Type | Example Standards | Key Parameters |
+| 시험 유형 | 표준 예시 | 주요 파라미터 |
 |-----------|-------------------|----------------|
-| CMM dimensional measurement | ASME Y14.5-2018; ISO 1101 | All drawing characteristics; GD&T datums |
-| 3D scanning (full-field) | VDI/VDE 2634 | Point cloud vs. nominal CAD |
-| Surface roughness (Ra/Rz) | ISO 4287, ASME B46.1 | Ra or Rz value; measurement direction |
-| Hardness (HRC/HRB/HV/HB) | ASTM E18, ISO 6507 | Target hardness grade; number of test points |
-| Tensile strength / yield strength | ISO 6892-1, ASTM E8 | UTS (MPa), Yield (MPa), Elongation (%) |
-| Chemical composition (spectrometry) | ASTM E415, ISO 14284 | Alloy grade per material specification |
-| Coating thickness | ISO 2178 (magnetic), ISO 1463 (cross-section) | Min/max coating thickness (µm) |
-| Weld quality (visual + macro) | ISO 5817, AWS D1.1 | Defect class per standard; macro section for penetration |
-| Porosity / void content | ASTM E2375, ASTM B276 | Acceptable porosity level per specification |
+| CMM 치수 측정 | ASME Y14.5-2018; ISO 1101 | 모든 도면 특성, GD&T 데이텀 |
+| 3D 스캔(전면) | VDI/VDE 2634 | 포인트 클라우드 vs. 공칭 CAD |
+| 표면 조도(Ra/Rz) | ISO 4287, ASME B46.1 | Ra 또는 Rz 값, 측정 방향 |
+| 경도(HRC/HRB/HV/HB) | ASTM E18, ISO 6507 | 목표 경도 등급, 측정 점 수 |
+| 인장 강도 / 항복 강도 | ISO 6892-1, ASTM E8 | UTS (MPa), 항복 (MPa), 연신율 (%) |
+| 화학 성분(분광 분석) | ASTM E415, ISO 14284 | 재료 사양에 따른 합금 등급 |
+| 도금/코팅 두께 | ISO 2178 (자기식), ISO 1463 (단면법) | 최소/최대 코팅 두께(µm) |
+| 용접 품질(육안 + 매크로) | ISO 5817, AWS D1.1 | 표준에 따른 결함 등급, 용입 확인용 매크로 단면 |
+| 기공 / 보이드 함량 | ASTM E2375, ASTM B276 | 사양에 따른 허용 기공 수준 |
 
-**Sample size guidance:** For dimensional results supporting PPAP Element 9: minimum 5 parts per cavity/spindle. For material tests: minimum 3 specimens per material lot.
+**샘플 수 지침:** PPAP 9번 항목(Element 9)을 뒷받침하는 치수 결과는 캐비티/스핀들당 최소 5개. 재료 시험은 재료 로트당 최소 시편 3개.
 
 ---
 
-### Category E — Durability / Reliability Tests
+### 범주 E — 내구 / 신뢰성 시험
 
-Establishes that the product meets its reliability target (e.g., B10 life, design life in cycles or hours) under representative or accelerated conditions.
+대표 조건 또는 가속 조건에서 제품이 신뢰성 목표(예: B10 수명, 사이클 또는 시간 단위의 설계 수명)를 충족함을 입증한다.
 
-| Test Type | Example Standards | Key Parameters |
+| 시험 유형 | 표준 예시 | 주요 파라미터 |
 |-----------|-------------------|----------------|
-| Fatigue / cyclic load | SAE J1099, ASTM E466 | Number of cycles; load amplitude; R-ratio; S-N curve |
-| Vibration — random | ISO 16750-3, IEC 60068-2-64, MIL-STD-810H Method 514 | PSD profile (g²/Hz); duration per axis; resonance dwell |
-| Vibration — sine sweep | IEC 60068-2-6, ISO 16750-3 | Frequency range; amplitude; sweep rate; resonance dwell |
-| Mechanical shock | IEC 60068-2-27, MIL-STD-810H Method 516 | Peak acceleration (g); pulse duration (ms); number of shocks; waveform |
-| Wear / abrasion | ASTM G65, ISO 4649, Taber abraser | Abrasion cycles; material loss (mg or mm) |
-| Contact fatigue / fretting | ASTM E1012, OEM specs | Cycles; contact pressure; slip amplitude |
-| Seal / gasket compression set | ISO 815, ASTM D395 | Compression set % after defined temp/time |
-| Actuator / switch endurance | IEC 60512-9, OEM CSR | Number of actuations; contact resistance before/after |
-| Accelerated life test (ALT) | MIL-HDBK-217, Arrhenius model | Acceleration factor; field life correlation; B10 / MTTF claim |
+| 피로 / 반복 하중 | SAE J1099, ASTM E466 | 사이클 수, 하중 진폭, R-비, S-N 곡선 |
+| 진동 — 랜덤 | ISO 16750-3, IEC 60068-2-64, MIL-STD-810H Method 514 | PSD 프로파일(g²/Hz), 축별 시간, 공진 유지(dwell) |
+| 진동 — 사인 스윕 | IEC 60068-2-6, ISO 16750-3 | 주파수 범위, 진폭, 스윕 속도, 공진 유지 |
+| 기계적 충격 | IEC 60068-2-27, MIL-STD-810H Method 516 | 최대 가속도(g), 펄스 지속 시간(ms), 충격 횟수, 파형 |
+| 마모 / 마멸 | ASTM G65, ISO 4649, Taber abraser | 마모 사이클 수, 재료 손실(mg 또는 mm) |
+| 접촉 피로 / 프레팅 | ASTM E1012, OEM 사양 | 사이클 수, 접촉 압력, 미끄럼 진폭 |
+| 씰 / 개스킷 압축 영구 변형 | ISO 815, ASTM D395 | 규정 온도/시간 후 압축 영구 변형률(%) |
+| 액추에이터 / 스위치 내구 | IEC 60512-9, OEM CSR | 작동 횟수, 시험 전/후 접촉 저항 |
+| 가속 수명 시험(ALT) | MIL-HDBK-217, Arrhenius 모델 | 가속 계수, 필드 수명 상관관계, B10 / MTTF 주장 |
 
-**Accelerated test — field life correlation requirement:** When a test uses acceleration (elevated temperature, increased load amplitude, compressed cycles), the DVP must state the acceleration model used (Arrhenius, Coffin-Manson, Miner's rule, etc.), the acceleration factor (AF), and the field life equivalent. Example: "500 thermal shock cycles at ΔT = 165°C (Coffin-Manson β = 2.0) represents 15 years / 150,000 km equivalent."
+**가속 시험 — 필드 수명 상관관계 요구사항:** 시험에 가속(온도 상향, 하중 진폭 증가, 사이클 압축)을 적용하는 경우, DVP에는 사용한 가속 모델(Arrhenius, Coffin-Manson, Miner 법칙 등), 가속 계수(AF), 필드 수명 등가값을 명시해야 한다. 예: "ΔT = 165°C에서 열충격 500 사이클(Coffin-Manson β = 2.0)은 15년 / 150,000 km에 상당한다."
 
-**Sample size guidance:** See Section 4.
+**샘플 수 지침:** 4절을 참조한다.
 
 ---
 
-## 4. Sample Size Requirements by Test Category
+## 4. 시험 범주별 샘플 수 요구사항
 
-| Category | Test Type | Minimum n | Rationale |
+| 범주 | 시험 유형 | 최소 n | 근거 |
 |----------|-----------|-----------|-----------|
-| A — Functional | Non-destructive (measured, then parts are reusable) | 5 | Captures part-to-part variability |
-| A — Functional | Destructive (part consumed by the test) | 3 minimum; 5 preferred | Cost-constrained minimum; 3 establishes a range |
-| B — Environmental | Non-destructive (parts measured pre/post) | 3 minimum; 5 preferred | Pre/post comparison; detects variability in degradation |
-| B — Environmental | Destructive (dissected, cross-sectioned post-test) | 3 | Minimum for qualification |
-| B — Environmental | Multi-condition matrix (e.g., 3 temperatures × 3 fluids) | 3 per cell | Each condition independently validated |
-| C — Regulatory | Per regulation | As required by regulation | Refer to the specific standard — cannot be reduced without regulatory authority approval |
-| D — Dimensional | CMM / hand measurement (PPAP Element 9) | 5 per cavity / spindle | AIAG PPAP 4th ed requirement |
-| D — Dimensional | Material properties (tensile, hardness, composition) | 3 specimens per lot | Lot-based — traceability must link specimens to the part lot |
-| E — Durability | Fatigue / vibration / endurance | 3 minimum; 5 preferred for life claim | 3 establishes a distribution; B10 claim requires ≥ 5 for statistical confidence with Weibull analysis |
-| E — Reliability | ALT (accelerated life test) with field life claim | 5 minimum (Weibull r = 2); 10 preferred | B10 life claim at 90% confidence level requires adequate n — use Weibull calculator to confirm |
-| C — Regulatory / Safety | EMC, crash, homologation | Per regulation; typically 3 | Cannot deviate without regulatory authority; some regulations specify exact quantities |
+| A — 기능 | 비파괴(측정 후 부품 재사용 가능) | 5 | 부품 간 편차를 포착 |
+| A — 기능 | 파괴(시험으로 부품 소모) | 최소 3, 권장 5 | 비용 제약 하의 최소치. 3개로 범위를 확인 |
+| B — 환경 | 비파괴(시험 전/후 측정) | 최소 3, 권장 5 | 전/후 비교. 열화 편차를 검출 |
+| B — 환경 | 파괴(시험 후 해체, 단면 절단) | 3 | 인정 시험 최소치 |
+| B — 환경 | 다조건 매트릭스(예: 온도 3수준 × 유체 3종) | 셀당 3 | 각 조건을 독립적으로 검증 |
+| C — 법규 | 법규에 따름 | 법규 요구대로 | 해당 표준 참조 — 규제 당국 승인 없이 줄일 수 없다 |
+| D — 치수 | CMM / 수동 측정(PPAP Element 9) | 캐비티 / 스핀들당 5 | AIAG PPAP 4판 요구사항 |
+| D — 치수 | 재료 물성(인장, 경도, 성분) | 로트당 시편 3 | 로트 기반 — 시편과 부품 로트 간 추적성이 연결되어야 한다 |
+| E — 내구 | 피로 / 진동 / 내구 | 최소 3, 수명 주장 시 권장 5 | 3개로 분포를 확인. B10 주장은 Weibull 분석의 통계적 신뢰수준을 위해 ≥ 5 필요 |
+| E — 신뢰성 | 필드 수명 주장을 포함한 ALT(가속 수명 시험) | 최소 5(Weibull r = 2), 권장 10 | 90% 신뢰수준의 B10 수명 주장에는 적정 n이 필요 — Weibull 계산기로 확인 |
+| C — 법규 / 안전 | EMC, 충돌, 인증 | 법규에 따름, 일반적으로 3 | 규제 당국 승인 없이 편차 불가. 일부 법규는 정확한 수량을 규정 |
 
-**Statistical guidance for reliability claims:**
-- B10 life at 90% confidence with Weibull shape parameter β = 2: minimum n = 5 — but only if the test duration is extended to ≈ 2.1× the B10 design life. Testing exactly to the B10 life with n = 5 does not achieve 90% confidence.
-- B10 life at 90% confidence with β = 1 (exponential): minimum n = 12 — requires test duration ≈ 1.8× the B10 design life.
-- For testing exactly to the B10 design life (no time extension): n ≥ 22 is required regardless of β, to achieve 90% confidence of ≥ 90% reliability. Use the formula n = ln(1−C) / ln(R) where C = 0.90 and R = 0.90.
-- Use the AMSAA / Crow reliability growth tool or Weibull analysis software to calculate the exact test duration multiplier for your β and n combination before committing to a test plan.
+**신뢰성 주장에 대한 통계 지침:**
+- Weibull 형상 모수 β = 2에서 90% 신뢰수준의 B10 수명: 최소 n = 5 — 단, 시험 시간을 B10 설계 수명의 약 2.1배로 연장하는 경우에만 해당한다. n = 5로 B10 수명까지만 시험하면 90% 신뢰수준을 달성하지 못한다.
+- β = 1(지수 분포)에서 90% 신뢰수준의 B10 수명: 최소 n = 12 — 시험 시간은 B10 설계 수명의 약 1.8배가 필요하다.
+- B10 설계 수명까지만 시험하는 경우(시간 연장 없음): ≥ 90% 신뢰성을 90% 신뢰수준으로 입증하려면 β와 무관하게 n ≥ 22가 필요하다. 공식 n = ln(1−C) / ln(R)을 사용하며, C = 0.90, R = 0.90이다.
+- 시험 계획을 확정하기 전에 AMSAA / Crow 신뢰성 성장 도구 또는 Weibull 분석 소프트웨어로 해당 β와 n 조합에 대한 정확한 시험 시간 배수를 계산한다.
 
 ---
 
-## 5. Pass / Fail Criteria Documentation Requirements
+## 5. 판정 기준 문서화 요구사항
 
-The following elements must be present in every DVP pass/fail criterion. Absence of any element makes the criterion non-auditable and creates a PPAP risk.
+모든 DVP 판정 기준에는 다음 요소가 포함되어야 한다. 하나라도 빠지면 기준을 감사할 수 없게 되고 PPAP 리스크가 발생한다.
 
-| Requirement | Description | Example |
+| 요구사항 | 설명 | 예시 |
 |-------------|-------------|---------|
-| Measurable threshold | Numeric limit or defined attribute standard | "≥ 150 bar", "≤ 2.0 mm deflection", "Grade A per ISO 5817" |
-| Reference | Standard, drawing, or spec that defines the criterion | "per ASTM B117-19", "per drawing rev C dim 14", "per Ford ES-spec DS-123 Rev 2" |
-| Measurement point / location | Where on the part the measurement is taken | "at load point A (per test fixture drawing TF-002)", "on functional bore surface only" |
-| Condition at measurement | When / how the measurement is taken relative to the test | "immediately after test end, within 1h", "at room temperature after 24h conditioning" |
-| Disposition of acceptable boundary | How the boundary case is handled | "values equal to the limit are Pass", or "limit is exclusive — values equal to limit require engineering review" |
+| 측정 가능한 한계값 | 수치 한계 또는 정의된 계수형(attribute) 기준 | "≥ 150 bar", "변위 ≤ 2.0 mm", "ISO 5817 기준 Grade A" |
+| 참조 | 기준을 정의하는 표준, 도면 또는 사양 | "ASTM B117-19 준거", "도면 rev C 치수 14 기준", "Ford ES-spec DS-123 Rev 2 기준" |
+| 측정 지점 / 위치 | 부품의 어느 위치에서 측정하는지 | "하중점 A(시험 지그 도면 TF-002 기준)", "기능 보어면에 한함" |
+| 측정 시 조건 | 시험 대비 언제 / 어떻게 측정하는지 | "시험 종료 직후 1h 이내", "24h 컨디셔닝 후 상온에서" |
+| 경계값 처리 | 경계 사례를 어떻게 처리하는지 | "한계값과 같은 값은 Pass" 또는 "한계값 미포함 — 한계값과 같은 값은 엔지니어링 검토 필요" |
 
-**Attribute criteria (visual / functional) additional requirements:**
-- Reference to a visual standard (golden sample, limit sample, photograph with annotations, or published standard table)
-- Defined viewing conditions if appearance is part of the criterion (lighting level, viewing distance, viewing angle)
-- Training record for inspectors using the attribute standard (if an internal standard)
+**계수형 기준(외관 / 기능)의 추가 요구사항:**
+- 외관 기준 참조(골든 샘플, 한도 견본, 주석이 달린 사진 또는 공개된 표준 표)
+- 외관이 기준에 포함되는 경우 관찰 조건 정의(조도, 관찰 거리, 관찰 각도)
+- 계수형 기준을 사용하는 검사원의 교육 기록(사내 기준인 경우)
 
 ---
 
-## 6. DVP to DFMEA Linkage Table
+## 6. DVP–DFMEA 연결 표
 
-How to establish and verify the bi-directional link between each DVP test row and the DFMEA failure mode(s) it validates.
+각 DVP 시험 행과 그 시험이 검증하는 DFMEA 고장모드 사이의 양방향 연결을 수립하고 검증하는 방법이다.
 
-### Linkage Construction Rules
+### 연결 구성 규칙
 
-1. **Every H-AP failure mode must have at least one DVP test.** If a failure mode cannot be tested (analysis-only justification), document this in the DVP with the analytical method used and the engineer's sign-off — this is a conscious decision, not an omission.
+1. **모든 H-AP 고장모드에는 DVP 시험이 최소 하나 있어야 한다.** 고장모드를 시험할 수 없는 경우(해석 단독 근거), 사용한 해석 방법과 엔지니어의 승인 서명을 DVP에 문서화한다 — 이는 누락이 아니라 의식적인 결정이다.
 
-2. **One test may cover multiple failure modes.** A thermal shock test validates failure modes related to thermal expansion, solder joint fatigue, material embrittlement, and seal degradation simultaneously — list all referenced DFMEA failure mode IDs in Column 2.
+2. **하나의 시험이 여러 고장모드를 커버할 수 있다.** 열충격 시험은 열팽창, 솔더 접합부 피로, 재료 취화, 씰 열화와 관련된 고장모드를 동시에 검증한다 — 참조하는 모든 DFMEA 고장모드 ID를 2열에 나열한다.
 
-3. **Multiple tests may cover one failure mode.** A high-severity failure mode should be validated by more than one test approach (functional test + durability test) — belt and suspenders for high-AP items.
+3. **여러 시험이 하나의 고장모드를 커버할 수 있다.** 심각도가 높은 고장모드는 둘 이상의 시험 접근법(기능 시험 + 내구 시험)으로 검증해야 한다 — 높은 AP 항목에 대한 이중 안전장치이다.
 
-4. **The DFMEA detection control must match the DVP test method.** If the DFMEA says "validated by design analysis only" but the DVP has no test for that failure mode, the DFMEA detection rating (D) is unjustified.
+4. **DFMEA 검출 관리는 DVP 시험 방법과 일치해야 한다.** DFMEA에는 "설계 해석으로만 검증"이라고 되어 있는데 DVP에 해당 고장모드의 시험이 없다면, DFMEA 검출도(D) 평가는 근거가 없다.
 
-### DFMEA Column to DVP Column Mapping
+### DFMEA 열 – DVP 열 매핑
 
-| DFMEA Column | DFMEA Content | Maps to DVP Column | DVP Usage |
+| DFMEA 열 | DFMEA 내용 | 대응 DVP 열 | DVP 활용 |
 |--------------|--------------|-------------------|-----------|
-| Function | What the design element is supposed to do | Col 3 (partially) | Test name context — what the test is verifying the function against |
-| Failure Mode | How the function fails | Col 2 — DFMEA Reference | The failure mode ID drives the DVP row existence |
-| Failure Effect | What the customer/user experiences | Col 5 — Pass/Fail Criteria (indirectly) | The effect's severity determines the stringency of the criterion |
-| Failure Cause | Root cause of the failure mode | Col 3, Col 4 — Test type and method | Test method is chosen to recreate or stress the failure cause mechanism |
-| Severity (S) rating | S ≥ 9 | Col 7 — Who Performs | Safety effects (S ≥ 9) must use accredited external lab |
-| Action Priority (AP) | H-AP, M-AP, L-AP | Col 6, Col 8 | H-AP: larger sample size; Phase PL or PR required (not P-only) |
-| Current Detection Control | "DVP test [reference]" | Confirms test exists in DVP | If DFMEA says "validated by DVP" and the DVP row does not exist, DFMEA detection rating is unjustified |
-| Recommended Action (completed) | New test added; test criteria tightened | New DVP row or updated Col 5 | Completed DFMEA actions that add or modify tests must be reflected in the DVP |
+| 기능 | 설계 요소가 수행해야 하는 것 | 3열(부분적) | 시험명 맥락 — 시험이 어떤 기능을 기준으로 검증하는지 |
+| 고장모드 | 기능이 어떻게 실패하는지 | 2열 — DFMEA 참조 | 고장모드 ID가 DVP 행의 존재를 결정 |
+| 고장영향 | 고객/사용자가 겪는 현상 | 5열 — 판정 기준(간접적) | 영향의 심각도가 기준의 엄격도를 결정 |
+| 고장원인 | 고장모드의 근본 원인 | 3열, 4열 — 시험 유형 및 방법 | 고장원인 메커니즘을 재현하거나 스트레스를 가하도록 시험 방법을 선정 |
+| 심각도(S) 등급 | S ≥ 9 | 7열 — 수행 주체 | 안전 영향(S ≥ 9)은 외부 공인 시험기관을 사용해야 함 |
+| 조치 우선순위(AP) | H-AP, M-AP, L-AP | 6열, 8열 | H-AP: 샘플 수 확대, PL 또는 PR 단계 필수(P 단독 불가) |
+| 현행 검출 관리 | "DVP 시험 [참조]" | DVP에 시험이 존재함을 확인 | DFMEA에 "DVP로 검증"이라 되어 있는데 DVP 행이 없으면 DFMEA 검출도 평가는 근거가 없음 |
+| 권고 조치(완료) | 신규 시험 추가, 시험 기준 강화 | 신규 DVP 행 또는 5열 갱신 | 시험을 추가하거나 변경하는 완료된 DFMEA 조치는 DVP에 반영되어야 함 |
 
-### Audit Cross-Reference Matrix (how to perform the linkage audit)
+### 감사 상호 참조 매트릭스 (연결 감사 수행 방법)
 
-**Step 1:** Extract all H-AP failure modes from the DFMEA. List their IDs.
+**1단계:** DFMEA에서 모든 H-AP 고장모드를 추출하고 ID를 나열한다.
 
-**Step 2:** For each H-AP failure mode ID, verify there is at least one DVP row with that ID in Column 2 and a non-blank result in Column 11.
+**2단계:** 각 H-AP 고장모드 ID에 대해, 2열에 해당 ID가 있고 11열에 결과가 비어 있지 않은 DVP 행이 최소 하나 있는지 확인한다.
 
-**Step 3:** For each DVP row, verify the DFMEA failure mode ID in Column 2 exists in the DFMEA and is still current (not superseded by a DFMEA revision).
+**3단계:** 각 DVP 행에 대해, 2열의 DFMEA 고장모드 ID가 DFMEA에 존재하며 여전히 유효한지(DFMEA 개정으로 대체되지 않았는지) 확인한다.
 
-**Step 4:** Verify that DVP test specifications (Column 4) use the same standard revision referenced in the DFMEA notes or engineering specification.
+**4단계:** DVP 시험 사양(4열)이 DFMEA 메모 또는 엔지니어링 사양에서 참조하는 것과 동일한 표준 개정판을 사용하는지 확인한다.
 
-**Step 5:** Verify that all DVP rows show "Pass" or "Waived (with reference)" — no "In Progress", "Not Started", or bare "Fail" rows at PPAP submission.
+**5단계:** 모든 DVP 행이 "Pass" 또는 "Waived(참조 포함)"인지 확인한다 — PPAP 제출 시점에 "In Progress", "Not Started" 또는 조치 없는 "Fail" 행이 있어서는 안 된다.
 
-**Step 6:** Check DVP revision date against DFMEA revision date. If the DFMEA was updated after the DVP was issued, the DVP must reflect any new or modified failure modes — especially any new H-AP items added during a design review.
+**6단계:** DVP 개정일과 DFMEA 개정일을 비교한다. DVP 발행 후 DFMEA가 갱신되었다면, DVP는 새로 추가되거나 변경된 고장모드 — 특히 설계 리뷰 중 추가된 새 H-AP 항목 — 를 반영해야 한다.

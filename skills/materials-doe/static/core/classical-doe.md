@@ -1,94 +1,94 @@
-# Classical DOE Procedures
+# 고전 DOE 절차
 
-Standard design-of-experiments procedures for materials science and engineering research when orthogonal arrays are not appropriate.
+직교배열이 적합하지 않을 때 재료과학·공학 연구에 쓰는 표준 실험계획 절차이다.
 
-## Single-Factor Design
+## 단일 요인 설계
 
-Use when studying the effect of one factor (e.g., curing temperature, additive dosage, water-cement ratio) on a response.
+하나의 요인(예: 경화 온도, 첨가제 투입량, 물-시멘트비)이 반응에 미치는 영향을 연구할 때 사용한다.
 
-### Procedure
+### 절차
 
-1. **Define the factor** — name, unit, and range of interest.
-2. **Select levels** — choose 3–5 evenly spaced levels spanning the range, plus a control (baseline) level.
-3. **Define the response** — compressive strength, slump, setting time, etc.
-4. **Determine replications** — minimum 3 replicates per level for error estimation.
-5. **Randomize run order** — to minimize systematic bias from batch effects or environmental drift.
-6. **Conduct experiments** — record all responses.
-7. **Analyze** — one-way ANOVA, post-hoc tests (Tukey HSD or Duncan) if F is significant.
+1. **요인 정의** — 이름, 단위, 관심 범위.
+2. **수준 선택** — 범위를 아우르는 등간격 수준 3~5개와 대조(기준) 수준 1개를 고른다.
+3. **반응 정의** — 압축강도, 슬럼프, 응결 시간 등.
+4. **반복 수 결정** — 오차 추정을 위해 수준당 최소 3회 반복한다.
+5. **실험 순서 랜덤화** — 배치 효과나 환경 변동에 의한 계통 편향을 줄인다.
+6. **실험 수행** — 모든 반응을 기록한다.
+7. **분석** — 일원 분산분석, F가 유의하면 사후 검정(Tukey HSD 또는 Duncan)을 한다.
 
-### Design table template
+### 설계 표 양식
 
-| Run | Factor Level | Replicate | Response |
+| 실험 | 요인 수준 | 반복 | 반응 |
 |-----|-------------|-----------|----------|
-| 1 | Control | 1 | — |
-| 2 | Control | 2 | — |
-| 3 | Control | 3 | — |
-| 4 | Level 1 | 1 | — |
+| 1 | 대조 | 1 | — |
+| 2 | 대조 | 2 | — |
+| 3 | 대조 | 3 | — |
+| 4 | 수준 1 | 1 | — |
 | ... | ... | ... | ... |
 
-### Analysis
+### 분석
 
-- One-way ANOVA to test $H_0$: all level means are equal.
-- If rejected, post-hoc pairwise comparison to identify which levels differ.
-- Report: F-statistic, p-value, means ± standard deviation per level.
+- 일원 분산분석으로 $H_0$(모든 수준 평균이 같다)를 검정한다.
+- 기각되면 사후 쌍별 비교로 어느 수준이 다른지 파악한다.
+- 보고 항목: F 통계량, p값, 수준별 평균 ± 표준편차.
 
-## Multi-Factor Design (One-Factor-at-a-Time, OFAT)
+## 다요인 설계(한 번에 한 요인, OFAT)
 
-Use when studying 2–3 factors independently, one at a time. Simpler than full factorial but cannot detect interactions.
+2~3개 요인을 한 번에 하나씩 독립적으로 연구할 때 사용한다. 완전요인설계보다 단순하지만 교호작용을 검출할 수 없다.
 
-### Procedure
+### 절차
 
-1. **Fix all factors at baseline levels.**
-2. **Vary factor A** across its levels while holding B and C at baseline. Record responses.
-3. **Set A at its best level.** Vary factor B across its levels while holding C at baseline.
-4. **Set B at its best level.** Vary factor C across its levels.
-5. **The combined best levels form the recommended combination.** Note: this is NOT guaranteed to be the true optimum because interactions are ignored.
+1. **모든 요인을 기준 수준에 고정한다.**
+2. **B와 C를 기준에 둔 채 요인 A를 수준별로 바꾼다.** 반응을 기록한다.
+3. **A를 최적 수준에 둔다.** C를 기준에 둔 채 요인 B를 수준별로 바꾼다.
+4. **B를 최적 수준에 둔다.** 요인 C를 수준별로 바꾼다.
+5. **각 최적 수준을 합친 것이 권장 조합이다.** 주의: 교호작용을 무시하므로 진짜 최적점이라는 보장은 없다.
 
-### Example (3 factors, 3 levels each)
+### 예시(요인 3개, 각 3수준)
 
-| Phase | A | B | C | Runs |
+| 단계 | A | B | C | 실험 수 |
 |-------|---|---|---|------|
-| Phase 1 | 1, 2, 3 | Baseline | Baseline | 3 × replications |
-| Phase 2 | Best | 1, 2, 3 | Baseline | 3 × replications |
-| Phase 3 | Best | Best | 1, 2, 3 | 3 × replications |
+| 1단계 | 1, 2, 3 | 기준 | 기준 | 3 × 반복 수 |
+| 2단계 | 최적 | 1, 2, 3 | 기준 | 3 × 반복 수 |
+| 3단계 | 최적 | 최적 | 1, 2, 3 | 3 × 반복 수 |
 
-Total: 9 × replications (vs. 27 for full factorial, or 9 for L9 orthogonal with no replication).
+합계: 9 × 반복 수(완전요인설계는 27, 반복 없는 L9 직교배열은 9).
 
-### Limitations
+### 한계
 
-- Cannot detect factor interactions.
-- Order of factor testing can influence the final recommendation.
-- Not guaranteed to find the global optimum.
-- More runs than an equivalent orthogonal design for the same number of factors.
+- 요인 간 교호작용을 검출할 수 없다.
+- 요인 시험 순서가 최종 권장안에 영향을 줄 수 있다.
+- 전역 최적점을 찾는다는 보장이 없다.
+- 같은 요인 수에서 동등한 직교 설계보다 실험 수가 많다.
 
-## When to Use Classical vs Orthogonal
+## 고전 설계와 직교 설계의 선택
 
-| Criterion | Classical (Single/OFAT) | Orthogonal (L-array) |
+| 기준 | 고전(단일/OFAT) | 직교(L 배열) |
 |-----------|------------------------|---------------------|
-| Number of factors | 1–2 | 3–6 |
-| Interaction suspected | Yes (full factorial) or No (OFAT) | No (assumed negligible) |
-| Goal | Detailed characterization of one factor | Screening: identify important factors efficiently |
-| Replication | Required (≥3 per level for ANOVA) | Recommended (≥1 per run) |
-| Run budget | Flexible | Fixed by array size (9, 16, 25) |
-| Analysis | ANOVA + post-hoc | Range analysis (R), optionally ANOVA |
-| Control group | Explicit baseline required | Implicit (all levels compared) |
+| 요인 수 | 1~2 | 3~6 |
+| 교호작용 의심 | 예(완전요인설계) 또는 아니오(OFAT) | 아니오(무시 가능하다고 가정) |
+| 목적 | 한 요인의 상세한 특성 파악 | 스크리닝: 중요 요인을 효율적으로 파악 |
+| 반복 | 필수(분산분석을 위해 수준당 3회 이상) | 권장(실험당 1회 이상) |
+| 실험 수 예산 | 유연함 | 배열 크기로 고정(9, 16, 25) |
+| 분석 | 분산분석 + 사후 검정 | 범위 분석(R), 필요 시 분산분석 |
+| 대조군 | 명시적 기준 필수 | 암묵적(모든 수준을 비교) |
 
-## Full Factorial (when interactions matter)
+## 완전요인설계(교호작용이 중요할 때)
 
-For 2–3 factors with suspected interactions, use a full factorial design:
+교호작용이 의심되는 2~3개 요인에는 완전요인설계를 사용한다.
 
-- 2 factors × 3 levels = 9 treatment combinations
-- 3 factors × 2 levels = 8 treatment combinations
-- 3 factors × 3 levels = 27 treatment combinations
+- 요인 2개 × 3수준 = 처리 조합 9개
+- 요인 3개 × 2수준 = 처리 조합 8개
+- 요인 3개 × 3수준 = 처리 조합 27개
 
-Full factorial allows estimation of all main effects and all interaction terms. Use when:
+완전요인설계로는 모든 주효과와 모든 교호작용 항을 추정할 수 있다. 다음 경우에 사용한다.
 
-- Interaction between factors is physically plausible (e.g., water-cement ratio × superplasticizer dosage).
-- The number of treatment combinations is manageable (≤27 with replication).
-- The research question requires understanding how factors jointly affect the response.
+- 요인 간 교호작용이 물리적으로 그럴듯할 때(예: 물-시멘트비 × 고성능 감수제 투입량).
+- 처리 조합 수가 감당할 만할 때(반복 포함 27개 이하).
+- 요인들이 반응에 함께 미치는 영향을 이해해야 하는 연구 질문일 때.
 
-### Analysis for full factorial
+### 완전요인설계의 분석
 
-- Two-way or three-way ANOVA with interaction terms.
-- Interaction plots to visualize factor dependencies.
-- If interaction is significant, main effects alone are misleading — report interaction effects prominently.
+- 교호작용 항을 포함한 이원 또는 삼원 분산분석.
+- 요인 간 의존성을 시각화하는 교호작용도.
+- 교호작용이 유의하면 주효과만으로는 오해를 낳는다. 교호작용 효과를 눈에 띄게 보고한다.

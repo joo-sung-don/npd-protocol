@@ -15,6 +15,19 @@ export type Chapter = { key: string; title: string; body: string };
 export type ReviewItem = { item: string; verdict: "ok" | "warn" | "bad"; where: string; fix: string };
 export type Review = { ok: number; warn: number; bad: number; items: ReviewItem[]; top: string[]; markdown: string };
 
+export type Judge = "ok" | "warn" | "bad" | "unknown";
+export type ReqRow = { req: string; value: string; source: string; assumed: boolean; judge: Judge; judgeText: string; reason: string; ref: string };
+export type Verdict = "진행" | "조건부 진행" | "보류";
+export type Report = {
+  title: string;
+  meta: [string, string][];
+  verdict: Verdict | null;
+  conclusion: string;
+  reqs: ReqRow[];
+  counts: Record<Judge, number>;
+  rest: string; // 2장 이후 Markdown
+};
+
 export type Metrics = {
   fmTotal: number;
   fmHigh: number;
@@ -36,6 +49,7 @@ export type Version = {
   header: Record<string, string>;
   chapters: Record<string, Chapter>;
   review: Review | null;
+  report: Report | null;
   metrics: Metrics;
 };
 
@@ -118,6 +132,46 @@ function parseReview(file: string): Review | null {
   };
 }
 
+/** *_report.md — protocol-builder references/report-template.md 형식 */
+function parseReport(file: string): Report | null {
+  if (!fs.existsSync(file)) return null;
+  const text = fs.readFileSync(file, "utf8");
+  const lines = text.split("\n");
+  const firstH2 = lines.findIndex((l) => l.startsWith("## "));
+  const meta = tableRows(lines.slice(0, firstH2 < 0 ? lines.length : firstH2))
+    .filter((r) => r.length >= 2)
+    .map((r) => [r[0], r[1]] as [string, string]);
+  const concl = section(lines, /^## 결론/);
+  const vm = concl.join("\n").match(/\*\*판정\*\*:\s*(조건부 진행|진행|보류)/);
+  const conclusion = concl
+    .filter((l) => !/\*\*판정\*\*/.test(l))
+    .join("\n")
+    .trim();
+  const judgeOf = (t: string): Judge => (t.includes("❌") ? "bad" : t.includes("⚠") ? "warn" : t.includes("✅") ? "ok" : "unknown");
+  const reqs: ReqRow[] = tableRows(section(lines, /^## 1\./)).map((r) => ({
+    req: r[0] ?? "",
+    value: r[1] ?? "",
+    source: r[2] ?? "",
+    assumed: (r[2] ?? "").includes("가정"),
+    judge: judgeOf(r[3] ?? ""),
+    judgeText: (r[3] ?? "").replace(/^[✅⚠❌❓️\s]+/u, ""),
+    reason: r[4] ?? "",
+    ref: r[5] ?? "",
+  }));
+  const counts: Record<Judge, number> = { ok: 0, warn: 0, bad: 0, unknown: 0 };
+  for (const r of reqs) counts[r.judge]++;
+  const restStart = lines.findIndex((l) => /^## 2\./.test(l));
+  return {
+    title: lines[0].replace(/^#\s*/, ""),
+    meta,
+    verdict: (vm?.[1] as Verdict) ?? null,
+    conclusion,
+    reqs,
+    counts,
+    rest: restStart < 0 ? "" : lines.slice(restStart).join("\n").replace(/^## (\d+)\./gm, "### $1."),
+  };
+}
+
 function metrics(lines: string[]): Metrics {
   const body = lines.filter((l) => !l.startsWith(">")).join("\n");
   const fm = tableRows(section(lines, /^### 4\.1/)).filter((r) => r[0]?.startsWith("FM"));
@@ -166,6 +220,7 @@ export function loadProducts(): Product[] {
       header: headerTable(lines),
       chapters,
       review: parseReview(path.join(PROTOCOLS_DIR, file.replace(/\.md$/, "_review.md"))),
+      report: parseReport(path.join(PROTOCOLS_DIR, file.replace(/\.md$/, "_report.md"))),
       metrics: metrics(lines),
     };
     const id = `${family}_${industry}_${partRaw}`;
@@ -220,10 +275,10 @@ export function processSteps(v: Version): Step[] {
       state: !v.review ? "todo" : v.review.bad > 0 || v.review.warn > 0 ? "partial" : "done",
     },
     {
-      key: "revise",
-      title: "수정·버전 관리",
-      detail: `현재 v${v.version}`,
-      state: "done",
+      key: "report",
+      title: "개발 계획 보고서",
+      detail: v.report ? `판정: ${v.report.verdict ?? "미기재"} (v${v.version})` : "보고서 없음",
+      state: v.report?.verdict ? "done" : "todo",
     },
     {
       key: "approve",

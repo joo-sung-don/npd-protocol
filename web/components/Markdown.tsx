@@ -46,7 +46,7 @@ export function Markdown({ children }: { children: string }) {
   return (
     <div className="md">
       <ReactMarkdown
-        remarkPlugins={[remarkGfm]}
+        remarkPlugins={[[remarkGfm, { singleTilde: false }]]}
         components={{
           a: ({ href, children: c }) => {
             const tag = href?.match(/^#tag-(\w)$/)?.[1];

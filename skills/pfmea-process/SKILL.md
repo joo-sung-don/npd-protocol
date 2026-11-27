@@ -1,11 +1,11 @@
 ---
 name: pfmea-process
 description: >-
-  Build a PFMEA worksheet, process risk analysis, or AP table using the AIAG-VDA FMEA
-  Handbook 2019 7-step approach. Covers Structure Analysis, Function Analysis, Failure
-  Analysis, Risk Analysis (Action Priority H/M/L), Optimization, and Documentation.
-  Required by IATF 16949 and OEM customer-specific requirements for new processes,
-  process changes, and post-escape PFMEA updates.
+  AIAG-VDA FMEA Handbook 2019의 7단계 접근법으로 PFMEA(process FMEA) 워크시트, 공정
+  리스크 분석, AP 표를 작성한다. 구조 분석, 기능 분석, 고장 분석, 리스크 분석(조치 우선순위
+  H/M/L), 최적화, 결과 문서화를 다룬다. 신규 공정, 공정 변경, 유출(escape) 이후 PFMEA 개정 시
+  IATF 16949 및 OEM 고객 특정 요구사항(CSR)에 따라 필수이다.
+  Triggers: PFMEA 작성, 공정 FMEA, 공정 고장모드, 공정 리스크 분석, AP 표, AIAG-VDA PFMEA.
 license: MIT
 metadata:
   author: RBraga01
@@ -24,254 +24,254 @@ metadata:
   standard_edition: "AIAG-VDA FMEA Handbook 2019"
 ---
 
-# Process FMEA (PFMEA) — AIAG-VDA 2019
+# 공정 FMEA (PFMEA) — AIAG-VDA 2019
 
-## Goal
+## 목표
 
-Identify and prioritise process risk before production — using the AIAG-VDA 2019 7-step approach — so that high-priority failure modes are eliminated or controlled before they reach the customer, and the result feeds directly into the Control Plan and Work Instructions.
+AIAG-VDA 2019 7단계 접근법으로 양산 전에 공정 리스크를 식별하고 우선순위를 정한다. 우선순위가 높은 고장모드는 고객에게 도달하기 전에 제거하거나 관리하며, 그 결과는 관리계획서(Control Plan)와 작업표준서(Work Instruction)에 직접 반영한다.
 
-## Required Execution Checklist
+## 필수 실행 체크리스트
 
-- [ ] Scope defined: process step boundaries, model year, team assembled with cross-functional representation
-- [ ] Process Flow Diagram (PFD) available and used as Step 2 input
-- [ ] All process steps in the PFD have a corresponding entry in Structure Analysis (Step 2)
-- [ ] Every process step has at least one Function defined in Step 3
-- [ ] Failure chain complete for each function: Effect → Mode → Cause (in this direction — not reversed)
-- [ ] All Failure Causes are evidence-based — no unverified assumptions used as final causes
-- [ ] S/O/D ratings agreed by the cross-functional team and documented
-- [ ] All Special Characteristics have S=9 or S=10
-- [ ] Every H-AP item has a named owner, target date, and is tracked to closure
-- [ ] PFMEA detection controls match the Control Plan; prevention controls match Work Instructions
-
----
-
-## When to use
-
-- New process development (pre-production)
-- Existing process change or transfer
-- After a quality escape (update to reflect failure mode)
-- Periodic review (IATF requires annual review or at change)
-- Customer-specific requirement (Ford, GM, Stellantis, BMW, VW all require PFMEA)
-
-## Prerequisites
-
-- Process flow diagram (PFD) — required for Step 2
-- Product drawings with special characteristics identified
-- DFMEA (if applicable) for effect severity reference
-- Team: process engineer, quality engineer, production supervisor, maintenance
-
-## The 7-Step AIAG-VDA 2019 Approach
+- [ ] 범위 정의: 공정 단계 경계, 모델 연도, 다기능(cross-functional) 인원으로 팀 구성
+- [ ] 공정 흐름도(PFD)를 확보하고 Step 2 입력으로 사용
+- [ ] PFD의 모든 공정 단계가 구조 분석(Step 2)에 대응 항목을 가짐
+- [ ] 모든 공정 단계에 Step 3에서 정의된 기능이 최소 1개 있음
+- [ ] 기능별 고장 사슬 완성: 고장영향 → 고장모드 → 고장원인 (이 방향으로 — 역방향 금지)
+- [ ] 모든 고장원인이 증거 기반임 — 검증되지 않은 가정을 최종 원인으로 사용하지 않음
+- [ ] S/O/D 평가를 다기능 팀이 합의하고 문서화함
+- [ ] 모든 특별특성이 S=9 또는 S=10임
+- [ ] 모든 H-AP 항목에 지정된 담당자, 목표일이 있고 종결까지 추적됨
+- [ ] PFMEA 검출 관리는 관리계획서와, 예방 관리는 작업표준서와 일치함
 
 ---
 
-### Step 1 — Planning and Preparation
+## 사용 시점
 
-Define the scope:
-- **FMEA header:** part number, part name, model year, process step scope, revision, date, team
-- **Analysis boundary:** which process steps are in scope (start point and end point)
-- **Timeline:** new PFMEA or revision of existing?
+- 신규 공정 개발(양산 전)
+- 기존 공정의 변경 또는 이관
+- 품질 유출(quality escape) 발생 후(해당 고장모드를 반영하도록 개정)
+- 정기 검토(IATF는 연 1회 또는 변경 시 검토를 요구)
+- 고객 특정 요구사항(Ford, GM, Stellantis, BMW, VW 모두 PFMEA를 요구)
 
-Prepare:
-- Process Flow Diagram (PFD) — this drives Steps 2 and 3
-- List of Special Characteristics (SC) from the drawing (symbols: ◆ ★ ⬟ vary by customer)
+## 사전 준비 사항
+
+- 공정 흐름도(PFD) — Step 2에 필수
+- 특별특성이 식별된 제품 도면
+- DFMEA(해당 시) — 고장영향 심각도 참조용
+- 팀: 공정 엔지니어, 품질 엔지니어, 생산 감독자, 설비 보전 담당
+
+## AIAG-VDA 2019 7단계 접근법
 
 ---
 
-### Step 2 — Structure Analysis
+### Step 1 — 계획 및 준비
 
-Map the process hierarchy:
+범위를 정의한다.
+- **FMEA 헤더:** 품번, 품명, 모델 연도, 공정 단계 범위, 개정 번호, 일자, 팀
+- **분석 경계:** 범위에 포함되는 공정 단계(시작점과 종료점)
+- **일정:** 신규 PFMEA인가, 기존 PFMEA의 개정인가?
+
+준비한다.
+- 공정 흐름도(PFD) — Step 2와 3을 이끄는 입력이다
+- 도면상의 특별특성(SC) 목록(기호 ◆ ★ ⬟ 는 고객마다 다름)
+
+---
+
+### Step 2 — 구조 분석
+
+공정 계층을 매핑한다.
 ```
-Process Item (e.g., Steering Column Assembly Line)
-└── Process Step (e.g., Station 3 — Torque tightening)
-    └── Work Element (e.g., Pneumatic driver, torque wrench)
-```
-
-For each process step, identify the **4M inputs**: Man, Machine, Method, Material.
-
-This structure becomes the "what can go wrong" framework in Step 4.
-
-**Consistency check:** Every Process Step defined here must have at least one Function defined in Step 3. A process step with no function is incomplete — it cannot be analysed for failure in Step 4.
-
----
-
-### Step 3 — Function Analysis
-
-For each process step and work element, define:
-- **Process function:** what should happen? (verb + noun + measurable characteristic)
-  - Example: "Tighten bolt M8 to 22 ± 2 Nm"
-- **Product characteristic:** what product feature results from this step?
-  - Flag all Special Characteristics (SC) — these get highest attention in D/O/D ratings
-
-**Functional chain:**
-```
-Work Element function → Process Step function → Product Characteristic
-(tool applies torque) → (bolt is tightened to spec) → (joint meets strength requirement)
+공정 항목 (예: 스티어링 컬럼 조립 라인)
+└── 공정 단계 (예: 3번 스테이션 — 토크 체결)
+    └── 작업 요소 (예: 공압 드라이버, 토크 렌치)
 ```
 
----
+각 공정 단계마다 **4M 입력**을 식별한다: Man(사람), Machine(설비), Method(방법), Material(자재).
 
-### Step 4 — Failure Analysis
+이 구조가 Step 4에서 "무엇이 잘못될 수 있는가"를 따지는 틀이 된다.
 
-For each function, identify the failure chain: **Failure Effect → Failure Mode → Failure Cause**
-
-Work in this direction (Effect first, then Mode, then Cause):
-
-**Failure Effect (FE):** what is the impact on the customer (internal or end user)?
-- End-user effect (most severe): safety, regulatory non-compliance, loss of function
-- Manufacturing effect: rework, scrap, line stoppage, warranty
-
-**Failure Mode (FM):** how does this process step fail to perform its function?
-- Example: "Bolt torqued too low", "Part installed backwards", "Incorrect material loaded"
-
-**Failure Cause (FC):** what causes the failure mode?
-- Machine: "Torque wrench not calibrated", "Air pressure drop"
-- Man: "Work instruction not followed", "Untrained operator"
-- Method: "Incorrect torque value in WI", "No torque verification step"
-- Material: "Wrong bolt grade loaded", "Lubrication not applied"
-
-**Multiple causes per failure mode are normal** — each FC gets its own row.
-
-**Failure Cause validation:** Failure Causes must be supported by objective evidence or structured root cause analysis (e.g., [5-Why](../../problem-solving/5why-root-cause/)). Unverified assumptions — "probably," "may be," "could be" — must not be entered as final Failure Causes. For post-escape PFMEA updates, the FC must match the validated root cause from the 8D or CAPA, not a revised opinion.
+**일관성 점검:** 여기서 정의한 모든 공정 단계는 Step 3에서 정의된 기능을 최소 1개 가져야 한다. 기능이 없는 공정 단계는 불완전하며, Step 4에서 고장을 분석할 수 없다.
 
 ---
 
-### Step 5 — Risk Analysis (Action Priority)
+### Step 3 — 기능 분석
 
-For each FC row, assign three ratings:
+각 공정 단계와 작업 요소에 대해 다음을 정의한다.
+- **공정 기능:** 무엇이 일어나야 하는가? (동사 + 명사 + 측정 가능한 특성)
+  - 예: "볼트 M8을 22 ± 2 Nm로 체결한다"
+- **제품 특성:** 이 단계의 결과로 어떤 제품 특성이 만들어지는가?
+  - 모든 특별특성(SC)을 표시한다 — S/O/D 평가에서 가장 높은 주의를 받는다
 
-#### Severity (S) — impact of the Failure Effect on the customer
+**기능 사슬:**
+```
+작업 요소 기능 → 공정 단계 기능 → 제품 특성
+(공구가 토크를 가함) → (볼트가 규격대로 체결됨) → (체결부가 강도 요구사항을 충족함)
+```
 
-| S | Effect |
+---
+
+### Step 4 — 고장 분석
+
+각 기능에 대해 고장 사슬을 식별한다: **고장영향(Failure Effect) → 고장모드(Failure Mode) → 고장원인(Failure Cause)**
+
+이 방향으로 작업한다(영향 먼저, 다음 모드, 다음 원인).
+
+**고장영향(FE):** 고객(내부 또는 최종 사용자)에게 미치는 영향은 무엇인가?
+- 최종 사용자 영향(가장 심각): 안전, 법규 미준수, 기능 상실
+- 제조 영향: 재작업, 폐기, 라인 정지, 보증
+
+**고장모드(FM):** 이 공정 단계가 어떻게 기능을 수행하지 못하는가?
+- 예: "볼트 토크 부족", "부품 역방향 장착", "잘못된 자재 투입"
+
+**고장원인(FC):** 무엇이 고장모드를 일으키는가?
+- Machine: "토크 렌치 미교정", "공압 저하"
+- Man: "작업표준서 미준수", "미숙련 작업자"
+- Method: "작업표준서의 토크 값 오류", "토크 확인 단계 없음"
+- Material: "잘못된 볼트 등급 투입", "윤활 미도포"
+
+**고장모드 하나에 원인이 여러 개인 것은 정상이다** — 고장원인마다 별도의 행을 둔다.
+
+**고장원인 검증:** 고장원인은 객관적 증거 또는 구조화된 근본원인 분석(예: [5-Why](../../problem-solving/5why-root-cause/))으로 뒷받침되어야 한다. "아마도", "~일 수 있다", "~일지도 모른다" 같은 검증되지 않은 가정을 최종 고장원인으로 기입해서는 안 된다. 유출 이후 PFMEA 개정 시 고장원인은 수정된 의견이 아니라 8D 또는 CAPA에서 검증된 근본원인과 일치해야 한다.
+
+---
+
+### Step 5 — 리스크 분석 (조치 우선순위)
+
+각 고장원인 행에 세 가지 평가를 부여한다.
+
+#### 심각도(S) — 고장영향이 고객에게 미치는 영향
+
+| S | 영향 |
 |---|--------|
-| 10 | Safety — affects operator safety without warning |
-| 9 | Regulatory non-compliance |
-| 8 | Loss of primary function (end user) |
-| 7 | Reduced primary function |
-| 6 | Loss of comfort / convenience function |
-| 5 | Reduced comfort / convenience function |
-| 4 | Appearance issue — noticed by most |
-| 3 | Appearance issue — noticed by some |
-| 2 | Appearance issue — noticed by discriminating |
-| 1 | No effect |
+| 10 | 안전 — 경고 없이 작업자 안전에 영향 |
+| 9 | 법규 미준수 |
+| 8 | 주요 기능 상실(최종 사용자) |
+| 7 | 주요 기능 저하 |
+| 6 | 편의/안락 기능 상실 |
+| 5 | 편의/안락 기능 저하 |
+| 4 | 외관 문제 — 대부분이 인지 |
+| 3 | 외관 문제 — 일부가 인지 |
+| 2 | 외관 문제 — 예민한 고객이 인지 |
+| 1 | 영향 없음 |
 
-**Severity rates the EFFECT, not the mode or cause.** S=10 or S=9 means you must act regardless of O and D.
+**심각도는 고장모드나 고장원인이 아니라 고장영향을 평가한다.** S=10 또는 S=9이면 O와 D에 관계없이 조치해야 한다.
 
-#### Occurrence (O) — likelihood the Failure Cause leads to the Failure Mode
+#### 발생도(O) — 고장원인이 고장모드로 이어질 가능성
 
-| O | Failure Rate |
+| O | 고장률 |
 |---|-------------|
-| 10 | ≥ 1 in 2 |
-| 9 | 1 in 8 |
-| 8 | 1 in 20 |
-| 7 | 1 in 80 |
-| 6 | 1 in 400 |
-| 5 | 1 in 2,000 |
-| 4 | 1 in 15,000 |
-| 3 | 1 in 150,000 |
-| 2 | 1 in 1,500,000 |
-| 1 | Failure eliminated by prevention control |
+| 10 | ≥ 2개 중 1개 |
+| 9 | 8개 중 1개 |
+| 8 | 20개 중 1개 |
+| 7 | 80개 중 1개 |
+| 6 | 400개 중 1개 |
+| 5 | 2,000개 중 1개 |
+| 4 | 15,000개 중 1개 |
+| 3 | 150,000개 중 1개 |
+| 2 | 1,500,000개 중 1개 |
+| 1 | 예방 관리로 고장 제거됨 |
 
-O considers **prevention controls** already in place (poka-yoke, SPC, incoming inspection of material).
+O는 이미 적용된 **예방 관리**(포카요케, SPC, 자재 수입검사)를 고려한다.
 
-#### Detection (D) — effectiveness of detection controls before product reaches next customer
+#### 검출도(D) — 제품이 다음 고객에게 도달하기 전 검출 관리의 효과
 
-| D | Detection |
+| D | 검출 |
 |---|-----------|
-| 10 | No detection control |
-| 9 | Control unlikely to detect |
-| 8 | Control may detect |
-| 7 | Control has low chance of detection |
-| 6 | Control may detect — moderate |
-| 5 | Control likely to detect |
-| 4 | Control has good chance of detection |
-| 3 | Control almost certain to detect |
-| 2 | Control certain to detect — automatic rejection |
-| 1 | Failure mode cannot occur (prevented) |
+| 10 | 검출 관리 없음 |
+| 9 | 관리로 검출될 가능성이 낮음 |
+| 8 | 관리로 검출될 수도 있음 |
+| 7 | 관리의 검출 가능성이 낮음 |
+| 6 | 관리로 검출될 수도 있음 — 보통 |
+| 5 | 관리로 검출될 가능성이 높음 |
+| 4 | 관리의 검출 가능성이 양호함 |
+| 3 | 관리로 거의 확실히 검출됨 |
+| 2 | 관리로 확실히 검출됨 — 자동 배출 |
+| 1 | 고장모드가 발생할 수 없음(예방됨) |
 
-D considers **detection controls** already in place (gauging, inspection, poka-yoke).
+D는 이미 적용된 **검출 관리**(게이지 측정, 검사, 포카요케)를 고려한다.
 
-#### Action Priority (AP) — replaces legacy RPN
+#### 조치 우선순위(AP) — 기존 RPN을 대체
 
-Use the AP table (see [action-priority-ap](../action-priority-ap/) skill for full table):
+AP 표를 사용한다(전체 표는 [action-priority-ap](../action-priority-ap/) 스킬 참조).
 
-| AP | Meaning | Required action |
+| AP | 의미 | 필요 조치 |
 |----|---------|-----------------|
-| **H** (High) | Action required | Assign responsible owner + target date. Escalate if no improvement possible. |
-| **M** (Medium) | Action recommended | Team should evaluate — reduction may be beneficial |
-| **L** (Low) | No action required | Document rationale for no action |
+| **H** (High) | 조치 필수 | 책임 담당자와 목표일을 지정한다. 개선이 불가능하면 상부 보고(에스컬레이션)한다. |
+| **M** (Medium) | 조치 권장 | 팀이 평가한다 — 리스크 저감이 유익할 수 있다 |
+| **L** (Low) | 조치 불필요 | 조치하지 않는 근거를 문서화한다 |
 
-**Critical rule:** S = 9 or 10 → AP is always H regardless of O and D.
+**핵심 규칙:** S = 9 또는 10 → O와 D에 관계없이 AP는 항상 H이다.
 
-**Ratings discipline:** All S/O/D ratings must be agreed by the cross-functional team — not assigned unilaterally by one engineer. Where team members disagree, document the rationale for the rating chosen. Ratings without team consensus are not acceptable for PPAP submission or customer OEM review.
-
----
-
-### Step 6 — Optimization
-
-For every H-AP item: define a corrective action.
-
-For each action:
-- Description of the action
-- Responsible person (name, not function)
-- Target completion date
-- Re-assess S/O/D after action: new AP (revised)
-
-**Priority for action type:**
-1. **Prevent the cause** (best): eliminate the cause by design or poka-yoke
-2. **Reduce occurrence**: add process control that makes the cause less likely
-3. **Improve detection**: add or improve detection control (least preferred — doesn't prevent defect, only catches it)
-
-Avoid the common trap of only improving detection (lowering D) — this catches defects but doesn't prevent them.
-
-**Tracking discipline:** All actions must be logged in the PFMEA and tracked to closure with objective evidence (completed action description + implementation date + revised S/O/D ratings). Open H-AP items past their target date must be escalated to management with a documented reason for delay and a revised target date. A PFMEA with overdue open H-AP items is not acceptable for PPAP submission or OEM audit.
+**평가 규율:** 모든 S/O/D 평가는 다기능 팀이 합의해야 하며, 엔지니어 한 명이 일방적으로 부여해서는 안 된다. 팀원 간 의견이 다르면 선택한 평가의 근거를 문서화한다. 팀 합의 없는 평가는 PPAP 제출이나 OEM 고객 검토에서 인정되지 않는다.
 
 ---
 
-### Step 7 — Results Documentation
+### Step 6 — 최적화
 
-Final PFMEA deliverables:
-- Completed PFMEA form with all 7 steps documented
-- Summary of H-AP items and their actions (status: open/closed)
-- Link to updated Control Plan (detection controls in PFMEA → control methods in CP)
-- Link to updated Work Instructions (prevention controls → WI procedures)
-- PFMEA revision history
+모든 H-AP 항목에 대해 시정 조치를 정의한다.
 
-**PFMEA → Control Plan linkage:**
-Every detection control in the PFMEA must have a corresponding entry in the Control Plan. Every prevention control must be reflected in the Work Instruction.
+각 조치에 대해 다음을 기록한다.
+- 조치 내용
+- 책임자(부서가 아닌 실명)
+- 목표 완료일
+- 조치 후 S/O/D 재평가: 새 AP(개정)
 
-## Validation checklist
+**조치 유형의 우선순위:**
+1. **원인 예방**(최선): 설계 또는 포카요케로 원인을 제거한다
+2. **발생도 저감**: 원인 발생 가능성을 낮추는 공정 관리를 추가한다
+3. **검출 개선**: 검출 관리를 추가하거나 개선한다(가장 비선호 — 결함을 예방하지 못하고 잡아낼 뿐이다)
 
-Before releasing the PFMEA:
-- [ ] All process steps from the PFD are in the Structure Analysis
-- [ ] All Special Characteristics are identified and have S=9 or S=10
-- [ ] Every H-AP item has an owner and a target date
-- [ ] No H-AP items remain open without documented escalation reason
-- [ ] Detection controls in PFMEA match the Control Plan
-- [ ] Prevention controls in PFMEA match Work Instructions
-- [ ] All Failure Causes are evidence-based (no unverified assumptions used as final causes)
-- [ ] PFMEA review triggered by one of the mandatory events: process change, quality escape (post-8D update), or annual review (IATF 16949 §8.3.3.3)
+검출만 개선(D 하향)하는 흔한 함정을 피한다 — 결함을 잡아낼 뿐 예방하지 못한다.
 
-## Output Format
+**추적 규율:** 모든 조치는 PFMEA에 기록하고 객관적 증거(완료된 조치 내용 + 실행일 + 개정된 S/O/D 평가)와 함께 종결까지 추적한다. 목표일이 지난 미결 H-AP 항목은 지연 사유와 수정 목표일을 문서화하여 경영진에 에스컬레이션한다. 기한이 지난 미결 H-AP 항목이 있는 PFMEA는 PPAP 제출이나 OEM 심사에서 인정되지 않는다.
 
-At the start of each use, ask the user:
+---
 
-> "How would you like to receive the output?
-> **A** — Structured Markdown (formatted tables and sections, ready to copy)
-> **B** — Plain tables (simplified structure for Excel or Word)
-> **C** — Narrative report (flowing text for a formal document or email)
+### Step 7 — 결과 문서화
+
+최종 PFMEA 산출물:
+- 7단계가 모두 문서화된 완성 PFMEA 양식
+- H-AP 항목과 조치 요약(상태: 미결/종결)
+- 개정된 관리계획서와의 연계(PFMEA의 검출 관리 → CP의 관리 방법)
+- 개정된 작업표준서와의 연계(예방 관리 → WI 절차)
+- PFMEA 개정 이력
+
+**PFMEA → 관리계획서 연계:**
+PFMEA의 모든 검출 관리는 관리계획서에 대응 항목이 있어야 한다. 모든 예방 관리는 작업표준서에 반영되어야 한다.
+
+## 검증 체크리스트
+
+PFMEA 배포 전에 확인한다.
+- [ ] PFD의 모든 공정 단계가 구조 분석에 포함됨
+- [ ] 모든 특별특성이 식별되었고 S=9 또는 S=10임
+- [ ] 모든 H-AP 항목에 담당자와 목표일이 있음
+- [ ] 문서화된 에스컬레이션 사유 없이 미결로 남은 H-AP 항목이 없음
+- [ ] PFMEA의 검출 관리가 관리계획서와 일치함
+- [ ] PFMEA의 예방 관리가 작업표준서와 일치함
+- [ ] 모든 고장원인이 증거 기반임(검증되지 않은 가정을 최종 원인으로 사용하지 않음)
+- [ ] PFMEA 검토가 필수 이벤트 중 하나로 촉발됨: 공정 변경, 품질 유출(8D 이후 개정), 연간 검토(IATF 16949 §8.3.3.3)
+
+## 출력 형식
+
+매번 사용을 시작할 때 사용자에게 묻는다.
+
+> "출력을 어떤 형식으로 받으시겠습니까?
+> **A** — 구조화된 Markdown(서식이 적용된 표와 섹션, 바로 복사 가능)
+> **B** — 단순 표(Excel 또는 Word용 간소화 구조)
+> **C** — 서술형 보고서(공식 문서나 이메일용 줄글)
 >
-> Default: A."
+> 기본값: A."
 
-Adapt all output sections to the chosen format. If the platform or session context already defines a format preference, skip this question.
+모든 출력 섹션을 선택된 형식에 맞춘다. 플랫폼이나 세션 맥락에서 이미 형식 선호가 정해져 있으면 이 질문을 생략한다.
 
-## Reference files
+## 참조 파일
 
-- [AIAG-VDA 2019 step-by-step guide](references/aiag-vda-2019.md)
-- [Action Priority table](assets/ap-table.md)
+- [AIAG-VDA 2019 단계별 가이드](references/aiag-vda-2019.md)
+- [조치 우선순위 표](assets/ap-table.md)
 
-## Changelog
+## 변경 이력
 
-| Version | Date | Author | Change |
+| 버전 | 일자 | 작성자 | 변경 내용 |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-01 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-03 | @RBraga01 | Expanded 7-step workflow with AP gate requirements and PPAP integration |
+| 1.0 | 2026-06-01 | @RBraga01 | 최초 배포 |
+| 1.1 | 2026-06-03 | @RBraga01 | AP 게이트 요구사항과 PPAP 연계를 포함해 7단계 워크플로 확장 |

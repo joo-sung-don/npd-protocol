@@ -1,110 +1,110 @@
-# Factor-Level Definition Template
+# 요인-수준 정의 양식
 
-Standard template and guidance for defining factors and levels in civil engineering materials experiments.
+토목공학 재료 실험에서 요인과 수준을 정의하기 위한 표준 양식과 지침이다.
 
-## Template
+## 양식
 
-| Factor | Unit | Level 1 | Level 2 | Level 3 | Level 4 | Level 5 |
+| 요인 | 단위 | 수준 1 | 수준 2 | 수준 3 | 수준 4 | 수준 5 |
 |--------|------|---------|---------|---------|---------|---------|
-| Factor A | — | — | — | — | — | — |
-| Factor B | — | — | — | — | — | — |
-| Factor C | — | — | — | — | — | — |
-| Factor D | — | — | — | — | — | — |
+| 요인 A | — | — | — | — | — | — |
+| 요인 B | — | — | — | — | — | — |
+| 요인 C | — | — | — | — | — | — |
+| 요인 D | — | — | — | — | — | — |
 
-## Example: Waterborne Epoxy Modified Emulsified Asphalt
+## 예시: 수성 에폭시 개질 유화 아스팔트
 
-| Factor | Unit | Level 1 | Level 2 | Level 3 | Level 4 | Level 5 |
+| 요인 | 단위 | 수준 1 | 수준 2 | 수준 3 | 수준 4 | 수준 5 |
 |--------|------|---------|---------|---------|---------|---------|
-| Epoxy content | % | 5 | 10 | 15 | 20 | 25 |
-| Curing temperature | °C | 25 | 40 | 55 | 70 | 85 |
-| Curing time | h | 2 | 4 | 6 | 8 | 12 |
-| Emulsifier dosage | % | 0.5 | 1.0 | 1.5 | 2.0 | 2.5 |
-| Mixing speed | rpm | 500 | 1000 | 1500 | 2000 | 2500 |
+| 에폭시 함량 | % | 5 | 10 | 15 | 20 | 25 |
+| 경화 온도 | °C | 25 | 40 | 55 | 70 | 85 |
+| 경화 시간 | h | 2 | 4 | 6 | 8 | 12 |
+| 유화제 투입량 | % | 0.5 | 1.0 | 1.5 | 2.0 | 2.5 |
+| 혼합 속도 | rpm | 500 | 1000 | 1500 | 2000 | 2500 |
 
-## How to Define Factors: 5 Steps
+## 요인 정의 5단계
 
-### Step 1: Identify controllable variables
+### 1단계: 제어 가능한 변수 파악
 
-List all process parameters, raw material proportions, and curing conditions that may influence the target response. Focus on variables that can be controlled and measured in the lab.
+목표 반응에 영향을 줄 수 있는 공정 변수, 원료 비율, 경화 조건을 모두 나열한다. 실험실에서 제어하고 측정할 수 있는 변수에 집중한다.
 
-### Step 2: Screen for significance
+### 2단계: 유의성 선별
 
-Use literature review or preliminary single-factor tests to eliminate variables with negligible effect. Retain 3–6 factors for orthogonal design.
+문헌 조사나 예비 단일 요인 시험으로 영향이 미미한 변수를 제외한다. 직교 설계에는 요인 3~6개를 남긴다.
 
-### Step 3: Select factor ranges
+### 3단계: 요인 범위 선택
 
-Choose ranges that are:
-- Practically achievable in the lab.
-- Cover the expected optimum region.
-- Within the bounds of relevant standards or specifications.
+범위는 다음 조건을 만족하도록 고른다.
+- 실험실에서 실제로 구현할 수 있다.
+- 예상 최적 영역을 포함한다.
+- 관련 표준이나 규격의 한계 안에 있다.
 
-### Step 4: Choose level count and spacing
+### 4단계: 수준 수와 간격 선택
 
-- **3 levels**: minimum for detecting curvature; use for screening.
-- **4–5 levels**: use when the response surface is complex or the range is wide.
-- Spacing: evenly distributed across the range unless prior knowledge suggests otherwise.
+- **3수준**: 곡률을 검출하기 위한 최소 수준 수이다. 스크리닝에 사용한다.
+- **4~5수준**: 반응표면이 복잡하거나 범위가 넓을 때 사용한다.
+- 간격: 사전 지식이 달리 시사하지 않는 한 범위 전체에 고르게 배치한다.
 
-### Step 5: Define response variables
+### 5단계: 반응 변수 정의
 
-Select measurable outputs that directly reflect performance:
-- Mechanical: compressive strength, tensile strength, bond strength.
-- Durability: water absorption, chloride penetration, freeze-thaw resistance.
-- Workability: slump, flow, setting time.
-- Functional: thermal conductivity, adhesion, softening point.
+성능을 직접 반영하는 측정 가능한 출력을 고른다.
+- 기계적 특성: 압축강도, 인장강도, 부착강도.
+- 내구성: 흡수율, 염화물 침투, 동결융해 저항성.
+- 작업성: 슬럼프, 플로, 응결 시간.
+- 기능성: 열전도율, 접착력, 연화점.
 
-## Common Factor Ranges by Domain
+## 분야별 일반적인 요인 범위
 
-### Asphalt
+### 아스팔트
 
-| Factor | Typical Range | Common Levels |
+| 요인 | 일반 범위 | 일반 수준 |
 |--------|--------------|---------------|
-| Modifier content (%) | 2–12 | 3, 5, 7, 9 |
-| Mixing temperature (°C) | 140–180 | 140, 150, 160, 170 |
-| Mixing time (min) | 10–40 | 10, 20, 30 |
-| Curing temperature (°C) | 20–60 | 25, 35, 45, 55 |
-| Asphalt content (%) | 4–7 | 4.5, 5.0, 5.5, 6.0 |
-| Emulsifier dosage (%) | 0.5–3.0 | 1.0, 1.5, 2.0 |
-| Aggregate gradation | — | AC-13, AC-16, AC-20 |
-| Aging time (h) | 0–72 | 0, 24, 48, 72 |
+| 개질제 함량 (%) | 2–12 | 3, 5, 7, 9 |
+| 혼합 온도 (°C) | 140–180 | 140, 150, 160, 170 |
+| 혼합 시간 (min) | 10–40 | 10, 20, 30 |
+| 경화 온도 (°C) | 20–60 | 25, 35, 45, 55 |
+| 아스팔트 함량 (%) | 4–7 | 4.5, 5.0, 5.5, 6.0 |
+| 유화제 투입량 (%) | 0.5–3.0 | 1.0, 1.5, 2.0 |
+| 골재 입도 | — | AC-13, AC-16, AC-20 |
+| 노화 시간 (h) | 0–72 | 0, 24, 48, 72 |
 
-### Cement / Concrete
+### 시멘트 / 콘크리트
 
-| Factor | Typical Range | Common Levels |
+| 요인 | 일반 범위 | 일반 수준 |
 |--------|--------------|---------------|
-| Water-cement ratio | 0.30–0.60 | 0.35, 0.40, 0.45, 0.50 |
-| Cement content (kg/m³) | 300–500 | 320, 360, 400, 440 |
-| SCMs replacement (%) | 0–40 | 10, 20, 30, 40 |
-| Superplasticizer (%) | 0–2.0 | 0.5, 1.0, 1.5 |
-| Curing temperature (°C) | 20–60 | 20, 30, 40, 50 |
-| Curing humidity (%) | 50–100 | 60, 70, 80, 90 |
-| Sand ratio (%) | 30–45 | 33, 36, 39, 42 |
-| Fiber content (%) | 0–1.5 | 0, 0.5, 1.0, 1.5 |
+| 물-시멘트비 | 0.30–0.60 | 0.35, 0.40, 0.45, 0.50 |
+| 시멘트 함량 (kg/m³) | 300–500 | 320, 360, 400, 440 |
+| 혼화재(SCMs) 치환율 (%) | 0–40 | 10, 20, 30, 40 |
+| 고성능 감수제 (%) | 0–2.0 | 0.5, 1.0, 1.5 |
+| 양생 온도 (°C) | 20–60 | 20, 30, 40, 50 |
+| 양생 습도 (%) | 50–100 | 60, 70, 80, 90 |
+| 잔골재율 (%) | 30–45 | 33, 36, 39, 42 |
+| 섬유 함량 (%) | 0–1.5 | 0, 0.5, 1.0, 1.5 |
 
-### Ceramics
+### 세라믹
 
-| Factor | Typical Range | Common Levels |
+| 요인 | 일반 범위 | 일반 수준 |
 |--------|--------------|---------------|
-| Sintering temperature (°C) | 1000–1400 | 1050, 1150, 1250, 1350 |
-| Sintering time (h) | 1–8 | 1, 2, 4, 6 |
-| Additive content (%) | 0–10 | 0, 2, 5, 8 |
-| Particle size (μm) | 0.5–10 | 1, 2, 5, 8 |
-| Pressing pressure (MPa) | 50–200 | 50, 100, 150, 200 |
-| Heating rate (°C/min) | 2–10 | 2, 5, 8, 10 |
+| 소결 온도 (°C) | 1000–1400 | 1050, 1150, 1250, 1350 |
+| 소결 시간 (h) | 1–8 | 1, 2, 4, 6 |
+| 첨가제 함량 (%) | 0–10 | 0, 2, 5, 8 |
+| 입자 크기 (μm) | 0.5–10 | 1, 2, 5, 8 |
+| 가압 압력 (MPa) | 50–200 | 50, 100, 150, 200 |
+| 승온 속도 (°C/min) | 2–10 | 2, 5, 8, 10 |
 
-### Thermal Insulation
+### 단열재
 
-| Factor | Typical Range | Common Levels |
+| 요인 | 일반 범위 | 일반 수준 |
 |--------|--------------|---------------|
-| Density (kg/m³) | 20–200 | 30, 60, 100, 150 |
-| Foaming agent (%) | 1–10 | 2, 4, 6, 8 |
-| Fiber content (%) | 0–5 | 0, 1, 2, 3 |
-| Binder ratio | 0.1–0.5 | 0.15, 0.25, 0.35 |
-| Curing temperature (°C) | 20–80 | 25, 40, 55, 70 |
-| Sample thickness (mm) | 10–50 | 10, 20, 30, 40 |
+| 밀도 (kg/m³) | 20–200 | 30, 60, 100, 150 |
+| 발포제 (%) | 1–10 | 2, 4, 6, 8 |
+| 섬유 함량 (%) | 0–5 | 0, 1, 2, 3 |
+| 바인더 비율 | 0.1–0.5 | 0.15, 0.25, 0.35 |
+| 경화 온도 (°C) | 20–80 | 25, 40, 55, 70 |
+| 시료 두께 (mm) | 10–50 | 10, 20, 30, 40 |
 
-## YAML record export
+## YAML 기록 내보내기
 
-After the factor-level table is confirmed, convert it into an `experiment-record.yaml` fragment:
+요인-수준 표가 확정되면 이를 `experiment-record.yaml` 조각으로 변환한다.
 
 ```yaml
 factors:
@@ -124,4 +124,4 @@ response_variables:
     replicate_count: 3
 ```
 
-Fill in `design.runs` from the chosen design matrix (orthogonal, RSM, screening, or mixture).
+선택한 설계 행렬(직교, RSM, 스크리닝, 혼합물)로 `design.runs`를 채운다.

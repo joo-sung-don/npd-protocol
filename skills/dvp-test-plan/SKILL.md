@@ -1,10 +1,11 @@
 ---
 name: dvp-test-plan
 description: >-
-  Design Verification Plan and Report (DVP&R) — build or review a test plan that links each DFMEA
-  failure mode to a specific test, pass/fail criterion, sample size, and timing. Use when creating
-  a DVP for a new design, reviewing a supplier's DVP for completeness, or auditing whether all
-  design risks are covered by validation testing. Covers IATF 16949 §8.3.4.3 and AIAG APQP Phase 2.
+  설계 검증 계획 및 보고서(DVP&R, Design Verification Plan and Report) — 각 DFMEA 고장모드를
+  구체적인 시험, 판정 기준(pass/fail criterion), 샘플 수, 일정에 연결하는 시험 계획을 작성하거나 검토한다.
+  신규 설계의 DVP 작성, 공급사 DVP의 완전성 검토, 모든 설계 리스크가 밸리데이션 시험으로 커버되는지
+  감사할 때 사용한다. IATF 16949 §8.3.4.3 및 AIAG APQP Phase 2를 다룬다.
+  Triggers: DVP 작성, 검증 계획, 시험 계획, DVP&R 검토, DVP&R, DFMEA test linkage, design verification plan.
 license: MIT
 metadata:
   author: RBraga01
@@ -22,149 +23,149 @@ metadata:
   standard_edition: "IATF 16949:2016 §8.3.4.3 / AIAG APQP 2nd Edition"
 ---
 
-# Design Verification Plan and Report (DVP&R)
+# 설계 검증 계획 및 보고서 (DVP&R)
 
-## When to use
+## 사용 시점
 
-Use this skill when:
-- Creating a DVP for a new part design during APQP Phase 2
-- Reviewing a supplier's DVP for completeness and DFMEA alignment
-- Determining which tests are required for a specific failure mode or design characteristic
-- Tracking test completion and recording results (the "R" in DVP&R)
-- Assessing whether a design change requires additional validation testing
+다음과 같은 경우 이 스킬을 사용한다.
+- APQP Phase 2에서 신규 부품 설계의 DVP를 작성할 때
+- 공급사 DVP의 완전성과 DFMEA 정합성을 검토할 때
+- 특정 고장모드 또는 설계 특성에 필요한 시험을 결정할 때
+- 시험 완료 현황을 추적하고 결과를 기록할 때(DVP&R의 "R")
+- 설계 변경에 추가 밸리데이션 시험이 필요한지 평가할 때
 
-## Prerequisites
+## 사전 준비 사항
 
-- DFMEA with all failure modes identified and AP ratings assigned
-- Engineering drawing with all characteristics defined
-- Customer design specifications and performance requirements
-- List of applicable standards and test methods (customer spec, ISO, SAE, etc.)
+- 모든 고장모드가 식별되고 AP 등급이 부여된 DFMEA
+- 모든 특성이 정의된 엔지니어링 도면
+- 고객 설계 사양 및 성능 요구사항
+- 적용 표준 및 시험 방법 목록(고객 사양, ISO, SAE 등)
 
-## Workflow
+## 작업 절차
 
-### Step 1 — Understand the DVP structure
+### 1단계 — DVP 구조 이해
 
-The DVP&R is a table with one row per test. Each test must address at least one failure mode or design characteristic from the DFMEA.
+DVP&R은 시험 하나당 한 행으로 구성된 표이다. 각 시험은 DFMEA의 고장모드 또는 설계 특성을 최소 하나 이상 다루어야 한다.
 
-**The linkage rule:** Every H-AP (High Action Priority) failure mode in the DFMEA must have at least one corresponding test in the DVP. If a failure mode has no test, document why (e.g., analysis-only justification with sign-off).
+**연결 규칙:** DFMEA의 모든 H-AP(조치 우선순위 High) 고장모드는 DVP에 대응하는 시험이 최소 하나 있어야 한다. 시험이 없는 고장모드는 그 사유를 문서화한다(예: 승인 서명이 포함된 해석 단독 근거).
 
-### Step 2 — Build each DVP row
+### 2단계 — DVP 각 행 작성
 
-| Column | What to enter |
+| 열 | 기입 내용 |
 |--------|--------------|
-| Test number | Sequential reference (e.g., DVP-001) |
-| DFMEA reference | Failure mode number(s) this test addresses |
-| Test name / description | Specific name of the test (not "durability test" — use "salt spray 240h per ASTM B117") |
-| Test specification | Standard or specification number with version (e.g., ASTM B117-19, SAE J2530, customer spec DS-XYZ) |
-| Pass/fail criteria | Exact acceptance criteria (e.g., "no rust after 240h", "burst pressure > 150 bar", "dimension within ±0.05 mm") |
-| Sample size | Number of parts to test |
-| Who performs | Internal lab, external accredited lab, customer lab |
-| Phase | P = Prototype, PL = Pre-launch, PR = Production |
-| Planned date | Date test is scheduled to complete |
-| Actual date | Date test was completed |
-| Result | Pass / Fail / In progress |
-| Report reference | Lab report number or document reference |
-| Comments | Failures, deviations, re-test requirements |
+| 시험 번호 | 순차 참조 번호(예: DVP-001) |
+| DFMEA 참조 | 이 시험이 다루는 고장모드 번호 |
+| 시험명 / 설명 | 시험의 구체적 명칭("내구 시험"이 아니라 "ASTM B117에 따른 염수분무 240h"처럼 기입) |
+| 시험 사양 | 개정판을 포함한 표준 또는 사양 번호(예: ASTM B117-19, SAE J2530, 고객 사양 DS-XYZ) |
+| 판정 기준(합격/불합격 기준) | 정확한 합격 기준(예: "240h 후 녹 없음", "파열 압력 > 150 bar", "치수 ±0.05 mm 이내") |
+| 샘플 수 | 시험할 부품 수량 |
+| 수행 주체 | 사내 시험실, 외부 공인 시험기관, 고객 시험실 |
+| 단계 | P = Prototype(시작품), PL = Pre-launch(양산 준비), PR = Production(양산) |
+| 계획 일자 | 시험 완료 예정일 |
+| 실제 일자 | 시험 완료일 |
+| 결과 | Pass / Fail / In progress(진행 중) |
+| 보고서 참조 | 시험 성적서 번호 또는 문서 참조 |
+| 비고 | 불합격, 편차, 재시험 요구사항 |
 
-### Step 3 — Determine required tests
+### 3단계 — 필요 시험 결정
 
-For each DFMEA failure mode, identify the test category:
+DFMEA의 각 고장모드에 대해 시험 범주를 식별한다.
 
-**Functional / performance tests:**
-- Tests that verify the product performs its intended function
-- Examples: burst pressure, tensile strength, electrical resistance, flow rate
-- Must demonstrate the product meets its design intent specifications
+**기능 / 성능 시험:**
+- 제품이 의도한 기능을 수행하는지 검증하는 시험
+- 예: 파열 압력, 인장 강도, 전기 저항, 유량
+- 제품이 설계 의도 사양을 충족함을 입증해야 한다
 
-**Environmental / durability tests:**
-- Tests that simulate the product's operating environment over its design life
-- Examples: thermal cycling, salt spray, vibration, UV exposure, humidity
-- Duration and cycles must represent the design life or accelerated equivalent
+**환경 / 내구 시험:**
+- 설계 수명 동안의 제품 운용 환경을 모사하는 시험
+- 예: 열 사이클, 염수분무, 진동, UV 노출, 습도
+- 시험 시간과 사이클 수는 설계 수명 또는 그에 상응하는 가속 조건을 대표해야 한다
 
-**Safety / regulatory tests:**
-- Tests required by law, regulation, or homologation
-- Examples: ECE R10 (EMC), FMVSS standards, ECE R94/R95 (crash), REACH, RoHS
-- Must be performed by accredited lab; results must accompany PPAP
+**안전 / 법규 시험:**
+- 법률, 규정 또는 인증(homologation)에 의해 요구되는 시험
+- 예: ECE R10 (EMC), FMVSS 표준, ECE R94/R95 (충돌), REACH, RoHS
+- 공인 시험기관에서 수행해야 하며, 결과는 PPAP에 첨부해야 한다
 
-**Dimensional / material tests:**
-- Verification that design dimensions and material properties are achieved
-- Examples: 3D scan, CMM, tensile test, hardness test, chemical composition
-- Must reference the specific drawing characteristic or material specification
+**치수 / 재료 시험:**
+- 설계 치수와 재료 물성이 실제로 구현되었는지 검증
+- 예: 3D 스캔, CMM, 인장 시험, 경도 시험, 화학 성분 분석
+- 해당 도면 특성 또는 재료 사양을 명시적으로 참조해야 한다
 
-**Reliability / life tests:**
-- Tests that verify the product meets its reliability target (e.g., B10 life)
-- Examples: fatigue testing, accelerated aging, wear testing
-- Test plan must include correlation between accelerated test and field life
+**신뢰성 / 수명 시험:**
+- 제품이 신뢰성 목표(예: B10 수명)를 충족하는지 검증하는 시험
+- 예: 피로 시험, 가속 노화, 마모 시험
+- 시험 계획에는 가속 시험과 실사용(필드) 수명 간의 상관관계가 포함되어야 한다
 
-### Step 4 — Populate timing per APQP phase
+### 4단계 — APQP 단계별 일정 배정
 
-| Phase | Tests due |
+| 단계 | 수행 대상 시험 |
 |-------|-----------|
-| Prototype (P) | Tests on design concept — functional, dimensional, preliminary environmental |
-| Pre-launch (PL) | Tests on tooled parts — full environmental, durability, all safety/regulatory |
-| Production (PR) | Confirmation tests on production parts — dimensional, safety, any tests with production-specific requirements |
+| 시작품 (P) | 설계 개념에 대한 시험 — 기능, 치수, 예비 환경 시험 |
+| 양산 준비 (PL) | 양산 금형 부품에 대한 시험 — 전체 환경, 내구, 모든 안전/법규 시험 |
+| 양산 (PR) | 양산 부품에 대한 확인 시험 — 치수, 안전, 양산 고유 요구사항이 있는 모든 시험 |
 
-Not all tests need to run in all phases. Focus safety and regulatory tests on Pre-launch or Production parts.
+모든 시험을 모든 단계에서 수행할 필요는 없다. 안전 및 법규 시험은 양산 준비 또는 양산 부품에 집중한다.
 
-### Step 5 — Track completion (the "R" in DVP&R)
+### 5단계 — 완료 현황 추적 (DVP&R의 "R")
 
-Update the DVP after each test:
-- Record actual completion date
-- Record Pass/Fail result
-- For any Fail: log a DFMEA action (or open an 8D if failure escapes to customer)
-- Re-test after corrective action — reference the re-test as a new row with the original DVP number + suffix (e.g., DVP-012-R1)
+각 시험 후 DVP를 갱신한다.
+- 실제 완료일을 기록한다
+- Pass/Fail 결과를 기록한다
+- Fail이 발생하면 DFMEA 조치를 등록한다(불량이 고객에게 유출된 경우 8D를 개시한다)
+- 시정 조치 후 재시험을 수행한다 — 재시험은 원래 DVP 번호에 접미사를 붙인 새 행으로 기록한다(예: DVP-012-R1)
 
-At PPAP submission: all DVP tests must show "Pass" or have a documented customer-approved deviation. If a test is still in progress at PPAP submission (e.g., a long-duration life test), a formal customer deviation request must be submitted with: the test in progress, the expected completion date, the interim risk assessment, and the customer's written acceptance. The PPAP approval will be conditional until the test completes with a Pass result.
+PPAP 제출 시점에는 모든 DVP 시험이 "Pass"이거나 고객 승인을 받은 편차가 문서화되어 있어야 한다. PPAP 제출 시점에 아직 진행 중인 시험(예: 장기 수명 시험)이 있으면, 진행 중인 시험, 예상 완료일, 중간 리스크 평가, 고객의 서면 수락을 포함한 공식 고객 편차 요청을 제출해야 한다. 이 경우 PPAP 승인은 해당 시험이 Pass로 완료될 때까지 조건부 승인이 된다.
 
-**Engineering changes:** If the DFMEA is updated during the design phase and adds new H-AP failure modes, the DVP must be updated to cover them before the next gate review. A DVP revision that is behind the current DFMEA revision is a gap — the DVP&R revision must match or exceed the DFMEA revision at PPAP submission.
+**설계 변경:** 설계 단계에서 DFMEA가 갱신되어 새로운 H-AP 고장모드가 추가되면, 다음 게이트 리뷰 전에 DVP도 이를 커버하도록 갱신해야 한다. DVP 개정판이 현행 DFMEA 개정판보다 뒤처져 있으면 갭(gap)이다. PPAP 제출 시 DVP&R 개정판은 DFMEA 개정판과 같거나 그 이후여야 한다.
 
-### Step 6 — Audit an existing DVP
+### 6단계 — 기존 DVP 감사
 
-When reviewing a supplier's or internal DVP, check:
+공급사 또는 사내 DVP를 검토할 때 다음을 확인한다.
 
-- [ ] Every H-AP DFMEA failure mode has at least one corresponding test
-- [ ] Test specifications reference a specific standard or document (not "internal test")
-- [ ] Pass/fail criteria are objective and measurable (not "acceptable appearance")
-- [ ] Sample sizes are adequate (not "1 sample" for durability/life tests)
-- [ ] Safety and regulatory tests are assigned to an accredited external lab
-- [ ] All results show "Pass" (or documented deviations with customer approval)
-- [ ] Failed tests have a corresponding DFMEA update or corrective action reference
-- [ ] DVP revision is aligned with the current DFMEA revision
+- [ ] 모든 H-AP DFMEA 고장모드에 대응하는 시험이 최소 하나 있다
+- [ ] 시험 사양이 구체적인 표준 또는 문서를 참조한다("사내 시험"이 아님)
+- [ ] 판정 기준이 객관적이고 측정 가능하다("외관 양호" 같은 표현이 아님)
+- [ ] 샘플 수가 적정하다(내구/수명 시험에 "샘플 1개"가 아님)
+- [ ] 안전 및 법규 시험이 외부 공인 시험기관에 배정되어 있다
+- [ ] 모든 결과가 "Pass"이다(또는 고객 승인을 받은 편차가 문서화되어 있다)
+- [ ] 불합격 시험에 대응하는 DFMEA 갱신 또는 시정 조치 참조가 있다
+- [ ] DVP 개정판이 현행 DFMEA 개정판과 일치한다
 
-## Validation criteria
+## 검증 기준
 
-A complete DVP&R for PPAP submission must:
-- Reference every H-AP failure mode from the DFMEA
-- Have specific, standard-referenced test methods (not "per engineering judgement")
-- Show Pass results for all tests (or customer-approved deviations)
-- Have accredited lab reports for all safety/regulatory tests
-- Be signed off by design engineering and quality
+PPAP 제출용으로 완성된 DVP&R은 다음을 충족해야 한다.
+- DFMEA의 모든 H-AP 고장모드를 참조한다
+- 구체적이고 표준을 참조한 시험 방법을 갖는다("엔지니어링 판단에 따름"이 아님)
+- 모든 시험이 Pass 결과를 보인다(또는 고객 승인 편차가 있다)
+- 모든 안전/법규 시험에 공인 시험기관의 성적서가 있다
+- 설계 엔지니어링 부서와 품질 부서의 승인 서명을 받는다
 
-## Common mistakes
+## 흔한 실수
 
-- DVP created with generic tests not linked to specific DFMEA failure modes
-- Pass/fail criteria defined as "meets spec" without stating what the spec is
-- All tests assigned to internal lab when regulatory tests require external accreditation
-- DVP not updated when DFMEA adds new H-AP failure modes during design reviews
-- Re-tests after failures not documented — original Fail result erased
-- Sample size of 1 for durability or life tests (statistically meaningless)
-- DVP not updated to "Report" status at PPAP — submitted as plan, not results
+- 특정 DFMEA 고장모드와 연결되지 않은 일반적인 시험으로 DVP를 작성함
+- 사양 내용을 명시하지 않고 판정 기준을 "사양 충족"으로 정의함
+- 법규 시험에 외부 인증이 필요한데도 모든 시험을 사내 시험실에 배정함
+- 설계 리뷰 중 DFMEA에 새 H-AP 고장모드가 추가되었는데 DVP를 갱신하지 않음
+- 불합격 후 재시험을 문서화하지 않고 원래 Fail 결과를 삭제함
+- 내구 또는 수명 시험의 샘플 수를 1로 설정함(통계적으로 의미 없음)
+- PPAP 시점에 DVP를 "Report" 상태로 갱신하지 않고, 결과가 아닌 계획 상태로 제출함
 
-## Output Format
+## 출력 형식
 
-At the start of each use, ask the user:
+매 사용 시작 시 사용자에게 다음을 묻는다.
 
-> "How would you like to receive the output?
-> **A** — Structured Markdown (formatted tables and sections, ready to copy)
-> **B** — Plain tables (simplified structure for Excel or Word)
-> **C** — Narrative report (flowing text for a formal document or email)
+> "결과물을 어떤 형식으로 받으시겠습니까?
+> **A** — 구조화된 Markdown(서식이 적용된 표와 섹션, 바로 복사 가능)
+> **B** — 단순 표(Excel 또는 Word용으로 단순화한 구조)
+> **C** — 서술형 보고서(공식 문서나 이메일용 줄글)
 >
-> Default: A."
+> 기본값: A."
 
-Adapt all output sections to the chosen format. If the platform or session context already defines a format preference, skip this question.
+모든 출력 섹션을 선택된 형식에 맞춘다. 플랫폼이나 세션 컨텍스트에 이미 형식 선호가 정의되어 있으면 이 질문은 생략한다.
 
-## Changelog
+## 변경 이력
 
-| Version | Date | Author | Change |
+| 버전 | 일자 | 작성자 | 변경 내용 |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-06 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-06 | @migmcc | Added guidance for tests in-progress at PPAP submission (customer deviation process); added DVP revision synchronisation with DFMEA requirement |
+| 1.0 | 2026-06-06 | @RBraga01 | 최초 배포 |
+| 1.1 | 2026-06-06 | @migmcc | PPAP 제출 시점에 진행 중인 시험에 대한 지침 추가(고객 편차 절차), DVP 개정판과 DFMEA의 동기화 요구사항 추가 |

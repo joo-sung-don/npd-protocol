@@ -1,6 +1,7 @@
 ---
 name: materials-doe
-description: 신제품 목표 특성값을 확보하기 위한 실험계획(DOE)을 설계하거나 검토할 때 사용. srPET 성형 공정 변수(온도·압력·시간·적층 수), EcoFlamix 배합·도포량 등 요인/수준을 정해 완전요인, 다구치 직교배열, 스크리닝(Plackett-Burman, 부분요인), 반응표면(CCD, Box-Behnken) 행렬을 만든다. protocol-builder의 "5. 실험계획" 섹션에서 호출된다. Triggers: 실험계획, DOE, 직교배열, 다구치, 반응표면, 요인 스크리닝, 공정 최적화.
+description: >-
+  신제품 목표 특성값을 확보하기 위한 실험계획(DOE)을 설계하거나 검토할 때 사용. srPET 성형 공정 변수(온도·압력·시간·적층 수), EcoFlamix 배합·도포량 등 요인/수준을 정해 완전요인, 다구치 직교배열, 스크리닝(Plackett-Burman, 부분요인), 반응표면(CCD, Box-Behnken) 행렬을 만든다. protocol-builder의 "5. 실험계획" 섹션에서 호출된다. Triggers: 실험계획, DOE, 직교배열, 다구치, 반응표면, 요인 스크리닝, 공정 최적화.
 ---
 
 # 소재 실험계획(DOE)

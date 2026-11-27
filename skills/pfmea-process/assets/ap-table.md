@@ -11,81 +11,79 @@ updated_by: RBraga01
 reviewed_by: RBraga01
 license: MIT
 license-note: >-
-  MIT covers the original expression in this file. It does not extend to the
-  AIAG-VDA FMEA Handbook, which is a separately licensed third-party work.
-  See THIRD_PARTY_CONTENT.md.
+  MIT 라이선스는 이 파일의 고유한 표현에만 적용된다. 별도 라이선스가 적용되는 제3자 저작물인
+  AIAG-VDA FMEA Handbook에는 적용되지 않는다.
+  THIRD_PARTY_CONTENT.md를 참조한다.
 ---
 
-# Action Priority (AP) Determination Rules
+# 조치 우선순위(AP) 결정 규칙
 
-**What this file is.** An independent restatement of the Action Priority decision
-logic used in the AIAG-VDA FMEA methodology (2019 joint edition), expressed as
-banded rules. It is **not** a reproduction of the handbook's Action Priority
-table, and it does not replace it.
+**이 파일의 성격.** AIAG-VDA FMEA 방법론(2019 공동판)에서 쓰이는 조치 우선순위
+결정 논리를 구간(band) 규칙으로 독자적으로 재기술한 것이다. 핸드북의 조치 우선순위
+표를 복제한 것이 **아니며**, 이를 대체하지도 않는다.
 
-**What this file is not.** The authoritative AP table enumerates every S/O/D
-combination and comes with the rating criteria tables that define what each S, O
-and D value means. Those criteria are what make a rating defensible in an audit,
-and they are not in this file. For formal PPAP submissions, customer-facing FMEA
-work, or any disputed rating, use your own licensed copy of the handbook.
+**이 파일이 아닌 것.** 공식 AP 표는 모든 S/O/D 조합을 열거하며, 각 S, O, D 값의
+의미를 정의하는 평가 기준표와 함께 제공된다. 그 기준이 심사에서 평가의 타당성을
+뒷받침하며, 이 파일에는 포함되어 있지 않다. 공식 PPAP 제출, 고객 대상 FMEA 작업,
+평가에 이견이 있는 경우에는 정식 라이선스를 보유한 핸드북을 사용한다.
 
-AIAG and VDA are trademarks of their respective owners. This project is not
-affiliated with, endorsed by, or certified by either organisation.
+AIAG와 VDA는 각 소유자의 상표이다. 이 프로젝트는 두 기관과 제휴, 보증, 인증
+관계가 없다.
 
-## How to apply the rules
+## 규칙 적용 방법
 
-1. Find the Severity (S) row
-2. Find the Occurrence (O) band
-3. Find the Detection (D) band
-4. Read the Action Priority: **H** (High), **M** (Medium), **L** (Low)
+1. 심각도(S) 행을 찾는다
+2. 발생도(O) 구간을 찾는다
+3. 검출도(D) 구간을 찾는다
+4. 조치 우선순위를 읽는다: **H** (High), **M** (Medium), **L** (Low)
 
-## Absolute rules (override the table)
+## 절대 규칙 (표보다 우선)
 
-| Condition | AP |
+| 조건 | AP |
 |-----------|-----|
-| S = 9 or 10 | Always **H** — regardless of O and D |
-| S = 8, O = 4–10 | **H** if D ≥ 5; **M** if D ≤ 4 |
+| S = 9 또는 10 | 항상 **H** — O와 D에 관계없음 |
+| S = 8, O = 4–10 | D ≥ 5이면 **H**, D ≤ 4이면 **M** |
 
-## AP decision rules (banded)
+## AP 결정 규칙 (구간별)
 
 | S | O | D | AP |
 |---|---|---|----|
-| 10 | Any | Any | **H** |
-| 9 | Any | Any | **H** |
-| 8 | 6–10 | Any | **H** |
+| 10 | 무관 | 무관 | **H** |
+| 9 | 무관 | 무관 | **H** |
+| 8 | 6–10 | 무관 | **H** |
 | 8 | 4–5 | 6–10 | **H** |
 | 8 | 4–5 | 1–5 | **M** |
-| 8 | 1–3 | Any | **M** |
+| 8 | 1–3 | 무관 | **M** |
 | 7 | 6–10 | 7–10 | **H** |
 | 7 | 6–10 | 4–6 | **M** |
 | 7 | 6–10 | 1–3 | **M** |
 | 7 | 4–5 | 7–10 | **M** |
 | 7 | 4–5 | 4–6 | **M** |
 | 7 | 4–5 | 1–3 | **L** |
-| 7 | 1–3 | Any | **L** |
+| 7 | 1–3 | 무관 | **L** |
 | 6 | 8–10 | 7–10 | **H** |
 | 6 | 8–10 | 4–6 | **M** |
 | 6 | 8–10 | 1–3 | **M** |
 | 6 | 5–7 | 7–10 | **M** |
 | 6 | 5–7 | 1–6 | **L** |
-| 6 | 1–4 | Any | **L** |
-| 1–5 | Any | Any | **L** |
+| 6 | 1–4 | 무관 | **L** |
+| 1–5 | 무관 | 무관 | **L** |
 
-## Action requirements by AP
+## AP별 조치 요구사항
 
-| AP | Required Action |
+| AP | 필요 조치 |
 |----|----------------|
-| **H** | Must assign a responsible person and a target date. If no action is possible, document why and escalate to management. |
-| **M** | Team should evaluate whether a reduction is beneficial. Recommended to act. Document decision. |
-| **L** | No action required. Document rationale. |
+| **H** | 책임자와 목표일을 반드시 지정한다. 조치가 불가능하면 그 사유를 문서화하고 경영진에 에스컬레이션한다. |
+| **M** | 리스크 저감이 유익한지 팀이 평가한다. 조치를 권장한다. 결정을 문서화한다. |
+| **L** | 조치 불필요. 근거를 문서화한다. |
 
-## Why AP replaces RPN
+## AP가 RPN을 대체하는 이유
 
-The legacy Risk Priority Number (RPN = S × O × D) was unreliable because:
-- Same RPN could represent very different risk profiles: S=6, O=6, D=6 (RPN=216) vs S=9, O=8, D=3 (RPN=216) — the second is far more dangerous
-- Teams "gamed" RPN by improving detection (cheapest change) without addressing safety risk
-- No mandatory action threshold for high-severity items
+기존 위험 우선순위 수(RPN = S × O × D)는 다음 이유로 신뢰할 수 없었다.
+- 같은 RPN이 전혀 다른 리스크를 나타낼 수 있다: S=6, O=6, D=6 (RPN=216) vs S=9, O=8, D=3 (RPN=216) — 후자가 훨씬 위험하다
+- 팀이 안전 리스크는 다루지 않고 검출만 개선(가장 저렴한 변경)하여 RPN을 "조작"했다
+- 고심각도 항목에 대한 의무 조치 기준이 없었다
 
-The AP table ensures:
-- S=9/10 always gets action regardless of O and D
-- Actions address severity + occurrence priority, not just the cheapest detection improvement
+AP 표는 다음을 보장한다.
+- S=9/10은 O와 D에 관계없이 항상 조치 대상이 된다
+- 조치가 가장 저렴한 검출 개선만이 아니라 심각도 + 발생도 우선순위를 다룬다

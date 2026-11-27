@@ -1,45 +1,43 @@
-# DOE Workflow
+# DOE 워크플로
 
-## 1. Frame the objective
+## 1. 목적 정의
 
-Classify the task as screening, characterization, optimization, robust design,
-statistical mixture design, or engineering mix proportioning. Record responses,
-candidate factors, units, ranges, hard constraints, and practical run limits.
+과제를 스크리닝, 특성 파악, 최적화, 강건 설계, 통계적 혼합물 설계,
+공학적 배합 설계 중 하나로 분류한다. 반응, 후보 요인, 단위, 범위,
+필수 제약 조건, 실제 수행 가능한 실험 수 한도를 기록한다.
 
-## 2. Resolve the route
+## 2. 경로 결정
 
-Select `design_mode`, material routes, deliverable, and output format from the
-manifest. Read each resolved file once. Do not load a companion skill until a
-handoff is requested.
+manifest에서 `design_mode`, 소재 경로, 산출물, 출력 형식을 선택한다.
+결정된 파일은 각각 한 번만 읽는다. 인계가 요청되기 전에는 연계 스킬을
+불러오지 않는다.
 
-## 3. Validate inputs
+## 3. 입력 검증
 
-Before matrix generation:
+행렬을 생성하기 전에 다음을 수행한다.
 
-- confirm every factor and level or bound;
-- distinguish independent factors from components constrained to a total;
-- identify controls, blocks, nuisance variables, and interaction risks;
-- define replication, center points, and randomization;
-- reject infeasible component bounds or impossible run counts.
+- 모든 요인과 수준 또는 범위(상·하한)를 확인한다.
+- 독립 요인과 총합이 고정된 성분을 구분한다.
+- 대조군, 블록, 잡음 변수, 교호작용 위험을 파악한다.
+- 반복, 중심점, 랜덤화를 정의한다.
+- 실현 불가능한 성분 범위나 불가능한 실험 수는 기각한다.
 
-Use `[needs data: ...]` for missing decisions.
+결정되지 않은 사항은 `[needs data: ...]`로 표시한다.
 
-## 4. Build and verify the design
+## 4. 설계 생성 및 검증
 
-Generate the selected matrix with coded and natural units. Verify the invariant
-required by that route: balance and orthogonality, alias structure, estimable
-quadratic terms, or mixture totals and bounds. Keep standard order separate
-from randomized run order.
+선택한 행렬을 코드값과 실제값으로 생성한다. 해당 경로에 필요한 불변 조건을
+검증한다. 균형성과 직교성, 교락 구조, 2차항 추정 가능성, 또는 혼합물 총합과
+범위가 그것이다. 표준 순서와 랜덤화된 실험 순서는 따로 구분해 둔다.
 
-## 5. Define analysis
+## 5. 분석 정의
 
-Name the model, effects, diagnostics, lack-of-fit or error estimate, and
-confirmation strategy. Do not claim power, significance, or an optimum without
-the inputs or observations required to support it.
+모델, 효과, 진단 방법, 적합결여(lack-of-fit) 또는 오차 추정 방법, 확인
+실험 전략을 명시한다. 이를 뒷받침할 입력이나 관측값 없이 검정력, 유의성,
+최적점을 주장하지 않는다.
 
-## 6. Deliver and hand off
+## 6. 산출 및 인계
 
-Return the factor table, matrix, assumptions, verification result, analysis
-plan, and unresolved decisions. Emit `experiment-record.yaml` by default using
-the shared schema. Add CSV, scripts, methods prose, figures, or downstream
-skill handoffs only when requested.
+요인 표, 행렬, 가정, 검증 결과, 분석 계획, 미결 사항을 반환한다. 기본적으로
+공유 스키마에 따라 `experiment-record.yaml`을 출력한다. CSV, 스크립트,
+방법(Methods) 서술, 그림, 하위 스킬 인계는 요청이 있을 때만 추가한다.
