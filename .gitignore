@@ -1,0 +1,8 @@
+# 백데이터·생성물은 저장소에 올리지 않음
+data/*
+!data/README.md
+protocols/*
+!protocols/.gitkeep
+.omc/
+__pycache__/
+.DS_Store

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "comp-sol-local",
+  "description": "컴퍼지트솔루션즈 사내 플러그인 (로컬)",
+  "owner": {
+    "name": "Sungdon Joo"
+  },
+  "plugins": [
+    {
+      "name": "npd-protocol",
+      "description": "신제품 개발 프로토콜 작성 도우미",
+      "source": "./",
+      "category": "productivity"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+# 건축 마감재·단열재
+- id: KR-BUILDING-FINISH-FR
+  title: "건축물 마감재료의 난연성능 및 화재 확산 방지구조 기준 (국토교통부 고시)"
+  scope: "불연·준불연·난연재료 성능 기준, 시험 방법"
+  use_when: "국내 건축 내장재·단열재 (EcoFlamix 처리 건축재)"
+  typical_criteria: "등급별 열방출(KS F ISO 5660-1) + 가스유해성(KS F 2271) 기준"
+  notes: "korean-law 도구로 현행 고시 확인. 건축법 시행령 마감재료 규제 대상 확인"
+  status: draft-unverified
+- id: KS-F-ISO-5660-1
+  title: "연소 성능 시험 — 열방출률 (콘칼로리미터법)"
+  scope: "열방출률, 총방출열량"
+  use_when: "준불연/난연 등급 판정"
+  typical_criteria: "준불연: 10분간 총방출열량 ≤ 8 MJ/m² & 최대 열방출률 200 kW/m² 초과 연속 10초 미만 / 난연: 5분 기준 (고시 원문 확인)"
+  notes: "균열·구멍·용융 관통 여부도 판정 요소"
+  status: draft-unverified
+- id: KS-F-2271
+  title: "건축물의 내장재료 및 구조의 난연성 시험방법 — 가스유해성"
+  scope: "연소가스 흡입 실험동물 행동정지 시간"
+  use_when: "준불연/난연 등급 판정, EcoFlamix 가스 저감 주장"
+  typical_criteria: "평균 행동정지 시간 ≥ 9분 (고시 원문 확인)"
+  status: draft-unverified
+- id: KR-OUTER-WALL-INSULATION
+  title: "외벽 단열재 실물모형 화재시험 (KS F 8414 등)"
+  scope: "외벽 마감·단열 시스템 화재 확산"
+  use_when: "외벽 단열재 적용 시"
+  typical_criteria: "고시 기준"
+  status: draft-unverified
+- id: EN-13501-1
+  title: "Fire classification of construction products — Part 1 (EU)"
+  scope: "Euroclass A1~F, 연기(s1~s3), 불꽃 낙하물(d0~d2)"
+  use_when: "EU 건축 시장 진출, CE 마킹"
+  typical_criteria: "목표 등급 (예: B-s1,d0) — EN 13823 SBI + EN ISO 11925-2 시험 조합"
+  status: draft-unverified
+- id: KR-ECO-LABEL-BUILDING
+  title: "환경표지 / 친환경건축자재(HB) 마크"
+  scope: "실내 마감재 오염물질 방출, 친환경성"
+  use_when: "친환경 건축자재 주장"
+  typical_criteria: "인증 기준서"
+  status: draft-unverified

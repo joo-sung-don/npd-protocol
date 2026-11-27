@@ -1,0 +1,47 @@
+# 일반 난연 / 필터·섬유 / 연기·가스 분석
+- id: UL-94
+  title: "UL 94 — Tests for Flammability of Plastic Materials for Parts in Devices and Appliances"
+  scope: "플라스틱 수직(V-0/V-1/V-2)·수평(HB) 연소 등급"
+  use_when: "플라스틱 기재 EcoFlamix 처리품, 전기전자·가전 고객"
+  typical_criteria: "목표 등급 (예: V-0 @ 두께 t mm) — 두께 명시 필수"
+  notes: "IEC 60695-11-10 대응"
+  status: draft-unverified
+- id: ISO-6940
+  title: "Textile fabrics — Burning behaviour — Determination of ease of ignition of vertically oriented specimens"
+  scope: "수직 섬유 착화성"
+  use_when: "EcoFlamix 처리 섬유"
+  typical_criteria: "고객/용도 규격"
+  notes: "국내 섬유 방염은 소방청 방염성능기준(잔염·잔진·탄화면적·탄화길이·접염횟수) 확인. KS K 계열 시험법"
+  status: draft-unverified
+- id: KR-FIRE-RETARDANT-PERFORMANCE
+  title: "방염성능기준 (소방청 고시) / 방염 성능검사"
+  scope: "커튼, 카펫, 벽지, 합판 등 방염대상물품"
+  use_when: "국내 다중이용시설용 섬유·내장재"
+  typical_criteria: "잔염시간, 잔진시간, 탄화면적·길이, 접염횟수, 연기밀도 — 고시 원문 확인"
+  notes: "korean-law 도구로 현행 고시 확인. 한국소방산업기술원 성능검사"
+  status: draft-unverified
+- id: FILTER-FR
+  title: "필터 여재 난연 — UL 900 (공조 필터) / DIN 53438 등"
+  scope: "공조·산업용 필터 연소성"
+  use_when: "EcoFlamix 처리 필터"
+  typical_criteria: "고객 사양"
+  status: draft-unverified
+- id: ISO-5659-2
+  title: "Plastics — Smoke generation — Part 2: Determination of optical density by a single-chamber test"
+  scope: "연기 광학밀도 (+ FTIR 가스 분석 연계)"
+  use_when: "연기·독성 주장 검증 (HCl·CO 감소 등)"
+  typical_criteria: "Ds 최대값, 가스 농도 — 비교재와 동일 조건 시험"
+  notes: "철도 EN 45545-2, 선박 FTP Part 2에서 사용"
+  status: draft-unverified
+- id: ISO-5660-1
+  title: "Reaction-to-fire tests — Heat release, smoke production and mass loss rate (Cone calorimeter)"
+  scope: "열방출률(HRR), THR, 착화시간, 연기·질량감소"
+  use_when: "난연 처방 개발 단계 스크리닝, DOE 응답"
+  typical_criteria: "pHRR·THR 저감률 (비교재 대비)"
+  status: draft-unverified
+- id: LOI-ISO-4589-2
+  title: "Plastics — Determination of burning behaviour by oxygen index"
+  scope: "한계산소지수(LOI)"
+  use_when: "배합 스크리닝용 빠른 지표"
+  typical_criteria: "LOI 목표값"
+  status: draft-unverified

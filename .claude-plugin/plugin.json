@@ -1,0 +1,12 @@
+{
+  "name": "npd-protocol",
+  "version": "0.1.0",
+  "description": "(주)컴퍼지트솔루션즈 신제품 개발 프로토콜 작성 도우미. srPET 복합재·EcoFlamix 난연재의 기술적·환경적·제도적 검토, 신뢰성 검증(DVP&R), 실험계획(DOE)을 사내 백데이터와 산업별 규격에 근거해 작성하고 자체 검토한다.",
+  "author": {
+    "name": "Sungdon Joo"
+  },
+  "license": "UNLICENSED",
+  "keywords": ["new-product-development", "protocol", "composites", "flame-retardant", "dvp", "dfmea", "doe", "reliability"],
+  "skills": "./skills/",
+  "commands": "./commands/"
+}

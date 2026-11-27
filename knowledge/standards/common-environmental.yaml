@@ -1,0 +1,47 @@
+# 환경 노화·내후 — 공통 (조건은 대부분 고객 규격이 정함)
+- id: ENV-DAMP-HEAT
+  title: "고온고습 노화 (예: IEC 60068-2-78 정상상태 고온고습 / 85°C·85%RH 등)"
+  scope: "고온고습 장기 노출 후 물성·외관 변화"
+  use_when: "PET 가수분해 리스크 — srPET 전 제품, EcoFlamix 흡습·용출"
+  typical_criteria: "노출 후 인장/굴곡/충격 유지율 ≥ 고객 기준(예: 80%) — 기준값은 고객 사양으로 확정"
+  notes: "온습도·시간은 적용 산업/고객 규격에서 가져올 것. 가속 시 Peck 모델 등으로 수명 상관"
+  status: draft-unverified
+- id: ENV-HEAT-AGING
+  title: "열노화 (예: ISO 188 계열 개념 / 고객 규격 오븐 노화)"
+  scope: "고온 장기 노출 후 물성·치수·외관"
+  use_when: "자동차 실내(고온), 열수축 리스크"
+  typical_criteria: "물성 유지율, 치수 변화율, 외관 등급 — 고객 사양"
+  notes: "플라스틱 열노화 일반은 ISO 2578(장기 열노출) 참고"
+  status: draft-unverified
+- id: IEC-60068-2-14
+  title: "Environmental testing — Test N: Change of temperature (열사이클/열충격)"
+  scope: "온도 변화 반복"
+  use_when: "샌드위치 스킨-코어 열팽창 차이, 층간 박리"
+  typical_criteria: "사이클 후 박리·균열 없음 + 물성 유지율"
+  status: draft-unverified
+- id: ISO-4892-2
+  title: "Plastics — Methods of exposure to laboratory light sources — Part 2: Xenon-arc lamps"
+  scope: "제논 아크 내광/내후"
+  use_when: "UV 노출 부품, 색상·표면 변화"
+  typical_criteria: "색차(ΔE), 그레이스케일 등급, 물성 유지율"
+  notes: "자동차 실내는 고객 규격 또는 SAE J2412, 외장은 SAE J2527 계열"
+  status: draft-unverified
+- id: ISO-62
+  title: "Plastics — Determination of water absorption"
+  scope: "흡수율"
+  use_when: "PET·EcoFlamix 흡습 특성, 해양 환경"
+  typical_criteria: "고객 사양"
+  status: draft-unverified
+- id: ENV-LEACH
+  title: "난연 내구성 — 침수/세탁 후 난연 재시험 (기재별 규격 선택)"
+  scope: "수분에 의한 난연제 용출 후 성능 유지"
+  use_when: "EcoFlamix 처리품 전부 (특히 섬유·필터·건축재)"
+  typical_criteria: "처리 후 등급 유지 (예: 세탁 n회 후 동일 등급)"
+  notes: "섬유 세탁은 ISO 6330 계열, 건축은 해당 난연 규격의 전처리 조건 확인"
+  status: draft-unverified
+- id: ISO-175
+  title: "Plastics — Methods of test for the determination of the effects of immersion in liquid chemicals"
+  scope: "액체 화학물질 침지 후 질량·치수·외관·물성 변화"
+  use_when: "손 접촉부 내화학성(세정제·선크림·인공땀) — 자동차는 OEM 시약 목록·스팟 시험이 우선"
+  typical_criteria: "질량·치수 변화율, 외관 등급, 물성 유지율 — OEM 규격"
+  status: draft-unverified

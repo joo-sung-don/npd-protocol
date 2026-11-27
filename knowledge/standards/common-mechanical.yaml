@@ -1,0 +1,120 @@
+# 복합재·샌드위치·폼 기계물성 및 열특성 — 공통
+- id: ASTM-D3039
+  title: "Tensile Properties of Polymer Matrix Composite Materials"
+  scope: "복합재 평판 시편 인장강도·탄성률·파단변형률"
+  use_when: "srPET 단판 인장 특성"
+  typical_criteria: "목표값/비교재 대비. 시편 n≥5, 시험 환경(23°C/50%RH) 명시"
+  notes: "ISO 527-4(등방·직교이방 섬유강화 플라스틱) 또는 527-5(일방향)와 대응"
+  status: draft-unverified
+- id: ISO-527-4
+  title: "Plastics — Determination of tensile properties — Part 4: Isotropic and orthotropic fibre-reinforced plastic composites"
+  scope: "섬유강화 플라스틱 인장 특성"
+  use_when: "EU 고객·ISO 기반 사양일 때 D3039 대신"
+  typical_criteria: "고객 사양"
+  status: draft-unverified
+- id: ASTM-D7264
+  title: "Flexural Properties of Polymer Matrix Composite Materials"
+  scope: "복합재 굴곡강도·굴곡탄성률 (3점/4점)"
+  use_when: "srPET 패널 굴곡 강성 — 내장 패널의 핵심 특성"
+  typical_criteria: "목표값/비교재 대비"
+  notes: "비강화/일반 플라스틱은 ASTM D790, ISO 178"
+  status: draft-unverified
+- id: ISO-178
+  title: "Plastics — Determination of flexural properties"
+  scope: "플라스틱 굴곡 특성"
+  use_when: "ISO 기반 고객 사양, 비교재(순수 PET 등) 시험"
+  typical_criteria: "고객 사양"
+  status: draft-unverified
+- id: ISO-179
+  title: "Plastics — Determination of Charpy impact properties"
+  scope: "샤르피 충격강도"
+  use_when: "충격 저항성 주장(예: 순수 PET 대비) 근거"
+  typical_criteria: "비교재 대비 향상률 — 비교재도 동일 규격·노치 조건으로 시험"
+  notes: "아이조드는 ISO 180 / ASTM D256"
+  status: draft-unverified
+- id: ASTM-D7136
+  title: "Measuring the Damage Resistance of a Fiber-Reinforced Polymer Matrix Composite to a Drop-Weight Impact Event"
+  scope: "낙추 충격 손상 저항성"
+  use_when: "도어·UAV 스킨 등 저속충격 노출 부품, '손상 내성' 특허 주장 검증"
+  typical_criteria: "충격에너지별 손상 면적/깊이"
+  status: draft-unverified
+- id: ASTM-D7137
+  title: "Compressive Residual Strength Properties of Damaged Polymer Matrix Composite Plates (CAI)"
+  scope: "충격 후 압축강도"
+  use_when: "구조성 패널(항공·UAV)에서 손상 허용성 평가"
+  typical_criteria: "비충격 대비 잔류강도율"
+  status: draft-unverified
+- id: ASTM-D2344
+  title: "Short-Beam Strength of Polymer Matrix Composite Materials"
+  scope: "층간전단강도(ILSS)"
+  use_when: "srPET 적층 계면 품질, 성형 조건 DOE 응답"
+  typical_criteria: "목표값, 노화 후 유지율"
+  status: draft-unverified
+- id: ASTM-D7249
+  title: "Facesheet Properties of Sandwich Constructions by Long Beam Flexure"
+  scope: "샌드위치 스킨 특성 (장보 굴곡)"
+  use_when: "PET 폼/허니컴 코어 샌드위치 패널"
+  typical_criteria: "고객 사양"
+  status: draft-unverified
+- id: ASTM-C393
+  title: "Core Shear Properties of Sandwich Constructions by Beam Flexure"
+  scope: "샌드위치 코어 전단 특성"
+  use_when: "샌드위치 패널 코어 전단"
+  typical_criteria: "고객 사양"
+  status: draft-unverified
+- id: ASTM-C297
+  title: "Flatwise Tensile Strength of Sandwich Constructions"
+  scope: "스킨-코어 평면 인장(접합강도)"
+  use_when: "샌드위치 스킨-코어 박리 고장모드 검증"
+  typical_criteria: "파괴 모드(코어 파괴 vs 계면 파괴) 포함 보고"
+  status: draft-unverified
+- id: ASTM-C365
+  title: "Flatwise Compressive Properties of Sandwich Cores"
+  scope: "코어 평면 압축"
+  use_when: "샌드위치 코어"
+  typical_criteria: "고객 사양"
+  status: draft-unverified
+- id: ASTM-D1621
+  title: "Compressive Properties of Rigid Cellular Plastics"
+  scope: "경질 폼 압축"
+  use_when: "PET 폼 코어 단독 특성"
+  typical_criteria: "고객 사양"
+  status: draft-unverified
+- id: ASTM-D792
+  title: "Density and Specific Gravity of Plastics by Displacement"
+  scope: "밀도"
+  use_when: "경량화(무게 절감) 주장의 근거, 비강도 계산"
+  typical_criteria: "목표 밀도/면밀도"
+  notes: "ISO 1183 대응. 패널은 면밀도(kg/m²)도 함께"
+  status: draft-unverified
+- id: ISO-11357
+  title: "Plastics — Differential scanning calorimetry (DSC)"
+  scope: "융점, 결정화, 유리전이"
+  use_when: "srPET 성형 온도 창(기지/보강 융점 차) 확인, 재활용 후 열이력"
+  typical_criteria: "기지·섬유 융점 분리 확인"
+  status: draft-unverified
+- id: ASTM-D7028
+  title: "Glass Transition Temperature (DMA Tg) of Polymer Matrix Composites by DMA"
+  scope: "DMA 유리전이온도, 온도별 저장탄성률"
+  use_when: "고온 사용 환경에서의 강성 유지 (PET Tg 근처)"
+  typical_criteria: "사용 최고온도에서 저장탄성률 유지율"
+  status: draft-unverified
+- id: ISO-75
+  title: "Plastics — Determination of temperature of deflection under load (HDT)"
+  scope: "하중 변형 온도"
+  use_when: "자동차 실내 고온 대응"
+  typical_criteria: "고객 사양(예: 사용 최고온도 이상)"
+  status: draft-unverified
+- id: ISO-899-1
+  title: "Plastics — Determination of creep behaviour — Part 1: Tensile creep"
+  scope: "인장 크리프"
+  use_when: "지속 하중 + 고온 (시트백, 선반 등)"
+  typical_criteria: "고객 사양"
+  notes: "굴곡 크리프는 ISO 899-2"
+  status: draft-unverified
+- id: ISO-899-2
+  title: "Plastics — Determination of creep behaviour — Part 2: Flexural creep by three-point loading"
+  scope: "3점 굴곡 크리프"
+  use_when: "팔걸이·선반 등 지속 굽힘 하중 + 고온 (PET Tg 근처)"
+  typical_criteria: "고객 사양 (잔류 처짐, 크리프 탄성률)"
+  status: draft-unverified

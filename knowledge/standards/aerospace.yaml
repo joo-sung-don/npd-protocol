@@ -1,0 +1,41 @@
+# 항공기 객실 내장재 (사이드월, 천장, 수납함, 칸막이 등) / UAV
+- id: FAR-25.853
+  title: "14 CFR 25.853 Compartment interiors (+ Part 25 Appendix F)"
+  scope: "운송용 항공기 객실 내장재 화재 요건"
+  use_when: "대한항공 등 상용 항공기 객실 내장 부품"
+  typical_criteria: "Appendix F Part I 수직 연소 + (대형 패널) Part IV 열방출, Part V 연기밀도"
+  notes: "EASA CS-25.853 대응. 형식증명 보유사(OEM/MRO) 승인 경로 확인"
+  status: draft-unverified
+- id: FAR25-APPF-PART-I-60S
+  title: "Appendix F Part I — 60초 수직 연소 시험"
+  scope: "객실 내장 패널 등"
+  use_when: "대형 객실 내장 패널"
+  typical_criteria: "평균 연소길이 ≤ 6 in(152 mm), 잔염 ≤ 15 s, 낙하물 잔염 ≤ 3 s"
+  notes: "부품 유형별 12초/60초 구분 — 적용 조항 확인"
+  status: draft-unverified
+- id: FAR25-APPF-PART-IV-OSU
+  title: "Appendix F Part IV — OSU 열방출 시험"
+  scope: "대형 객실 내장 표면 패널"
+  use_when: "사이드월·천장·수납함 등 대형 패널"
+  typical_criteria: "2분 누적 열방출 ≤ 65 kW·min/m², 최대 열방출률 ≤ 65 kW/m²"
+  notes: "srPET 단독으로 달성 난이도 높음 → EcoFlamix 결합 검토 근거"
+  status: draft-unverified
+- id: FAR25-APPF-PART-V-SMOKE
+  title: "Appendix F Part V — 연기 밀도 (NBS 챔버)"
+  scope: "대형 객실 내장 패널 연기"
+  use_when: "OSU 대상 패널"
+  typical_criteria: "Ds(4 min) ≤ 200"
+  status: draft-unverified
+- id: AERO-TOXICITY
+  title: "연소 독성가스 — Airbus ABD0031 / Boeing BSS 7239"
+  scope: "HCN, CO, NOx, SO2, HF, HCl 등 농도"
+  use_when: "OEM 납품 시 / EcoFlamix 'HCl·CO 감소' 주장 검증"
+  typical_criteria: "OEM 규격 한도"
+  notes: "OEM 내부 규격 — 고객 입수 필요"
+  status: draft-unverified
+- id: UAV-NOTE
+  title: "UAV 동체 스킨 — 별도 감항 체계"
+  scope: "무인기는 FAR 25 비적용. 국토부/군 규격·고객 사양에 따름"
+  use_when: "UAV 스킨 적용 시"
+  typical_criteria: "고객 사양 (경량·충격·내후)"
+  status: draft-unverified

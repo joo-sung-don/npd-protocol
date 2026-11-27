@@ -1,0 +1,33 @@
+# 선박 내장재 / 인테리어 패널
+- id: IMO-FTP-CODE
+  title: "IMO 2010 FTP Code (International Code for Application of Fire Test Procedures)"
+  scope: "SOLAS 선박 재료 화재시험 절차"
+  use_when: "SOLAS 적용 선박(여객선·화물선) 내장재"
+  typical_criteria: "부품 용도별 해당 Part 기준"
+  notes: "Part 1 불연성, Part 2 연기·독성, Part 5 표면 화염전파 등. 적용 Part는 선급/설계자와 확인"
+  status: draft-unverified
+- id: IMO-FTP-PART-2
+  title: "FTP Code Part 2 — Smoke and toxicity test"
+  scope: "연기 밀도 + 독성가스(CO, HCl, HF, HBr, HCN, NOx, SO2)"
+  use_when: "내장 표면재, 바닥재 등 / EcoFlamix 가스 저감 주장"
+  typical_criteria: "용도별 Dm 한도 및 가스 농도 한도 — 원문 확인"
+  status: draft-unverified
+- id: IMO-FTP-PART-5
+  title: "FTP Code Part 5 — Test for surface flammability"
+  scope: "표면 화염전파 (ISO 5658-2 기반)"
+  use_when: "칸막이·천장·벽 표면재"
+  typical_criteria: "CFE, Qsb, Qt, Qp 한도 — 용도별"
+  status: draft-unverified
+- id: MARINE-CLASS-APPROVAL
+  title: "선급 형식승인 (KR 한국선급, DNV, LR 등) / MED(EU 선박장비지침) 마킹"
+  scope: "시험 결과 기반 형식승인 증서"
+  use_when: "선박 납품"
+  typical_criteria: "승인기관 지정 시험소 성적서"
+  notes: "EU 선박은 MED(Wheelmark) 필요 여부 확인"
+  status: draft-unverified
+- id: HSC-CODE-FRM
+  title: "HSC Code — Fire-restricting materials (고속선)"
+  scope: "고속선 화재제한재 (ISO 9705 룸코너 등)"
+  use_when: "고속 여객선 내장"
+  typical_criteria: "원문 확인"
+  status: draft-unverified

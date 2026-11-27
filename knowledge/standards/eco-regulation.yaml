@@ -1,0 +1,54 @@
+# 화학물질 규제 / 친환경 주장 / 인증
+- id: KR-K-REACH
+  title: "화학물질의 등록 및 평가 등에 관한 법률 (화평법)"
+  scope: "신규·기존 화학물질 등록·신고"
+  use_when: "EcoFlamix 원료·조성물 제조·수입, 신규 화학물질 여부"
+  typical_criteria: "물질별 연간 제조·수입량 기준 등록/신고 의무"
+  notes: "korean-law 도구로 현행 조문 확인. 화학물질관리법(화관법) 취급 기준도 확인"
+  status: draft-unverified
+- id: EU-REACH
+  title: "EU REACH Regulation (EC) No 1907/2006"
+  scope: "EU 내 화학물질 등록, SVHC, 제한(Annex XVII)"
+  use_when: "EU 수출 — EcoFlamix(물질/혼합물), srPET 완제품(성형품 내 SVHC 0.1% 통보)"
+  typical_criteria: "SVHC 0.1% w/w 초과 시 정보 전달·SCIP 통보"
+  status: draft-unverified
+- id: EU-PFAS-RESTRICTION
+  title: "EU PFAS 포괄 제한안 (REACH Annex XVII 제안)"
+  scope: "PFAS 계열 물질 제조·사용 제한"
+  use_when: "EcoFlamix 'PFAS-free' 주장의 차별화 근거"
+  typical_criteria: "총불소(TF)·타깃 PFAS 분석으로 무첨가 입증 — 한계값은 최종 규정 확인"
+  notes: "⚠ 입법 진행 중 — 최신 동향 확인 필요"
+  status: draft-unverified
+- id: EU-ROHS
+  title: "EU RoHS Directive 2011/65/EU"
+  scope: "전기전자제품 유해물질 (Pb, Hg, Cd, Cr6+, PBB, PBDE, 프탈레이트 4종)"
+  use_when: "전기전자 부품용 적용 시"
+  typical_criteria: "균질물질 기준 0.1% (Cd 0.01%)"
+  status: draft-unverified
+- id: HALOGEN-FREE
+  title: "할로겐 프리 판정 — IEC 61249-2-21 기준 / IEC 62321 또는 EN 14582 분석"
+  scope: "Cl·Br 함량"
+  use_when: "'비할로겐' 주장"
+  typical_criteria: "Cl ≤ 900 ppm, Br ≤ 900 ppm, 합계 ≤ 1500 ppm (전자 분야 통상 정의)"
+  notes: "산업·고객별 정의 상이 — 적용 기준 명시"
+  status: draft-unverified
+- id: GRS
+  title: "Global Recycled Standard (Textile Exchange)"
+  scope: "재생원료 함량·추적성·사회환경 기준 인증"
+  use_when: "재활용 PET 원료 사용 주장, 유럽 고객 요구"
+  typical_criteria: "재생원료 함량 ≥ 20%(라벨 사용은 ≥ 50%) — 현행 기준서 확인"
+  notes: "회사 보유 여부 확인 필요(웹사이트는 '지원' 표현)"
+  status: draft-unverified
+- id: ISO-14021
+  title: "Environmental labels and declarations — Self-declared environmental claims (Type II)"
+  scope: "재활용 가능, 재생원료 함량 등 자기주장 표시 요건"
+  use_when: "마케팅·카탈로그 친환경 문구"
+  typical_criteria: "주장별 검증 가능 근거"
+  notes: "국내는 환경기술산업법 환경성 표시·광고 관리제도(그린워싱 규제) 확인"
+  status: draft-unverified
+- id: LCA-ISO-14040-44
+  title: "ISO 14040/14044 LCA, ISO 14025 EPD"
+  scope: "전과정평가, 환경성적표지"
+  use_when: "탄소 저감·경량화 효과 정량 주장, 유럽 고객 요구"
+  typical_criteria: "비교 LCA는 제3자 검토"
+  status: draft-unverified
