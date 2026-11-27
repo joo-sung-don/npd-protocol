@@ -118,3 +118,10 @@
   use_when: "팔걸이·선반 등 지속 굽힘 하중 + 고온 (PET Tg 근처)"
   typical_criteria: "고객 사양 (잔류 처짐, 크리프 탄성률)"
   status: draft-unverified
+- id: ISO-6603-2
+  title: "ISO 6603-2 — Plastics: determination of puncture impact behaviour of rigid plastics (instrumented)"
+  scope: "계측식 다축 낙추 충격"
+  use_when: "패널·플로어 보드의 국부 충격(짐 낙하) 거동, 저온 파단 형태"
+  typical_criteria: "최대 하중, 천공 에너지, 파단 형태 — OEM 규격"
+  notes: "◐ 일반 문헌 기준: 시편 60×60×2 mm(또는 지름 60 mm), 반구 타격체 지름 20 mm, 지지 링 지름 40 mm, 4.4 m/s, n=10. 원문 확인 필요"
+  status: draft-unverified

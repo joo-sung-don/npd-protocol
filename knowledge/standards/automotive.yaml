@@ -11,7 +11,7 @@
   scope: "실내 재료 수평 연소"
   use_when: "EU/국제 OEM, FMVSS 302 대응"
   typical_criteria: "OEM 규격 (예: ≤ 100 mm/min 또는 SE/NBR 등급)"
-  notes: "KS R ISO 3795"
+  notes: "KS R ISO 3795. DIN 75200과 같은 방식. 시편 356×100 mm, 두께 ≤13 mm(두꺼우면 13 mm로 가공), 폭이 좁으면 138 mm 길이 허용. 상태조절 23±2°C/50±5% RH, 24 h~7 d. 1989판, 2025년 재확인(현행). 출처: Intertek testlopedia, iso.org/standard/9328 (2026-11-27 조회)"
   status: draft-unverified
 - id: KR-VEHICLE-INTERIOR-FLAMMABILITY
   title: "자동차 및 자동차부품의 성능과 기준에 관한 규칙 — 내장재 난연성"
@@ -52,7 +52,7 @@
   scope: "포깅(유리 김서림 유발 휘발분)"
   use_when: "도어·대시 주변 내장재"
   typical_criteria: "반사율법/중량법 한도 — OEM 규격"
-  notes: "ISO 6452 대응"
+  notes: "ISO 6452 대응. 시편 지름 80 mm, 두께 ≤10 mm. A법(반사율) 100°C 3 h, 냉각 유리판 20°C / B법(질량) 100°C 16 h, 알루미늄 호일 20°C. 위 조건은 2011판 기준이며 2024-06 개정판 발행 — 조건 재확인 필요. 출처: USPTO 5286761, DIN Media (2026-11-27 조회)"
   status: draft-unverified
 - id: SAE-J2412
   title: "Accelerated Exposure of Automotive Interior Trim Components Using a Controlled Irradiance Xenon-Arc Apparatus"
@@ -72,4 +72,60 @@
   use_when: "EU 판매 차량 부품, 단일재질 재활용 주장"
   typical_criteria: "개정안 최종 수치 확인 필요"
   notes: "⚠ 규정 개정 동향 확인 필요"
+  status: draft-unverified
+- id: VDA-278
+  title: "VDA 278 — Thermal desorption analysis of organic emissions for the characterization of non-metallic materials for automobiles"
+  scope: "소재의 VOC·FOG 방출 (열탈착 GC-MS)"
+  use_when: "독일 OEM(벤츠·BMW·VW 등) 실내 소재 — 재생 PET(아세트알데하이드) 사용 시 필수 확인"
+  typical_criteria: "VOC(톨루엔 환산, µg/g)·FOG(헥사데칸 환산, µg/g) — OEM 한도(벤츠는 DBL 1000)"
+  notes: "VOC 90°C 30 min → 같은 시료 FOG 120°C 60 min, 불활성가스 약 80 mL/min, 시료당 2회 측정. 시료 질량은 원문 확인 필요. 장비 간 편차가 클 수 있음(SAE 2023-01-5038). 출처: Gerstel, Agilent 5991-8265EN (2026-11-27 조회)"
+  status: draft-unverified
+- id: VDA-275
+  title: "VDA 275 — Moulded parts for vehicle interiors: determination of formaldehyde release (modified flask method)"
+  scope: "포름알데하이드 방출"
+  use_when: "독일 OEM 실내 부품"
+  typical_criteria: "mg/kg(건조 중량 기준) — OEM 한도"
+  notes: "시편 40×100 mm×원래 두께, 상단 중앙 1~2 mm 구멍. 1 L PE 병, 증류수 위에 매달아 60°C 3 h → 냉각 후 광도 측정. 위 조건은 1994판 번역본 기준이며 2025-07 개정판(A/B 두 방식) 발행 — 재확인 필요. 출처: Scribd 번역본, VDA webshop (2026-11-27 조회)"
+  status: draft-unverified
+- id: OEM-MERCEDES-DBL-1000
+  title: "Mercedes-Benz DBL 1000 — 실내 소재 방출·냄새 요구사항"
+  scope: "실내 소재 방출·냄새의 요구사항, 시험법, 한도값 (VDA 278 등과 함께 사용)"
+  use_when: "벤츠 납품 실내 소재·부품"
+  typical_criteria: "고객 문서에 따름 — 한도값 입수 필요"
+  notes: "DEKRA가 인정 시험소(dekra.com, 2026-11-27 조회). 원문은 공급사 포털 또는 승인 시험소를 통해 입수"
+  status: draft-unverified
+- id: OEM-MERCEDES-DBL-5471
+  title: "Mercedes-Benz DBL 5471 — 실내 트림·성형 패딩 부품(복합재 부품) 공급 규격"
+  scope: "실내 트림 복합재 부품의 재료·부품 요구"
+  use_when: "벤츠 실내 트림 부품 — 트렁크 부품 적용 여부 확인 필요"
+  typical_criteria: "고객 문서에 따름"
+  notes: "FILK Freiberg 인정 시험 목록(2026-11-27 조회). 원문 입수 필요"
+  status: draft-unverified
+- id: OEM-MERCEDES-DBL-5307
+  title: "Mercedes-Benz DBL 5307 — 실내 트림 부품 난연 특성"
+  scope: "실내 트림 연소성 요구"
+  use_when: "벤츠 실내 부품 연소성"
+  typical_criteria: "고객 문서에 따름 (시험은 ISO 3795/DIN 75200 계열로 추정 ⚠)"
+  notes: "원문 입수 필요"
+  status: draft-unverified
+- id: OEM-MERCEDES-DBL-1010
+  title: "Mercedes-Benz DBL 1010 (구 DBL 8585) — 금지·제한 물질"
+  scope: "소재 내 금지·제한 물질과 한도"
+  use_when: "벤츠 납품 전 소재"
+  typical_criteria: "고객 문서에 따름"
+  notes: "IMDS 보고와 연계"
+  status: draft-unverified
+- id: OEM-MERCEDES-SUPPLIER
+  title: "Mercedes-Benz 공급사 요구 — MBST, VDA 6.3, IATF 16949, VDA 2 PPA, IMDS"
+  scope: "공급사 자격·부품 승인 체계"
+  use_when: "벤츠 직접 또는 Tier 1 경유 공급"
+  typical_criteria: "고객 문서에 따름"
+  notes: "Tier 2 소재 공급사는 Tier 1 요구 범위로 줄어들 수 있음. 공급사 탄소중립 약속(Ambition Letter) 요구 동향"
+  status: draft-unverified
+- id: ISO-105-B06
+  title: "ISO 105-B06 — Colour fastness and ageing to artificial light at high temperatures (xenon arc)"
+  scope: "실내 내장재 고온 내광(제논 아크)"
+  use_when: "유럽 OEM 실내 부품 내광 (해치백 트렁크는 뒷유리 직사광 가능)"
+  typical_criteria: "그레이스케일 등급 — OEM 규격"
+  notes: "조건 3: E(300–400 nm) 60 W/m², 블랙스탠다드 온도 100±3°C, H 14.47 MJ/m²(약 67 h). 현행 2020판(2025 재확인). 출처: Atlas MTS (2026-11-27 조회)"
   status: draft-unverified
